@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CustomButton from './components/custom-button/custom-button.component';
+import ProgressBar from './components/progress-bar/progress-bar.component.jsx';
+import BasicCard  from './components/basic-card/basic-card.component.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <header></header>
+      <BasicCard><CustomButton >Bookmark it</CustomButton></BasicCard>
     </div>
   );
 }
