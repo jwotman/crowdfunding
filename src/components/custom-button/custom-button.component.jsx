@@ -8,13 +8,13 @@ export const StyledButton = styled.div`
   border: none;
   font-weight: 500;
   color:  white;
-  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  width: auto;
+  width: 21.4rem;
+  height: 5.6rem;
   margin: 4px 2px;
-  padding: 2rem 6rem 2rem 6rem;
+  padding: 2rem 4rem 2rem 4rem;
   
   border-radius: 3.3rem;
 `;

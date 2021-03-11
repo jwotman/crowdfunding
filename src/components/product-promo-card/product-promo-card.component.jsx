@@ -1,9 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledCard from '../basic-card/basic-card.component';
+import {StyledCard} from '../basic-card/basic-card.component';
 import CustomButton from '../custom-button/custom-button.component';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 
+
+
+const ProductCard = styled(StyledCard)`
+    margin-top: -7.2rem;
+
+`;
 
 
 const ProductLogo = styled.div.attrs(props => ({
@@ -36,11 +42,10 @@ const ProductDescription = styled.span`
 
 `;
 
-
-
-
-
-
+const ProductCardDonateButton = styled(CustomButton)`
+    width: 21.4rem;
+    height: 5.6rem;
+`;
 
 const ButtonContainer = styled.div`
     display: flex;
@@ -52,12 +57,12 @@ const ButtonContainer = styled.div`
 
 const ProductPromoCard=()=> (
 
-    <StyledCard>
+    <ProductCard>
         <ProductLogo/>
         <ProductTitle>Mastercraft Bamboo <br/>Monitor Riser</ProductTitle>
         <ProductDescription>A beautifully handcrafted monitor stand to reduce neck and eye strain.</ProductDescription>
-        <ButtonContainer><CustomButton>Back this project</CustomButton><BookmarkButton/></ButtonContainer>
-     </StyledCard>
+        <ButtonContainer><ProductCardDonateButton>Back this project</ProductCardDonateButton><BookmarkButton/></ButtonContainer>
+     </ProductCard>
 
 
 

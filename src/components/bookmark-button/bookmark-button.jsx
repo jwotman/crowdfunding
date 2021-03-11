@@ -5,6 +5,9 @@ import {StyledButton} from '../custom-button/custom-button.component';
 const BookmarkIcon = styled.button`
 
     background-image: url("/icon-bookmark.svg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    border: none;
     border-radius: 50%;
     height: 5.6rem;
     width: 5.6rem;

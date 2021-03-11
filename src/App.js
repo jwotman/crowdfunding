@@ -1,13 +1,25 @@
+import React from 'react';
+import styled from 'styled-components';
 
-import './App.css';
-
+import CustomHeader from './components/header/header.component';
 import ProductPromoCard from './components/product-promo-card/product-promo-card.component';
+
+const StyledMain = styled.main`
+
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+    
+
+`;
+
 
 function App() {
   return (
-    <div className="container">
+    <StyledMain >
+      <CustomHeader/>  
       <ProductPromoCard />
-    </div>
+    </StyledMain>
   );
 }
 

@@ -6,12 +6,14 @@ export const StyledCard = styled.div`
   
   background-color: white;
   height: auto;
-  width:37.5rem;
+  width:auto;
   display:flex;
   justify-content: center;
   flex-direction: column;
-  margin: 0 2.4rem;
   border-radius:.8rem;
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+  margin-bottom: 1.2rem;
   
 `;
 
