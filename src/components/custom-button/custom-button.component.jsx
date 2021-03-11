@@ -3,19 +3,18 @@ import styled from 'styled-components';
 
 
 
-const Button = styled.button`
-  background-color: ${props => props.isBookmark ?  `hsl(0, 0%, 48%)` : `hsl(176, 50%, 47%)`};
+export const StyledButton = styled.div`
+  background-color: #3CB3AB;
   border: none;
   font-weight: 500;
   color:  white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display:  ${props => props.isBookmark ?  `none` : `initial`};
   cursor: pointer;
-  
+  width: auto;
   margin: 4px 2px;
-  padding: 2rem 4rem 2rem 4rem;
+  padding: 2rem 6rem 2rem 6rem;
   
   border-radius: 3.3rem;
 `;
@@ -25,9 +24,9 @@ const Button = styled.button`
 
 const CustomButton=({children})=> (
    
-    <Button>
+    <StyledButton >
       {children}
-    </Button>
+    </StyledButton>
 
   
 );
