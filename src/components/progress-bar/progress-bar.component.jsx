@@ -6,9 +6,10 @@ const ProgressBarTrack = styled.div`
   background-color: hsl(0,0%,95.75%);
   border: none;
   height: 1.2rem;
-  width: 100%;
+  width: 80%;
   margin: 0 2.5rem 0 2.5rem;
   border-radius: 3.35rem;
+  align-self: center;
 `;
 const percent = 75;
 const ProgressBarFill = styled.div`
@@ -16,6 +17,7 @@ const ProgressBarFill = styled.div`
     width: ${percent}%;
     height: 100%;
     border-radius: 3.35rem;
+    
 `;
 
 
