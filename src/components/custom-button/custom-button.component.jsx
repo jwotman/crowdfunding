@@ -3,18 +3,21 @@ import styled from 'styled-components';
 
 
 
-export const StyledButton = styled.div`
+export const StyledButton = styled.button`
   background-color: #3CB3AB;
   border: none;
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 1.6rem;
   color:  white;
   text-align: center;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer;
   width: 21.4rem;
   height: 5.6rem;
   margin: 4px 2px;
-  padding: 2rem 4rem 2rem 4rem;
+  
   
   border-radius: 3.3rem;
 `;

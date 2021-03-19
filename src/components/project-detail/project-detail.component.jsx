@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BasicCard from '../basic-card/basic-card.component';
-
+import IncentiveList from '../incentive-list/incentive-list.component';
 
 
 
@@ -15,13 +15,12 @@ const Heading = styled.h3`
 const Content = styled.span`
 
     font-size: 1.4rem;
-    color: #7A7A;
     margin: 0 2.4rem 0 2.4rem;
 
 `;
 
 const Paragraph = styled.p`
-    margin: 1.2rem 0 1.2rem;
+    margin: 1.2rem 0 1.2rem 0;
 
 `;
 
@@ -38,6 +37,7 @@ const ProjectDetail = () => (
         
             <Paragraph>Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.</Paragraph>
         </Content>
+        <IncentiveList/>
     
     
     </BasicCard>
