@@ -2,13 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import {StyledButton} from '../custom-button/custom-button.component';
 import {StyledCard} from '../basic-card/basic-card.component';
+import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
+//import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
 
 
 
-
-const IncentiveCard = styled(StyledCard)`
-    border: .1rem solid lightgray;
+const IncentiveCard = styled(StyledCard).attrs({
+    className: "donateCard"
+  })`
+    border: .1rem solid  lightgray ;
     justify-content: flex-start;
+    &:nth-child(${props => props.currentDonationLevel}){
+        border: .1rem solid  var(--color-primary-dark-cyan) ;
+    } 
+    
 `;
 
 const IncentiveHeading = styled.div`
@@ -86,22 +95,122 @@ const RewardButton = styled(StyledButton)`
 
 `;
 
+const HeadingWrapper = styled.span`
+    display: flex;
+    flex-direction: row;
+    border-radius: 50%;
+`;
 
-const IncentiveDetail = ({item: { name, donationLevel, description,remaining}}) => (
-    <IncentiveCard>
-        <IncentiveHeading>
-            <IncentiveTitle>{name}</IncentiveTitle>
-            <IncentiveRange>${donationLevel} or more</IncentiveRange>
-        </IncentiveHeading>
+const DonateBox = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: .1rem solid  lightgray ;
+
+
+`;
+
+const DonateHeading = styled.span`
+    font-size: 1.4rem;
+    align-self: center;
+    margin: 2.4rem 0 .8rem 0;
+`;
+const DonateWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 1.2rem 0 1.2rem;
+    margin-bottom: 2.4rem;
+    
+    
+`;
+
+const CurrencyInputWrapper = styled.div`
+    width: 36%;
+    height: 4.8rem;
+    border-radius: 3.3rem;
+    border: .1rem solid  lightgray ;
+    font-size: 1.4rem;
+    color: lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
+
+const CurrencySpan = styled.span`
+    flex-basis: content;
+    margin-right: .3rem;
+    opacity: .4;
+    color: black;
+
+`;
+const DonateInput = styled.input.attrs({
+    type: "text"
+  })`    
+    width: 2rem;
+    border: none;
+    font-size: 1.4rem;
+    color: black;
+    font-weight: bold;
+    size: 2;
+    margin-left: .3rem;
+    :focus{
+        outline: none;
+    }
+`;
+
+const DonateButton = styled(StyledButton)`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.4rem;
+    width: 41%;
+    height: 4.8rem;
+    margin: 0px 0px;
+    
+
+
+`;
+
+
+
+
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel}) => (
+    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel}>
+        <HeadingWrapper>
+          {isSelectable && <CustomRadioButton id={id}></CustomRadioButton>}
+            <IncentiveHeading>
+                <IncentiveTitle>{name}</IncentiveTitle>
+                <IncentiveRange>${donationLevel} or more</IncentiveRange>
+            </IncentiveHeading>
+        </HeadingWrapper>
         <IncentiveDescription>
             {description}
         </IncentiveDescription>
-       <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper>
-        <RewardButton>Select Reward</RewardButton>  </ActionLine> 
+       <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
+        {canDonate
+            ?<DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25}/></CurrencyInputWrapper><DonateButton>Continue</DonateButton></DonateWrapper></DonateBox>
+            :<RewardButton>Select Reward</RewardButton>
+        }   
+        
     </IncentiveCard>    
 
 );
 
+const mapStateToProps = (state) => {
+    console.log('currentDonationLevel: ' + state.campaign.currentDonationLevel);
+    return { currentDonationLevel: state.campaign.currentDonationLevel }
+};
+/*
+const mapStateToProps = (state, ownProps) => ({
+    // ... computed data from state and optionally ownProps
+    
+    currentDonationLevel: selectCurrentDonationLevel
 
+})
+*/
 
-export default IncentiveDetail;
+export default connect(mapStateToProps)(IncentiveDetail);
