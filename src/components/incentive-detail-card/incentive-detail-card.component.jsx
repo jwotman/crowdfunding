@@ -6,7 +6,7 @@ import CustomRadioButton from '../custom-radio-button/custom-radio-button.compon
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden } from '../../redux/campaign/campaign.actions';
+import { toggleDonateOverlayHidden, chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
 
 
 const IncentiveCard = styled(StyledCard).attrs({
@@ -178,7 +178,7 @@ const DonateButton = styled(StyledButton)`
 
 
 
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden}) => (
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel}) => (
     <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel}>
         <HeadingWrapper>
           {isSelectable && <CustomRadioButton id={id}></CustomRadioButton>}
@@ -193,7 +193,7 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
        <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
         {canDonate
             ?<DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25}/></CurrencyInputWrapper><DonateButton>Continue</DonateButton></DonateWrapper></DonateBox>
-            :<RewardButton onClick={toggleDonateOverlayHidden}>Select Reward</RewardButton>
+            :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
         }   
         
     </IncentiveCard>    
@@ -205,7 +205,9 @@ const mapStateToProps = createStructuredSelector ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden())
+    toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
+    chooseLevel: (id) => dispatch(chooseDonationLevel(id))
+
  });
 
 

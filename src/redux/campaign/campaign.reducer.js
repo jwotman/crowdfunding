@@ -14,12 +14,13 @@ const INITIAL_STATE  = {
 const campaignReducer = (state = INITIAL_STATE,action) => {
 
     switch(action.type) {
-        case "CHOOSE_DONATION_LEVEL":
+        case CampaignActionTypes.CHOOSE_DONATION_LEVEL:
             return {
                 ...state,
-                currentDonationLevel: action.message
+                currentDonationLevel: action.payload
             }
         case CampaignActionTypes.TOGGLE_DONATE_OVERLAY_HIDDEN : 
+        console.log('in toggle Donate Overlay');
         return {
             ...state,
             donateOverlayHidden: !state.donateOverlayHidden

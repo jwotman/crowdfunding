@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import CampaignActionTypes from '../../redux/campaign/campaign.types';
+import {chooseDonationLevel} from '../../redux/campaign/campaign.actions';
+
 
 
 
@@ -64,6 +65,7 @@ const RadioLabel = styled.span`
 
 `;
 
+/*
 const handleChange = (dispatch,id) => {
     //let cardIDArray = [1,2,3];
     dispatch({ type: "CHOOSE_DONATION_LEVEL", message: id });
@@ -80,13 +82,13 @@ const handleChange = (dispatch,id) => {
 
 
 }
+*/
 
-
-const CustomRadioButton=({children,id,isSelected,dispatch})=> (
+const CustomRadioButton=({children,id,isSelected,dispatch, chooseLevel})=> (
    
     <Radio>
         <RadioInput>
-            <HiddenRadioButton isSelected={isSelected} onChange={event => handleChange(dispatch,id)} />
+            <HiddenRadioButton isSelected={isSelected} onChange={chooseLevel(id)} />
             <RadioControl/>
             {children &&
                 <RadioLabel>{children}</RadioLabel>
@@ -98,7 +100,11 @@ const CustomRadioButton=({children,id,isSelected,dispatch})=> (
   
 );
 
-export default connect()(CustomRadioButton);
+const mapDispatchToProps = dispatch => ({
+    chooseLevel: (id) => dispatch(chooseDonationLevel(id))
+ });
+
+export default connect(null,mapDispatchToProps)(CustomRadioButton);
 
 
 

@@ -6,6 +6,7 @@ import IncentiveList from '../incentive-list/incentive-list.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { selectDonateOverlayHidden } from '../../redux/campaign/campaign.selectors';
+import { toggleDonateOverlayHidden } from '../../redux/campaign/campaign.actions';
 
 
 const OverlayContainer = styled.div`
@@ -29,6 +30,8 @@ const HeadingWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    margin: 2.4rem 2.4rem
 
 `;
 
@@ -36,19 +39,23 @@ const Heading = styled.h3`
 
     font-size: 1.8rem;
     font-weight: bold;
-    margin: 4rem  0 1.2rem 2.4rem; 
+    color: black;
+
 `;
 
 const Content = styled.span`
 
     font-size: 1.4rem;
-    margin: 0 2.4rem 0 2.4rem;
+    margin: 0 2.4rem 2.4rem 2.4rem;
+    
 
 `;
 
 const CloseIcon = styled.div`
 
     background-image: url('/icon-close-modal.svg');
+    width: 1.4rem;
+    height: 1.4rem;
 
 
 `;
@@ -57,20 +64,15 @@ const CloseIcon = styled.div`
 
 
 
-const DonationOverlay = ({donateOverlayHidden}) => (
+const DonationOverlay = ({donateOverlayHidden,toggleOverlay}) => (
 
     <OverlayContainer donateOverlayHidden={donateOverlayHidden}>
         <BasicCard>
-            <HeadingWrapper><Heading>Support this Project</Heading><CloseIcon/></HeadingWrapper>
+            <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={toggleOverlay} /></HeadingWrapper>
             <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             <IncentiveList selectable={true} canDonate={true}/>
         </BasicCard>
     </OverlayContainer>
-
-
-
-
-
 
 );
 
@@ -78,5 +80,9 @@ const mapStateToProps = createStructuredSelector ({
     donateOverlayHidden: selectDonateOverlayHidden
 });
 
+const mapDispatchToProps = dispatch => ({
+    toggleOverlay: () => dispatch(toggleDonateOverlayHidden())
+ });
 
-export default connect(mapStateToProps)(DonationOverlay);
+
+ export default connect(mapStateToProps, mapDispatchToProps)(DonationOverlay);
