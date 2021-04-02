@@ -7,6 +7,14 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
 import { toggleDonateOverlayHidden, chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
+import { createGlobalStyle } from 'styled-components';
+
+
+const GlobalCardStyle = createGlobalStyle`
+    .canDonate:nth-of-type(${props => props.currentDonationLevel}){
+        border: .1rem solid  var(--color-primary-dark-cyan) ;
+    } 
+`;
 
 
 const IncentiveCard = styled(StyledCard).attrs({
@@ -14,9 +22,7 @@ const IncentiveCard = styled(StyledCard).attrs({
   })`
     border: .1rem solid  lightgray ;
     justify-content: flex-start;
-    &:nth-child(${props => props.currentDonationLevel}){
-        border: .1rem solid  var(--color-primary-dark-cyan) ;
-    } 
+    
     
 `;
 
@@ -178,8 +184,15 @@ const DonateButton = styled(StyledButton)`
 
 
 
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel}) => (
-    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel}>
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel}) => {
+    let cardClass= "cantdonate";
+    if(canDonate){
+        cardClass = "canDonate";
+    }
+return (
+    
+    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel} className={cardClass}>
+    <GlobalCardStyle currentDonationLevel={currentDonationLevel} />
         <HeadingWrapper>
           {isSelectable && <CustomRadioButton id={id}></CustomRadioButton>}
             <IncentiveHeading>
@@ -196,9 +209,8 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
             :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
         }   
         
-    </IncentiveCard>    
-
-);
+    </IncentiveCard>    )
+};
 
 const mapStateToProps = createStructuredSelector ({
     currentDonationLevel: selectCurrentDonationLevel
