@@ -6,7 +6,8 @@ const INITIAL_STATE  = {
     totalBackers: 5007,
     daysLeft: 56,
     campaignGoal: 100000,
-    totalRaised: 89914
+    totalRaised: 89914,
+    donateOverlayHidden: true
 
 }
 
@@ -18,6 +19,12 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
                 ...state,
                 currentDonationLevel: action.message
             }
+        case CampaignActionTypes.TOGGLE_DONATE_OVERLAY_HIDDEN : 
+        return {
+            ...state,
+            donateOverlayHidden: !state.donateOverlayHidden
+        }
+            
         default:
             return state;
             

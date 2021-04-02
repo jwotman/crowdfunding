@@ -44,7 +44,7 @@ const SupportProjectOverlay = () => (
     <BasicCard>
         <HeadingWrapper><Heading>About this Project</Heading><CloseIcon/></HeadingWrapper>
         <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
-        <IncentiveList/>
+        <IncentiveList selectable={true} canDonate={true}/>
     
     
     </BasicCard>

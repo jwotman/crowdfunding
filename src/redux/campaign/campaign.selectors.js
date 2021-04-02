@@ -1,2 +1,13 @@
+import {createSelector} from 'reselect';
 
-export const selectCurrentDonationLevel = state => state.campaign.currentDonationLevel;
+const selectCampaign = state => state.campaign;
+
+export const selectCurrentDonationLevel = createSelector(
+    [selectCampaign],
+    (campaign) => campaign.currentDonationLevel
+)
+
+export const selectDonateOverlayHidden = createSelector(
+    [selectCampaign],
+    (campaign) => campaign.donateOverlayHidden
+)

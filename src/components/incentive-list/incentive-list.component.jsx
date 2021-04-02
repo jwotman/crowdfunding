@@ -15,8 +15,6 @@ const StyledIncentiveList = styled.div`
 
 
 
-
-
 const IncentiveList = ({incentives, isSelectable, canDonate}) => {
 
     
@@ -25,7 +23,7 @@ const IncentiveList = ({incentives, isSelectable, canDonate}) => {
     return <StyledIncentiveList>
     {
         incentives.map((item)=>(
-        <IncentiveDetail key={item.id} item={item} isSelectable={true} canDonate={true}  />
+        <IncentiveDetail key={item.id} item={item} isSelectable={isSelectable} canDonate={canDonate}  />
     ))}
     </StyledIncentiveList>
 
