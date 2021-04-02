@@ -6,7 +6,7 @@ import CustomRadioButton from '../custom-radio-button/custom-radio-button.compon
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden, chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
+import { toggleDonateOverlayHidden, chooseDonationLevel, addDonation } from '../../redux/campaign/campaign.actions'; 
 import { createGlobalStyle } from 'styled-components';
 
 
@@ -17,13 +17,9 @@ const GlobalCardStyle = createGlobalStyle`
 `;
 
 
-const IncentiveCard = styled(StyledCard).attrs({
-    className: "donateCard"
-  })`
+const IncentiveCard = styled(StyledCard)`
     border: .1rem solid  lightgray ;
-    justify-content: flex-start;
-    
-    
+    justify-content: flex-start;    
 `;
 
 const IncentiveHeading = styled.div`
@@ -37,16 +33,13 @@ const IncentiveTitle = styled.span`
      font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: .4rem;
-
 `;
 
 const IncentiveRange = styled.span`
-
     color: #3CB3AB;
     font-size: 1.5rem;
     font-weight: 70;
     margin-top: .4rem;
-
 `;
 
 const IncentiveDescription = styled.p`
@@ -177,18 +170,17 @@ const DonateButton = styled(StyledButton)`
     width: 41%;
     height: 4.8rem;
     margin: 0px 0px;
-    
-
 
 `;
 
 
 
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel}) => {
-    let cardClass= "cantdonate";
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel, addCurrentDonation}) => {
+    let cardClass= "cantDonate";
     if(canDonate){
         cardClass = "canDonate";
     }
+    let donationAmount = 25;
 return (
     
     <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel} className={cardClass}>
@@ -205,7 +197,7 @@ return (
         </IncentiveDescription>
        <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
         {canDonate
-            ?<DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25}/></CurrencyInputWrapper><DonateButton>Continue</DonateButton></DonateWrapper></DonateBox>
+            ?<DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton onClick={() => { addCurrentDonation(donationAmount)}}>Continue</DonateButton></DonateWrapper></DonateBox>
             :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
         }   
         
@@ -218,7 +210,8 @@ const mapStateToProps = createStructuredSelector ({
 
 const mapDispatchToProps = dispatch => ({
     toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
-    chooseLevel: (id) => dispatch(chooseDonationLevel(id))
+    chooseLevel: (id) => dispatch(chooseDonationLevel(id)),
+    addCurrentDonation: (amount) => dispatch(addDonation(amount))
 
  });
 
