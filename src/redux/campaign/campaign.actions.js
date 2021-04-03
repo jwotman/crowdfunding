@@ -15,3 +15,8 @@ export const chooseDonationLevel = item => ({
 export const toggleDonateOverlayHidden = () => ({
     type: CampaignActionTypes.TOGGLE_DONATE_OVERLAY_HIDDEN
 })
+
+export const toggleAcknowledgementOverlayHidden = () => ({
+    type: CampaignActionTypes.TOGGLE_ACKNOWLEDGEMENT_OVERLAY_HIDDEN
+})
+

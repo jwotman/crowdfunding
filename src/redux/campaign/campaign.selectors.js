@@ -11,3 +11,9 @@ export const selectDonateOverlayHidden = createSelector(
     [selectCampaign],
     (campaign) => campaign.donateOverlayHidden
 )
+
+export const selectAcknowledgementOverlayHidden = createSelector(
+    [selectCampaign],
+    (campaign) => campaign.acknowledgementOverlayHidden
+)
+

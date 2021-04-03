@@ -70,7 +70,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay}) => (
         <BasicCard>
             <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={toggleOverlay} /></HeadingWrapper>
             <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
-            <IncentiveList selectable={true} canDonate={true}/>
+            <IncentiveList isSelectable={true} canDonate={true}/>
         </BasicCard>
     </OverlayContainer>
 

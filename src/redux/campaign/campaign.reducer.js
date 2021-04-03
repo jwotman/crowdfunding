@@ -7,7 +7,8 @@ const INITIAL_STATE  = {
     daysLeft: 56,
     campaignGoal: 100000,
     totalRaised: 89914,
-    donateOverlayHidden: true
+    donateOverlayHidden: true,
+    acknowledgementOverlayHidden: true
 
 }
 
@@ -30,6 +31,13 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
                 ...state,
                 totalRaised: state.totalRaised + action.payload,
                 totalBackers: state.totalBackers + 1
+            }
+
+        case CampaignActionTypes.TOGGLE_ACKNOWLEDGEMENT_OVERLAY_HIDDEN: 
+            console.log("in toggle acknowledgement");
+            return {
+                ...state,
+                acknowledgementOverlayHidden: !state.acknowledgementOverlayHidden
             }
             
         default:
