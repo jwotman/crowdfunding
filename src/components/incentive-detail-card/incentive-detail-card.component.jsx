@@ -6,7 +6,7 @@ import CustomRadioButton from '../custom-radio-button/custom-radio-button.compon
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden, chooseDonationLevel, addDonation } from '../../redux/campaign/campaign.actions'; 
+import { toggleDonateOverlayHidden, chooseDonationLevel} from '../../redux/campaign/campaign.actions'; 
 import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
 
