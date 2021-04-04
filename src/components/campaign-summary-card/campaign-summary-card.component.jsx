@@ -45,13 +45,22 @@ const ProgressWrapper = styled.div`
     margin: 2rem 0 4rem 0;
 `;
 
+const formatNumber = (number) => {
+    let formattedNumber = 'unable to display';
+    if(number){
+        formattedNumber = number.toLocaleString("en-US");
+    }
+    return formattedNumber;
+
+}
+
 const CampaignSummary = ({campaignSummaryData}) => (
 
     <BasicCard>
-        <DollarAmount>${(campaignSummaryData.totalRaised).toLocaleString("en-US")}</DollarAmount>
-        <Description>of ${campaignSummaryData.campaignGoal} backed</Description>
+        <DollarAmount>${formatNumber(campaignSummaryData.totalRaised)}</DollarAmount>
+        <Description>of ${formatNumber(campaignSummaryData.campaignGoal)} backed</Description>
         <Separator/>
-        <Amount>{(campaignSummaryData.totalBackers).toLocaleString("en-US")}</Amount>
+        <Amount>{formatNumber(campaignSummaryData.totalBackers)}</Amount>
         <Description>total backers</Description>
         <Separator/>
         <Amount>{campaignSummaryData.daysLeft}</Amount>
