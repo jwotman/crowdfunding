@@ -22,6 +22,8 @@ const IncentiveCard = styled(StyledCard)`
     justify-content: flex-start;    
 `;
 
+
+
 const IncentiveHeading = styled.div`
    display: flex;
    justify-content: flex-start;
@@ -90,6 +92,7 @@ const RewardButton = styled(StyledButton)`
     font-size: 1.4rem;
     width: 15.7rem;
     height: 4.8rem;
+    margin: 1.2rem 0 2.4rem 2.4rem;
     
 
 `;
@@ -183,7 +186,8 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
     let donationAmount = 25;
 return (
     
-    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel} className={cardClass}>
+    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel} className={cardClass} >
+   
     <GlobalCardStyle currentDonationLevel={currentDonationLevel} />
         <HeadingWrapper>
           {isSelectable && <CustomRadioButton id={id}></CustomRadioButton>}
@@ -197,7 +201,7 @@ return (
         </IncentiveDescription>
        <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
         {canDonate
-            ?<DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton onClick={() => { addCurrentDonation(donationAmount);toggleDonateOverlayHidden();toggleAcknowledgementHidden()}}>Continue</DonateButton></DonateWrapper></DonateBox>
+            ? currentDonationLevel === id && <DonateBox><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={25} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton onClick={() => { addCurrentDonation(donationAmount);toggleDonateOverlayHidden();toggleAcknowledgementHidden()}}>Continue</DonateButton></DonateWrapper></DonateBox>
             :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
         }   
         
