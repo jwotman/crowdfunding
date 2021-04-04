@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import BasicCard from '../basic-card/basic-card.component';
 import ProgressBar from '../progress-bar/progress-bar.component';
-
+import {selectCampaignSummaryData} from '../../redux/campaign/campaign.selectors';
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
 
 
 const Amount = styled.span`
@@ -43,21 +45,24 @@ const ProgressWrapper = styled.div`
     margin: 2rem 0 4rem 0;
 `;
 
-const CampaignSummary = () => (
+const CampaignSummary = ({campaignSummaryData}) => (
 
     <BasicCard>
-        <DollarAmount>$89,914</DollarAmount>
-        <Description>of $100,000 backed</Description>
+        <DollarAmount>${(campaignSummaryData.totalRaised).toLocaleString("en-US")}</DollarAmount>
+        <Description>of ${campaignSummaryData.campaignGoal} backed</Description>
         <Separator/>
-        <Amount>5007</Amount>
+        <Amount>{(campaignSummaryData.totalBackers).toLocaleString("en-US")}</Amount>
         <Description>total backers</Description>
         <Separator/>
-        <Amount>56</Amount>
+        <Amount>{campaignSummaryData.daysLeft}</Amount>
         <Description>days left</Description>
         <ProgressWrapper><ProgressBar /></ProgressWrapper>
     </BasicCard>
 
 );
 
+const mapStateToProps = createStructuredSelector ({
+    campaignSummaryData: selectCampaignSummaryData
+});
 
-export default CampaignSummary;
+export default connect(mapStateToProps)(CampaignSummary);

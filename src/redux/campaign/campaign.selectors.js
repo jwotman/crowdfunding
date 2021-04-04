@@ -17,3 +17,8 @@ export const selectAcknowledgementOverlayHidden = createSelector(
     (campaign) => campaign.acknowledgementOverlayHidden
 )
 
+export const selectCampaignSummaryData = createSelector(
+    [selectCampaign],
+    (campaign) => campaign
+)
+
