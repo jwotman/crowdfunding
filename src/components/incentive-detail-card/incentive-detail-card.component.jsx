@@ -12,7 +12,7 @@ import DonateBox from '../donate-box/donate-box.component';
 
 
 const GlobalCardStyle = createGlobalStyle`
-    .canDonate:nth-of-type(${props => props.currentDonationLevel}){
+    .canDonate:nth-of-type(${props => props.currentLevelID}){
         border: .1rem solid  var(--color-primary-dark-cyan) ;
     } 
 `;
@@ -110,7 +110,7 @@ const HeadingWrapper = styled.span`
 
 
 
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentDonationLevel,toggleDonateOverlayHidden,chooseLevel, addCurrentDonation,toggleAcknowledgementHidden}) => {
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel}) => {
     let cardClass= "cantDonate";
     if(canDonate){
         cardClass = "canDonate";
@@ -118,11 +118,11 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
    
 return (
     
-    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentDonationLevel} className={cardClass} >
+    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentLevelID} className={cardClass} >
    
-    <GlobalCardStyle currentDonationLevel={currentDonationLevel} />
+    <GlobalCardStyle currentLevelID={currentLevelID} />
         <HeadingWrapper>
-          {isSelectable && <CustomRadioButton id={id}></CustomRadioButton>}
+          {isSelectable && <CustomRadioButton id={id} isSelected={currentLevelID===id}></CustomRadioButton>}
             <IncentiveHeading>
                 <IncentiveTitle>{name}</IncentiveTitle>
                 <IncentiveRange>${donationLevel} or more</IncentiveRange>
@@ -133,7 +133,7 @@ return (
         </IncentiveDescription>
        <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
         {canDonate
-            ? currentDonationLevel === id && <DonateBox donationLevel={donationLevel} />
+            ? currentLevelID === id && <DonateBox donationLevel={donationLevel} />
             :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
         }   
         
@@ -141,7 +141,7 @@ return (
 };
 
 const mapStateToProps = createStructuredSelector ({
-    currentDonationLevel: selectCurrentDonationLevel
+    currentLevelID: selectCurrentDonationLevel
 });
 
 const mapDispatchToProps = dispatch => ({

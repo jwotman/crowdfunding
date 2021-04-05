@@ -37,7 +37,8 @@ const HiddenRadioButton = styled.input.attrs({
         &:checked + span {
             background-color: var(--color-primary-dark-cyan);
             box-shadow: inset 0 0 0 4px #FFFFFF; 
-        }   
+        } 
+        
 `;
 
 
@@ -54,6 +55,8 @@ const RadioControl = styled.span.attrs(props => ({
     border-radius: 50%;
     border: .08rem solid currentColor;
 
+    ${props => props.isSelected && 'background-color: var(--color-primary-dark-cyan); box-shadow: inset 0 0 0 4px #FFFFFF;' }  
+
     transform: translateY(-0.05em);
 
 `;
@@ -65,30 +68,12 @@ const RadioLabel = styled.span`
 
 `;
 
-/*
-const handleChange = (dispatch,id) => {
-    //let cardIDArray = [1,2,3];
-    dispatch({ type: "CHOOSE_DONATION_LEVEL", message: id });
-    //let card = document.getElementById('card_' + id);
-    //delete(cardIDArray[id - 1]);
-    //card.style.border = ' .1rem solid  red';
-    //cardIDArray.forEach((number)=>console.log(number));
 
-
-
-    //create array of card elements
-    //remove the one that is highlighted
-    //dehighlight and hide payment element on all other ones.
-
-
-}
-*/
-
-const CustomRadioButton=({children,id,isSelected,dispatch, chooseLevel})=> (
+const CustomRadioButton=({children,id,isSelected,chooseLevel})=> (
    
     <Radio>
         <RadioInput>
-            <HiddenRadioButton isSelected={isSelected} onChange={chooseLevel(id)} />
+            <HiddenRadioButton isSelected={isSelected} onChange={() => {chooseLevel(id)}}  />
             <RadioControl/>
             {children &&
                 <RadioLabel>{children}</RadioLabel>
