@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import {StyledCard} from '../basic-card/basic-card.component';
 import BasicCard from '../basic-card/basic-card.component';
 import IncentiveList from '../incentive-list/incentive-list.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import { selectDonateOverlayHidden } from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden } from '../../redux/campaign/campaign.actions';
+import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
+import { toggleDonateOverlayHidden } from '../../redux/ui_control/ui_control.actions';
 
 
 const OverlayContainer = styled.div`

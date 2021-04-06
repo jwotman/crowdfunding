@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import StyledButton from '../custom-button/custom-button.component';
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden,  addDonation } from '../../redux/campaign/campaign.actions'; 
+import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions'; 
+import { addDonation } from '../../redux/campaign/campaign.actions';
 
 
 const DonateDiv = styled.div`
@@ -68,7 +67,20 @@ const DonateInput = styled.input.attrs({
     }
 `;
 
-const DonateButton = styled(StyledButton)`
+const DonateButton = styled.div`
+    background-color: #3CB3AB;
+  border: none;
+  border-radius: 3.3rem;
+  font-weight: bold;
+  
+  color:  white;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+ 
+    
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -82,18 +94,18 @@ const DonateButton = styled(StyledButton)`
 
 
 
-const DonateBox = ({donationLevel, addCurrentDonation,toggleDonateOverlayHidden,toggleAcknowledgementHidden}) =>  {
+const DonateBox = ({donationLevel, addCurrentDonation,toggleDonateHidden,toggleAcknowledgementHidden}) =>  {
        let donationAmount = donationLevel; 
        return (
 
-            <DonateDiv><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={donationLevel} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton onClick={() => { addCurrentDonation(donationAmount);toggleDonateOverlayHidden();toggleAcknowledgementHidden()}}>Continue</DonateButton></DonateWrapper></DonateDiv>
+            <DonateDiv><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={donationLevel} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton  onClick={() => { addCurrentDonation(donationAmount);toggleDonateHidden();toggleAcknowledgementHidden()}}>Continue</DonateButton></DonateWrapper></DonateDiv>
 
 
         )
 }
 
 const mapDispatchToProps = dispatch => ({
-    toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
+    toggleDonateHidden: () => dispatch(toggleDonateOverlayHidden()),
     toggleAcknowledgementHidden: () => dispatch(toggleAcknowledgementOverlayHidden()),
     addCurrentDonation: (amount) => dispatch(addDonation(amount))
 });

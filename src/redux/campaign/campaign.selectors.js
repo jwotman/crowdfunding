@@ -7,16 +7,6 @@ export const selectCurrentDonationLevel = createSelector(
     (campaign) => campaign.currentDonationLevel
 )
 
-export const selectDonateOverlayHidden = createSelector(
-    [selectCampaign],
-    (campaign) => campaign.donateOverlayHidden
-)
-
-export const selectAcknowledgementOverlayHidden = createSelector(
-    [selectCampaign],
-    (campaign) => campaign.acknowledgementOverlayHidden
-)
-
 export const selectCampaignSummaryData = createSelector(
     [selectCampaign],
     (campaign) => campaign

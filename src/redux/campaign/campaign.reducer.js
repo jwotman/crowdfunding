@@ -20,24 +20,12 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
                 ...state,
                 currentDonationLevel: action.payload
             }
-        case CampaignActionTypes.TOGGLE_DONATE_OVERLAY_HIDDEN : 
-        return {
-            ...state,
-            donateOverlayHidden: !state.donateOverlayHidden
-        }
 
         case CampaignActionTypes.ADD_DONATION:
             return {
                 ...state,
                 totalRaised: state.totalRaised + action.payload,
                 totalBackers: state.totalBackers + 1
-            }
-
-        case CampaignActionTypes.TOGGLE_ACKNOWLEDGEMENT_OVERLAY_HIDDEN: 
-            console.log("in toggle acknowledgement");
-            return {
-                ...state,
-                acknowledgementOverlayHidden: !state.acknowledgementOverlayHidden
             }
             
         default:

@@ -4,8 +4,8 @@ import {StyledButton} from '../custom-button/custom-button.component';
 import {StyledCard} from '../basic-card/basic-card.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import { toggleAcknowledgementOverlayHidden } from '../../redux/campaign/campaign.actions';
-import { selectAcknowledgementOverlayHidden } from '../../redux/campaign/campaign.selectors';
+import { toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions';
+import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 
 
 

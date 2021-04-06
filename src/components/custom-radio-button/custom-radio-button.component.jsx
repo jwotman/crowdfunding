@@ -74,7 +74,7 @@ const CustomRadioButton=({children,id,isSelected,chooseLevel})=> (
     <Radio>
         <RadioInput>
             <HiddenRadioButton isSelected={isSelected} onChange={() => {chooseLevel(id)}}  />
-            <RadioControl/>
+            <RadioControl isSelected={isSelected} />
             {children &&
                 <RadioLabel>{children}</RadioLabel>
             }

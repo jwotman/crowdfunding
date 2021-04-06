@@ -6,7 +6,8 @@ import CustomRadioButton from '../custom-radio-button/custom-radio-button.compon
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { toggleDonateOverlayHidden, chooseDonationLevel} from '../../redux/campaign/campaign.actions'; 
+import { chooseDonationLevel} from '../../redux/campaign/campaign.actions'; 
+import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
 
@@ -105,12 +106,7 @@ const HeadingWrapper = styled.span`
 `;
 
 
-
-// addCurrentDonation,toggleDonateOverlayHidden,toggleAcknowledgementHidden
-
-
-
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel}) => {
+const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
     let cardClass= "cantDonate";
     if(canDonate){
         cardClass = "canDonate";
@@ -134,7 +130,7 @@ return (
        <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
         {canDonate
             ? currentLevelID === id && <DonateBox donationLevel={donationLevel} />
-            :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id)}}>Select Reward</RewardButton>
+            :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
         }   
         
     </IncentiveCard>    )
@@ -146,6 +142,7 @@ const mapStateToProps = createStructuredSelector ({
 
 const mapDispatchToProps = dispatch => ({
     toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
+    toggleBodyScroll: () => dispatch(toggleBodyScroll()),
     chooseLevel: (id) => dispatch(chooseDonationLevel(id)),
  });
 
