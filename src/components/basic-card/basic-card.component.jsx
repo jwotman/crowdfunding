@@ -12,8 +12,10 @@ export const StyledCard = styled.div`
 
 `;
 
+
+
 const BasicCard = ({
-  children
+  children, disabled
 }) => (
   
   <StyledCard>

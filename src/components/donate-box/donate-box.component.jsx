@@ -68,27 +68,24 @@ const DonateInput = styled.input.attrs({
 `;
 
 const DonateButton = styled.div`
-    background-color: #3CB3AB;
-  border: none;
-  border-radius: 3.3rem;
-  font-weight: bold;
-  
-  color:  white;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  overflow: hidden;
-  cursor: pointer;
- 
-    
-    display: flex;
     align-items: center;
+    background-color: #3CB3AB;
+    border-radius: 3.3rem;
+    border: none;
+    color:  white;
+    cursor: pointer;
+    display: flex;
     flex-direction: row;
-    justify-content: center;
     font-size: 1.4rem;
-    width: 41%;
+    font-weight: bold;
     height: 4.8rem;
+    justify-content: center;
     margin: 0px 0px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 41%;
 
 `;
 

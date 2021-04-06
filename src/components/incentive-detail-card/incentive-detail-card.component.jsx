@@ -21,7 +21,8 @@ const GlobalCardStyle = createGlobalStyle`
 
 const IncentiveCard = styled(StyledCard)`
     border: .1rem solid  lightgray ;
-    justify-content: flex-start;    
+    justify-content: flex-start;  
+    position: relative;  
 `;
 
 
@@ -50,8 +51,6 @@ const IncentiveDescription = styled.p`
     margin: 1.2rem 2.4rem 0 2.4rem;
     text-align: left;
     font-size: 1.4rem;
-
-
 `;
 
 const ActionLine = styled.div`
@@ -95,6 +94,7 @@ const RewardButton = styled(StyledButton)`
     width: 15.7rem;
     height: 4.8rem;
     margin: 1.2rem 0 2.4rem 2.4rem;
+    ${props => props.disabled && 'background-color:black;'}
     
 
 `;
@@ -105,6 +105,27 @@ const HeadingWrapper = styled.span`
     border-radius: 50%;
 `;
 
+export const DisabledOverlay = styled.div`
+ width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: normal;
+  opacity: ${props => props.disabled ? '0.5' : '0'};
+  background: white;
+`;
+
+const isDisabled = (remaining) => {
+
+    let disabled = false;
+    if(remaining === 0){
+        disabled = true;
+    }
+    return disabled;
+
+}
+
 
 const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
     let cardClass= "cantDonate";
@@ -114,26 +135,27 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
    
 return (
     
-    <IncentiveCard id={'card_'+ id} currentDonationLevel={currentLevelID} className={cardClass} >
-   
-    <GlobalCardStyle currentLevelID={currentLevelID} />
-        <HeadingWrapper>
-          {isSelectable && <CustomRadioButton id={id} isSelected={currentLevelID===id}></CustomRadioButton>}
-            <IncentiveHeading>
-                <IncentiveTitle>{name}</IncentiveTitle>
-                <IncentiveRange>${donationLevel} or more</IncentiveRange>
-            </IncentiveHeading>
-        </HeadingWrapper>
-        <IncentiveDescription>
-            {description}
-        </IncentiveDescription>
-       <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
-        {canDonate
-            ? currentLevelID === id && <DonateBox donationLevel={donationLevel} />
-            :<RewardButton onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
-        }   
-        
-    </IncentiveCard>    )
+            <IncentiveCard id={'card_'+ id} currentDonationLevel={currentLevelID} className={cardClass} >
+            <DisabledOverlay disabled={isDisabled(remaining)} />
+            <GlobalCardStyle currentLevelID={currentLevelID} />
+                <HeadingWrapper>
+                {isSelectable && <CustomRadioButton id={id} isSelected={currentLevelID===id}></CustomRadioButton>}
+                    <IncentiveHeading>
+                        <IncentiveTitle>{name}</IncentiveTitle>
+                        <IncentiveRange>${donationLevel} or more</IncentiveRange>
+                    </IncentiveHeading>
+                </HeadingWrapper>
+                <IncentiveDescription>
+                    {description}
+                </IncentiveDescription>
+            <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
+                {canDonate
+                    ? currentLevelID === id && <DonateBox donationLevel={donationLevel} disabled={isDisabled(remaining)} />
+                    :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>{isDisabled(remaining)?'Out of Stock':'Select Reward'}</RewardButton>
+                }   
+                
+            </IncentiveCard>    
+    )
 };
 
 const mapStateToProps = createStructuredSelector ({
