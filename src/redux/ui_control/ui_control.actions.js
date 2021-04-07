@@ -11,3 +11,7 @@ export const toggleAcknowledgementOverlayHidden = () => ({
 export const toggleBodyScroll = () => ({
     type: UIControlActionTypes.TOGGLE_BODY_SCROLL
 })
+
+export const bookmarkURL = () => ({
+    type: UIControlActionTypes.BOOKMARK_PROJECT
+})

@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-import CustomHeader from './components/header/header.component';
-import ProductPromoCard from './components/product-promo-card/product-promo-card.component';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { selectBodyScroll } from './redux/ui_control/ui_control.selectors';
+
+
 import CampaignSummary from './components/campaign-summary-card/campaign-summary-card.component';
-import ProjectDetail from './components/project-detail/project-detail.component';
-import DonationOverlay from './components/donation-overlay/donation-overlay.component';
+import CustomHeader from './components/header/header.component';
 import DonateAcknowledgementOverlay from './components/donate-acknowledgement-overlay/donate-acknowledgement-overlay.component';
+import DonationOverlay from './components/donation-overlay/donation-overlay.component';
+import ProductPromoCard from './components/product-promo-card/product-promo-card.component';
+import ProjectDetail from './components/project-detail/project-detail.component';
 
 const StyledMain = styled.main`
 
@@ -17,10 +23,19 @@ const StyledMain = styled.main`
 
 `;
 
+const BodyScroll = createGlobalStyle`
+   
+  ${props=>props.bodyScroll ? '' : 'body{overflow:hidden}'}
+`;
 
-function App() {
+
+
+function App({bodyScroll}) {
   return (
+    <React.Fragment>
+    <BodyScroll bodyScroll={bodyScroll} />
     <StyledMain >
+    
       <CustomHeader/>  
       <ProductPromoCard />
       <CampaignSummary />
@@ -28,7 +43,12 @@ function App() {
       <DonationOverlay/>
       <DonateAcknowledgementOverlay/>
     </StyledMain>
+    </React.Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector ({
+  bodyScroll: selectBodyScroll
+});
+
+export default connect(mapStateToProps)(App);

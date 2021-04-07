@@ -86,6 +86,7 @@ const AmountText = styled.span`
 `;
 
 const RewardButton = styled(StyledButton)`
+    
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -114,6 +115,7 @@ export const DisabledOverlay = styled.div`
   mix-blend-mode: normal;
   opacity: ${props => props.disabled ? '0.5' : '0'};
   background: white;
+  display: ${props => props.disabled ? 'flex' : 'none'};
 `;
 
 const isDisabled = (remaining) => {
@@ -151,7 +153,7 @@ return (
             <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine>
                 {canDonate
                     ? currentLevelID === id && <DonateBox donationLevel={donationLevel} disabled={isDisabled(remaining)} />
-                    :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>{isDisabled(remaining)?'Out of Stock':'Select Reward'}</RewardButton>
+                    :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
                 }   
                 
             </IncentiveCard>    

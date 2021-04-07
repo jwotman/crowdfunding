@@ -19,3 +19,8 @@ export const selectBodyScroll = createSelector(
     [selectUIControl],
     (ui_control) => ui_control.bodyScroll
 )
+
+export const selectProjectBookmarked = createSelector(
+    [selectUIControl],
+    (ui_control) => ui_control.projectBookmarked
+)

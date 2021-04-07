@@ -4,7 +4,8 @@ const INITIAL_STATE  = {
     
     donateOverlayHidden: true,
     acknowledgementOverlayHidden: true,
-    bodyScroll: true
+    bodyScroll: true,
+    projectBookmarked: false
 
 }
 
@@ -26,11 +27,18 @@ const uiControlReducer = (state = INITIAL_STATE,action) => {
                 acknowledgementOverlayHidden: !state.acknowledgementOverlayHidden
             }
 
-        case UIControlActionTypes.NO_BODY_SCROLL: 
+        case UIControlActionTypes.TOGGLE_BODY_SCROLL: 
         
             return {
                 ...state,
                 bodyScroll: !state.bodyScroll
+            }
+
+        case UIControlActionTypes.BOOKMARK_PROJECT: 
+        
+            return {
+                ...state,
+                projectBookmarked: true
             }
             
         default:

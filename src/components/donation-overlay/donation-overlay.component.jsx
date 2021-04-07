@@ -5,13 +5,13 @@ import IncentiveList from '../incentive-list/incentive-list.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
-import { toggleDonateOverlayHidden } from '../../redux/ui_control/ui_control.actions';
+import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 
 
 const OverlayContainer = styled.div`
 
 position: fixed; /* Sit on top of the page content */
-  display: ${props => props.donateOverlayHidden ? 'none' : 'block'}; /* Hidden by default */
+  display: ${props => props.donateOverlayHidden ? 'none' : 'flex'}; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   top: 0;
@@ -21,6 +21,7 @@ position: fixed; /* Sit on top of the page content */
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
+  overflow-y: scroll;
 
 `;
 
@@ -63,11 +64,11 @@ const CloseIcon = styled.div`
 
 
 
-const DonationOverlay = ({donateOverlayHidden,toggleOverlay}) => (
+const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
 
     <OverlayContainer donateOverlayHidden={donateOverlayHidden}>
         <BasicCard>
-            <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={toggleOverlay} /></HeadingWrapper>
+            <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
             <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             <IncentiveList isSelectable={true} canDonate={true}/>
         </BasicCard>
@@ -80,7 +81,8 @@ const mapStateToProps = createStructuredSelector ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleOverlay: () => dispatch(toggleDonateOverlayHidden())
+    toggleOverlay: () => dispatch(toggleDonateOverlayHidden()),
+    toggleScroll: () => dispatch(toggleBodyScroll())
  });
 
 

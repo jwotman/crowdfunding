@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {StyledCard} from '../basic-card/basic-card.component';
-import CustomButton from '../custom-button/custom-button.component';
+import {StyledButton} from '../custom-button/custom-button.component';
 import BookmarkButton from '../bookmark-button/bookmark-button';
+
+import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import { connect } from 'react-redux';
 
 
 
@@ -42,7 +45,7 @@ const ProductDescription = styled.span`
 
 `;
 
-const ProductCardDonateButton = styled(CustomButton)`
+const ProductCardDonateButton = styled(StyledButton)`
     width: 21.4rem;
     height: 5.6rem;
 `;
@@ -55,17 +58,25 @@ const ButtonContainer = styled.div`
 
 `;
 
-const ProductPromoCard=()=> (
+const ProductPromoCard=({toggleDonateOverlayHidden,toggleBodyScroll})=> (
 
     <ProductCard>
         <ProductLogo/>
         <ProductTitle>Mastercraft Bamboo <br/>Monitor Riser</ProductTitle>
         <ProductDescription>A beautifully handcrafted monitor stand to reduce neck and eye strain.</ProductDescription>
-        <ButtonContainer><ProductCardDonateButton>Back this project</ProductCardDonateButton><BookmarkButton/></ButtonContainer>
+        <ButtonContainer><ProductCardDonateButton onClick={() => { toggleDonateOverlayHidden();toggleBodyScroll()}}>Back this project</ProductCardDonateButton><BookmarkButton/></ButtonContainer>
      </ProductCard>
-
-
 
 );
 
-export default ProductPromoCard;
+
+
+const mapDispatchToProps = dispatch => ({
+    toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
+    toggleBodyScroll: () => dispatch(toggleBodyScroll())
+ });
+
+
+
+
+export default connect(null, mapDispatchToProps)(ProductPromoCard);

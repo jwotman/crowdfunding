@@ -2,9 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import {StyledButton} from '../custom-button/custom-button.component';
 
-const BookmarkIcon = styled.button`
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
 
-    background-image: url("/icon-bookmark.svg");
+import { bookmarkURL } from '../../redux/ui_control/ui_control.actions';
+import { selectProjectBookmarked } from '../../redux/ui_control/ui_control.selectors';
+
+const BookmarkIcon = styled.div`
+
+background-image: ${props => props.projectBookmarked ?  'url("/icon-bookmark-active.svg")' : 'url("/icon-bookmark.svg")'};
     background-repeat:no-repeat;
     background-size: cover;
     border: none;
@@ -32,8 +38,16 @@ const DesktopButton = styled(StyledButton)`
     
 `
 
-const BookmarkButton=({children})=> (
-    <ButtonContainer><BookmarkIcon/><DesktopButton /></ButtonContainer>
+const BookmarkButton=({children, projectBookmarked,bookmarkProject})=> (
+    <ButtonContainer onClick={bookmarkProject}><BookmarkIcon projectBookmarked={projectBookmarked} /><DesktopButton /></ButtonContainer>
 );
 
-export default BookmarkButton;
+const mapStateToProps = createStructuredSelector ({
+    projectBookmarked: selectProjectBookmarked
+});
+
+const mapDispatchToProps = dispatch => ({
+    bookmarkProject: () => dispatch(bookmarkURL()),
+ });
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookmarkButton);
