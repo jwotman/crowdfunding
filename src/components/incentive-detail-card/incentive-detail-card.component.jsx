@@ -36,7 +36,8 @@ const IncentiveHeading = styled.div`
 `;
 
 const IncentiveTitle = styled.span`
-     font-size: 1.5rem;
+     font-size: 1.4rem;
+     color: black;
     font-weight: bold;
     margin-bottom: .4rem;
 `;
@@ -143,7 +144,7 @@ return (
             <DisabledOverlay disabled={isDisabled(remaining)} />
             <GlobalCardStyle currentLevelID={currentLevelID} />
                 <HeadingWrapper>
-                {isSelectable && <CustomRadioButton id={id} isSelected={currentLevelID===id}></CustomRadioButton>}
+                {isSelectable &&  <CustomRadioButton id={id} isSelected={currentLevelID===id} disabled={isDisabled(remaining)}></CustomRadioButton>  }
                     <IncentiveHeading>
                         <IncentiveTitle>{name}</IncentiveTitle>
                         {donationLevel !== 0 && <IncentiveRange>${donationLevel} or more</IncentiveRange> }
