@@ -19,8 +19,9 @@ const Radio = styled.label`
 
 const RadioInput = styled.span`
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     
 //--color-primary-dark-cyan
 
@@ -62,10 +63,7 @@ const RadioControl = styled.span.attrs(props => ({
 `;
 
 const RadioLabel = styled.span`
-    line-height: 1;
-
-
-
+    line-height: 0;
 `;
 
 
@@ -75,11 +73,9 @@ const CustomRadioButton=({children,id,isSelected,chooseLevel})=> (
         <RadioInput>
             <HiddenRadioButton isSelected={isSelected} onChange={() => {chooseLevel(id)}}  />
             <RadioControl isSelected={isSelected} />
-            {children &&
-                <RadioLabel>{children}</RadioLabel>
-            }
+            
         </RadioInput>
-        <RadioLabel>{children}</RadioLabel>
+       
     </Radio>
 
   

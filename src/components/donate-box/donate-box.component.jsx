@@ -12,7 +12,7 @@ const DonateDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     border-top: .1rem solid  lightgray ;
-
+    margin-top: 2.4rem;
 
 `;
 
@@ -26,7 +26,6 @@ const DonateWrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
     padding: 0 1.2rem 0 1.2rem;
-    margin-bottom: 2.4rem;
     
     
 `;

@@ -13,17 +13,28 @@ const StyledIncentiveList = styled.div`
 
 `;
 
+const isIncluded = (includeCustom,item) => {
 
+    let isIncluded = true;
+    if(!includeCustom){
+        if(item.id === 1){
+            isIncluded = false;
+        }
+    } 
+    return isIncluded;
 
-const IncentiveList = ({incentives, isSelectable, canDonate}) => {
+}
+
+const IncentiveList = ({incentives, isSelectable, canDonate,includeCustom}) => {
 
     
 
 
     return <StyledIncentiveList>
     {
-        incentives.map((item)=>(
-        <IncentiveDetail key={item.id} item={item} isSelectable={isSelectable} canDonate={canDonate}  />
+        
+        incentives.filter(item => isIncluded(includeCustom,item)).map((item)=>(
+       <IncentiveDetail key={item.id} item={item} isSelectable={isSelectable} canDonate={canDonate}  />
     ))}
     </StyledIncentiveList>
 

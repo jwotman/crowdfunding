@@ -4,7 +4,7 @@ import {StyledButton} from '../custom-button/custom-button.component';
 import {StyledCard} from '../basic-card/basic-card.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import { toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions';
+import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 
 
@@ -77,13 +77,13 @@ const AcknowledgmentButton = styled(StyledButton)`
 
 
 
-const DonationAcknowledgementOverlay = ({acknowledgementOverlayHidden,toggleOverlayHidden}) => (
+const DonationAcknowledgementOverlay = ({acknowledgementOverlayHidden,toggleOverlayHidden,toggleBodyScroll}) => (
     <OverlayContainer acknowledgementOverlayHidden={acknowledgementOverlayHidden}>
         <AcknowledgementCard>
             <CheckIcon />
             <AcknowledgementHeading>Thanks for your support!</AcknowledgementHeading>
             <AcknowledgementContent>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</AcknowledgementContent>
-            <AcknowledgmentButton onClick={ (event) => {toggleOverlayHidden()}}>Got it!</AcknowledgmentButton>
+            <AcknowledgmentButton onClick={ (event) => {toggleOverlayHidden(); toggleBodyScroll();}}>Got it!</AcknowledgmentButton>
         </AcknowledgementCard>
     </OverlayContainer>
 );
@@ -93,7 +93,8 @@ const mapStateToProps = createStructuredSelector ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggleOverlayHidden: () => dispatch(toggleAcknowledgementOverlayHidden())
+    toggleOverlayHidden: () => dispatch(toggleAcknowledgementOverlayHidden()),
+    toggleBodyScroll: () => dispatch(toggleBodyScroll())
  });
 
 
