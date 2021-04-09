@@ -28,10 +28,15 @@ const BodyScroll = createGlobalStyle`
   ${props=>props.bodyScroll ? '' : 'body{overflow:hidden}'}
 `;
 
-
+const resetPage = (bodyScroll) => {
+  if(!bodyScroll){
+    window.window.scrollTo(0, 0);
+  }
+}
 
 function App({bodyScroll}) {
-  return (
+    resetPage(bodyScroll);
+    return (
     <React.Fragment>
     <BodyScroll bodyScroll={bodyScroll} />
     <StyledMain >

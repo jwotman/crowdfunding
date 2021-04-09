@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BasicCard from '../basic-card/basic-card.component';
+import { StyledCard } from '../basic-card/basic-card.component';
 import IncentiveList from '../incentive-list/incentive-list.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
@@ -22,15 +22,42 @@ position: fixed; /* Sit on top of the page content */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
   overflow-y: scroll;
+  flex-direction: column;
 
 `;
 
+const SpacerCard = styled.div`
+
+    height: 250vh;
+    opacity: 0;
+
+
+
+`;
+
+
+
+const OverlayCard = styled(StyledCard)`
+
+  position: static;
+  margin-top: 12.1rem;
+`
+
+const HeadingDiv= styled.div`
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+
+`;
 
 const HeadingWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
     margin: 2.4rem 2.4rem
 
 `;
@@ -67,11 +94,15 @@ const CloseIcon = styled.div`
 const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
 
     <OverlayContainer donateOverlayHidden={donateOverlayHidden}>
-        <BasicCard>
-            <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
-            <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
+        <SpacerCard />
+        <OverlayCard>
+            <HeadingDiv>
+                <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
+                <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
+            </HeadingDiv>
             <IncentiveList isSelectable={true} canDonate={true} includeCustom={true}/>
-        </BasicCard>
+            
+        </OverlayCard>
     </OverlayContainer>
 
 );
