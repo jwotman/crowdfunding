@@ -26,16 +26,6 @@ position: fixed; /* Sit on top of the page content */
 
 `;
 
-const SpacerCard = styled.div`
-
-    height: 250vh;
-    opacity: 0;
-
-
-
-`;
-
-
 
 const OverlayCard = styled(StyledCard)`
 
@@ -94,14 +84,12 @@ const CloseIcon = styled.div`
 const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
 
     <OverlayContainer donateOverlayHidden={donateOverlayHidden}>
-        <SpacerCard />
         <OverlayCard>
             <HeadingDiv>
                 <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
                 <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             </HeadingDiv>
             <IncentiveList isSelectable={true} canDonate={true} includeCustom={true}/>
-            
         </OverlayCard>
     </OverlayContainer>
 

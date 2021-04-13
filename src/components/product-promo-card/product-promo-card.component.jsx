@@ -29,8 +29,7 @@ const ProductLogo = styled.div.attrs(props => ({
 
 const ProductTitle = styled.h1`
 
-        font-weight: 70;
-        font-style: bold;
+        font-weight: bold;
         font-size: 2rem;
         margin: 1.2rem 0 .8rem 0; 
         text-align: center;
