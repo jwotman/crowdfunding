@@ -10,6 +10,7 @@ import { chooseDonationLevel} from '../../redux/campaign/campaign.actions';
 import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
+import Remaining from '../remaining/remaining.component';
 
 
 const GlobalCardStyle = createGlobalStyle`
@@ -81,29 +82,6 @@ const ActionLine = styled.div`
 
 `;
 
-const RemainingWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 1.2rem 0 1.2rem 0; 
-    flex: 0 0 200px;
-`;
-
-const Remaining = styled.span`
-    font-size: 3.2rem;
-    font-weight: bold;
-    color: black;
-
-
-`;
-
-const RemainingText = styled.span`
-    font-size: 1.5rem;
-    vertical-align: middle;
-    padding-left: .8rem;
-
-`;
 
 const RewardButton = styled(StyledButton)`
     
@@ -167,7 +145,7 @@ return (
                     {description}
                 </IncentiveDescription>
                 <ActionLine>
-            {remaining !== -1 && <RemainingWrapper><Remaining>{remaining}</Remaining><RemainingText>left</RemainingText></RemainingWrapper> }
+            {remaining !== -1 && <Remaining remainingAmount={remaining} /> }
                 {canDonate
                     ? currentLevelID === id && <DonateBox donationLevel={donationLevel} disabled={isDisabled(remaining)} />
                     :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
