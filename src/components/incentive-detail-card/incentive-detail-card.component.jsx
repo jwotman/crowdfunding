@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {StyledButton} from '../custom-button/custom-button.component';
 import {StyledChildCard} from '../child-card/child-card.component';
-import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
+
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
@@ -11,6 +11,7 @@ import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_cont
 import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
 import Remaining from '../remaining/remaining.component';
+import IncentiveCardHeader from '../incentive-card-header/incentive-card-header';
 
 
 const GlobalCardStyle = createGlobalStyle`
@@ -29,40 +30,7 @@ const IncentiveCard = styled(StyledChildCard)`
     padding: 2.4rem 2.4rem 3.2rem 2.4rem;
 `;
 
-const HeadingWrapper = styled.span`
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    //align-items: center;
-    border-radius: 50%;
-    width: 100%;
-`;
 
-const IncentiveHeading = styled.div`
-   display: flex;
-   flex-basis: 100%;
-   justify-content: space-between;
-   flex-direction: row;
-   align-items: center;
-   flex-wrap: wrap;
-   margin: 0 0 1.2rem 0;
-`;
-
-const IncentiveTitle = styled.span`
-  //   font-size: 1.4rem;
-    flex: 0 0 200px;
-     color: black;
-     font-weight: bold;
-     margin: .4rem 0rem .4rem 0;
-     align-self: center;
-`;
-
-const IncentiveRange = styled.span`
-    flex-basis: content;
-    color: #3CB3AB;
-    font-weight: 70;
-    margin: .4rem 0 .4rem 0;
-`;
 
 const IncentiveDescription = styled.p`
     margin: 2rem 0 1.2rem 0;
@@ -123,7 +91,7 @@ const isDisabled = (remaining) => {
 }
 
 
-const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
+const IncentiveDetail = ({item,isSelectable,canDonate,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
     let cardClass= "cantDonate";
     if(canDonate){
         cardClass = "canDonate";
@@ -131,24 +99,18 @@ const IncentiveDetail = ({item: { id,name,donationLevel, description,remaining},
    
 return (
     
-            <IncentiveCard id={'card_'+ id} currentDonationLevel={currentLevelID} className={cardClass} >
-            <DisabledOverlay disabled={isDisabled(remaining)} />
+            <IncentiveCard id={'card_'+ item.id} currentDonationLevel={currentLevelID} className={cardClass} >
+            <DisabledOverlay disabled={isDisabled(item.remaining)} />
             <GlobalCardStyle currentLevelID={currentLevelID} />
-                <HeadingWrapper>
-                {isSelectable &&  <CustomRadioButton id={id} isSelected={currentLevelID===id} disabled={isDisabled(remaining)}></CustomRadioButton>  }
-                    <IncentiveHeading>
-                        <IncentiveTitle>{name}</IncentiveTitle>
-                        {donationLevel !== 0 && <IncentiveRange>${donationLevel} or more</IncentiveRange> }
-                    </IncentiveHeading>
-                </HeadingWrapper>
+               <IncentiveCardHeader item={item} isSelectable={isSelectable} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
                 <IncentiveDescription>
-                    {description}
+                    {item.description}
                 </IncentiveDescription>
                 <ActionLine>
-            {remaining !== -1 && <Remaining remainingAmount={remaining} /> }
+            {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={isSelectable} isMobileSpecific={true} /> }
                 {canDonate
-                    ? currentLevelID === id && <DonateBox donationLevel={donationLevel} disabled={isDisabled(remaining)} />
-                    :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
+                    ? currentLevelID === item.id && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />
+                    :<RewardButton disabled={isDisabled(item.remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(item.id);toggleBodyScroll()}}>Select Reward</RewardButton>
                 } 
                 </ActionLine>  
                 
