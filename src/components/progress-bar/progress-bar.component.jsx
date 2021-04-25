@@ -9,7 +9,7 @@ const ProgressBarTrack = styled.div`
   width: 80%;
   margin: 0 2.5rem 0 2.5rem;
   border-radius: 3.35rem;
-  align-self: center;
+  
 `;
 const percent = 75;
 const ProgressBarFill = styled.div`

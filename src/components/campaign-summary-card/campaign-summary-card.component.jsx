@@ -25,7 +25,6 @@ const DollarAmount = styled(Amount)`
 
 const Description = styled.span`
 
-    font-size: 1.4rem;
     color: #7A7A7A;
     margin: .9rem 0 1.2rem 0;
     text-align: center;
@@ -41,8 +40,9 @@ const Separator = styled.div`
 `;
 
 const ProgressWrapper = styled.div`
-
+    width: 80%;
     margin: 2rem 0 4rem 0;
+    align-self: stretch;
 `;
 
 const formatNumber = (number) => {

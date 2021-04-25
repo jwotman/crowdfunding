@@ -25,7 +25,8 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
             return {
                 ...state,
                 totalRaised: state.totalRaised + action.payload,
-                totalBackers: state.totalBackers + 1
+                totalBackers: state.totalBackers + 1,
+                currentDonationLevel: 0
             }
             
         default:

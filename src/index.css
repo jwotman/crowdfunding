@@ -5,11 +5,14 @@
   --color-neutral-black:  hsl(0,0,0);
   --color-neutral-dark-grey: hsl(0,0, 48%);
 
+  
+
 }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  
 }
 
 *,
@@ -19,11 +22,9 @@ html {
 }
 
 body{
- font-size: 1.6rem;
+  font-size: clamp(1.4rem, 1.2500rem + 0.4167vw, 1.6rem);
  font-family: 'Commissioner', sans-serif;
- color: #7A7A7A
- 
- 
+ color: #7A7A7A;
 }
 
 .container{

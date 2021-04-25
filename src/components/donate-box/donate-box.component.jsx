@@ -17,15 +17,15 @@ const DonateDiv = styled.div`
 `;
 
 const DonateHeading = styled.span`
-    font-size: 1.4rem;
+    
     align-self: center;
-    margin: 2.4rem 0 .8rem 0;
+    margin: 2.4rem 0 .8rem .8rem;
 `;
 const DonateWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 0 1.2rem 0 1.2rem;
+    padding: .8rem 1.2rem 0 1.2rem;
     
     
 `;
@@ -35,7 +35,7 @@ const CurrencyInputWrapper = styled.div`
     height: 4.8rem;
     border-radius: 3.3rem;
     border: .1rem solid  lightgray ;
-    font-size: 1.4rem;
+    
     color: lightgray;
     display: flex;
     flex-direction: row;
@@ -56,7 +56,6 @@ const DonateInput = styled.input.attrs({
   })`    
     width: 2rem;
     border: none;
-    font-size: 1.4rem;
     color: black;
     font-weight: bold;
     size: 2;
@@ -75,7 +74,7 @@ const DonateButton = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    font-size: 1.4rem;
+    //font-size: 1.4rem;
     font-weight: bold;
     height: 4.8rem;
     justify-content: center;

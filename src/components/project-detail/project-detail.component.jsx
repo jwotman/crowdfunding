@@ -14,8 +14,9 @@ const Heading = styled.h3`
 
 const Content = styled.span`
 
-    font-size: 1.4rem;
+    //font-size: 1.4rem;
     margin: 0 2.4rem 0 2.4rem;
+    max-width: 80%;
 
 `;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {StyledButton} from '../custom-button/custom-button.component';
-import {StyledCard} from '../basic-card/basic-card.component';
+import {StyledChildCard} from '../child-card/child-card.component';
 import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -19,60 +19,78 @@ const GlobalCardStyle = createGlobalStyle`
 `;
 
 
-const IncentiveCard = styled(StyledCard)`
+const IncentiveCard = styled(StyledChildCard)`
     border: .1rem solid  lightgray ;
     justify-content: flex-start;  
+    flex-direction: row;
+    flex-wrap: wrap;
     position: relative;  
-    padding: 2.4rem 0 3.2rem 0;
+    padding: 2.4rem 2.4rem 3.2rem 2.4rem;
 `;
 
-
+const HeadingWrapper = styled.span`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    //align-items: center;
+    border-radius: 50%;
+    width: 100%;
+`;
 
 const IncentiveHeading = styled.div`
    display: flex;
-   justify-content: flex-start;
-   flex-direction: column;
-   margin: 0 2.4rem 1.2rem 2.4rem;
+   flex-basis: 100%;
+   justify-content: space-between;
+   flex-direction: row;
+   align-items: center;
+   flex-wrap: wrap;
+   margin: 0 0 1.2rem 0;
 `;
 
 const IncentiveTitle = styled.span`
-     font-size: 1.4rem;
+  //   font-size: 1.4rem;
+    flex: 0 0 200px;
      color: black;
-    font-weight: bold;
-    margin-bottom: .4rem;
+     font-weight: bold;
+     margin: .4rem 0rem .4rem 0;
+     align-self: center;
 `;
 
 const IncentiveRange = styled.span`
+    flex-basis: content;
     color: #3CB3AB;
-    font-size: 1.5rem;
     font-weight: 70;
-    margin-top: .4rem;
+    margin: .4rem 0 .4rem 0;
 `;
 
 const IncentiveDescription = styled.p`
-    margin: 1.2rem 2.4rem 0 2.4rem;
+    margin: 2rem 0 1.2rem 0;
     text-align: left;
-    font-size: 1.4rem;
+   // font-size: 1.4rem;
 `;
 
 const ActionLine = styled.div`
 
     display: flex;
-    flex-direction: column;
-    margin: 1.2rem 2.4rem 0rem 2.4rem; 
-
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 0 0 0; 
+    flex-basis: 100%;
+    justify-content: space-between;
+    align-items: center;
 
 `;
 
-const AmountWrapper = styled.div`
+const RemainingWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin: 1.2rem 0 1.2rem 0; 
+    flex: 0 0 200px;
 `;
 
-const Amount = styled.span`
+const Remaining = styled.span`
     font-size: 3.2rem;
     font-weight: bold;
     color: black;
@@ -80,7 +98,7 @@ const Amount = styled.span`
 
 `;
 
-const AmountText = styled.span`
+const RemainingText = styled.span`
     font-size: 1.5rem;
     vertical-align: middle;
     padding-left: .8rem;
@@ -93,21 +111,16 @@ const RewardButton = styled(StyledButton)`
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    font-size: 1.4rem;
+   // font-size: 1.4rem;
     width: 15.7rem;
     height: 4.8rem;
-    margin: 0 0 2.4rem 2.4rem;
+    margin: 1.2rem 0 1.2rem 0;
     ${props => props.disabled && 'background-color:black;'}
     
 
 `;
 
-const HeadingWrapper = styled.span`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 50%;
-`;
+
 
 export const DisabledOverlay = styled.div`
  width: 100%;
@@ -153,11 +166,13 @@ return (
                 <IncentiveDescription>
                     {description}
                 </IncentiveDescription>
-            {remaining !== -1 && <ActionLine><AmountWrapper><Amount>{remaining}</Amount><AmountText>left</AmountText></AmountWrapper></ActionLine> }
+                <ActionLine>
+            {remaining !== -1 && <RemainingWrapper><Remaining>{remaining}</Remaining><RemainingText>left</RemainingText></RemainingWrapper> }
                 {canDonate
                     ? currentLevelID === id && <DonateBox donationLevel={donationLevel} disabled={isDisabled(remaining)} />
                     :<RewardButton disabled={isDisabled(remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(id);toggleBodyScroll()}}>Select Reward</RewardButton>
-                }   
+                } 
+                </ActionLine>  
                 
             </IncentiveCard>    
     )

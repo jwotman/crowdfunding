@@ -18,6 +18,7 @@ const StyledMain = styled.main`
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: lightgrey;
     
 
@@ -26,6 +27,7 @@ const StyledMain = styled.main`
 const BodyScroll = createGlobalStyle`
    
   ${props=>props.bodyScroll ? '' : 'body{overflow:hidden}'}
+  
 `;
 
 const resetPage = (bodyScroll) => {

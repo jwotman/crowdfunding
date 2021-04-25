@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 
 const ProductCard = styled(StyledCard)`
     margin-top: -7.2rem;
+    
 
 `;
 
@@ -33,13 +34,11 @@ const ProductTitle = styled.h1`
         font-size: 2rem;
         margin: 1.2rem 0 .8rem 0; 
         text-align: center;
-        font-family: 'Commissioner', sans-serif;
 `;
 
 const ProductDescription = styled.span`
     text-align: center;
     margin: .8rem 2.8rem 2.7rem 2.8rem;
-    font-size: 1.4rem;
     line-height: 2.5rem;
 
 `;

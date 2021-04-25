@@ -23,6 +23,7 @@ position: fixed; /* Sit on top of the page content */
   cursor: pointer; /* Add a pointer on hover */
   overflow-y: scroll;
   flex-direction: column;
+  align-items: center;
 
 `;
 
@@ -31,6 +32,7 @@ const OverlayCard = styled(StyledCard)`
 
   position: static;
   margin-top: 12.1rem;
+  
 `
 
 const HeadingDiv= styled.div`
@@ -62,7 +64,7 @@ const Heading = styled.h3`
 
 const Content = styled.span`
 
-    font-size: 1.4rem;
+    //font-size: 1.4rem;
     margin: 0 2.4rem 2.4rem 2.4rem;
     
 

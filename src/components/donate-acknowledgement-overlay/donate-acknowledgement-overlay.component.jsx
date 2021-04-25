@@ -55,7 +55,6 @@ const AcknowledgementHeading = styled.div`
 const AcknowledgementContent = styled.h3`
 
     margin: 1.2rem 2.4rem 1.9rem 2.4rem;
-    font-size: 1.4rem;
     text-align: center;
 
 `;
