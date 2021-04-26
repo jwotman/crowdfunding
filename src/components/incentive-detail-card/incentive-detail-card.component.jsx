@@ -5,11 +5,11 @@ import {StyledChildCard} from '../child-card/child-card.component';
 
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import { chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { chooseDonationLevel} from '../../redux/campaign/campaign.actions'; 
 import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import Remaining from '../remaining/remaining.component';
-import IncentiveCardHeader from '../incentive-card-header/incentive-card-header';
+import IncentiveHeading from '../incentive-heading/incentive-heading.component';
 
 
 
@@ -90,7 +90,7 @@ return (
             <IncentiveCard  >
             <DisabledOverlay disabled={isDisabled(item.remaining)} />
             
-               <IncentiveCardHeader item={item} isSelectable={false} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
+               <IncentiveHeading item={item}/>
                 <IncentiveDescription>
                     {item.description}
                 </IncentiveDescription>

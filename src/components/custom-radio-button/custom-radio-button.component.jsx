@@ -57,7 +57,7 @@ const RadioControl = styled.span.attrs(props => ({
 
     ${props => props.isSelected && 'background-color: var(--color-primary-dark-cyan); box-shadow: inset 0 0 0 4px #FFFFFF;' }  
 
-    transform: translateY(-0.05em);
+    transform: translateY(-.7rem);
 
 `;
 
