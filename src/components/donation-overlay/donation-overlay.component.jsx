@@ -91,7 +91,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
                 <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
                 <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             </HeadingDiv>
-            <IncentiveList isSelectable={true} canDonate={true} includeCustom={true}/>
+            <IncentiveList canDonate={true} includeCustom={true}/>
         </OverlayCard>
     </OverlayContainer>
 

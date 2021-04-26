@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import {StyledButton} from '../custom-button/custom-button.component';
 import {StyledChildCard} from '../child-card/child-card.component';
 
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
-import { chooseDonationLevel} from '../../redux/campaign/campaign.actions'; 
-import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import { createGlobalStyle } from 'styled-components';
+import DonateBox from '../donate-box/donate-box.component';
 import Remaining from '../remaining/remaining.component';
 import IncentiveCardHeader from '../incentive-card-header/incentive-card-header';
 
+
+const GlobalCardStyle = createGlobalStyle`
+    .canDonate:nth-of-type(${props => props.currentLevelID}){
+        border: .1rem solid  var(--color-primary-dark-cyan) ;
+    } 
+`;
 
 
 const IncentiveCard = styled(StyledChildCard)`
@@ -43,23 +48,6 @@ const ActionLine = styled.div`
 `;
 
 
-const RewardButton = styled(StyledButton)`
-    
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-   // font-size: 1.4rem;
-    width: 15.7rem;
-    height: 4.8rem;
-    margin: 1.2rem 0 1.2rem 0;
-    ${props => props.disabled && 'background-color:black;'}
-    
-
-`;
-
-
-
 export const DisabledOverlay = styled.div`
  width: 100%;
   height: 100%;
@@ -83,21 +71,20 @@ const isDisabled = (remaining) => {
 }
 
 
-const IncentiveDetailCard = ({item,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
-    
+const DonateDetailCard = ({item,isSelectable,currentLevelID}) => {
+   
 return (
     
-            <IncentiveCard  >
+            <IncentiveCard id={'card_'+ item.id} currentDonationLevel={currentLevelID} className="canDonate" >
             <DisabledOverlay disabled={isDisabled(item.remaining)} />
-            
-               <IncentiveCardHeader item={item} isSelectable={false} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
+            <GlobalCardStyle currentLevelID={currentLevelID} />
+               <IncentiveCardHeader item={item} isSelectable={isSelectable} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
                 <IncentiveDescription>
                     {item.description}
                 </IncentiveDescription>
                 <ActionLine>
-                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={false} isMobileSpecific={true} /> }
-                    
-                    <RewardButton disabled={isDisabled(item.remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(item.id);toggleBodyScroll()}}>Select Reward</RewardButton>
+                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={isSelectable} isMobileSpecific={true} /> }
+                    <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />
                 </ActionLine>  
                 
             </IncentiveCard>    
@@ -108,13 +95,8 @@ const mapStateToProps = createStructuredSelector ({
     currentLevelID: selectCurrentDonationLevel
 });
 
-const mapDispatchToProps = dispatch => ({
-    toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
-    toggleBodyScroll: () => dispatch(toggleBodyScroll()),
-    chooseLevel: (id) => dispatch(chooseDonationLevel(id)),
- });
 
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(IncentiveDetailCard);
+export default connect(mapStateToProps,null)(DonateDetailCard);

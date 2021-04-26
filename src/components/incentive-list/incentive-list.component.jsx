@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import IncentiveDetail from '../incentive-detail-card/incentive-detail-card.component';
+import IncentiveDetailCard from '../incentive-detail-card/incentive-detail-card.component';
+import DonateDetailCard from '../donate-detail-card/donate-detail-card.component';
 import {connect} from 'react-redux';
 import { selectIncentiveList } from '../../redux/incentive-list/incentive-list.selectors';
 import { createStructuredSelector } from 'reselect';
@@ -25,6 +26,16 @@ const isIncluded = (includeCustom,item) => {
 
 }
 
+const withCard = (canDonate, item) => {
+
+    const functionalComponent = canDonate ? DonateDetailCard : IncentiveDetailCard;
+    const props = { item: item, key: item.id };
+    const reactElement = React.createElement(functionalComponent,props);
+
+    return reactElement;
+
+}
+
 const IncentiveList = ({incentives, isSelectable, canDonate,includeCustom}) => {
 
     
@@ -33,9 +44,11 @@ const IncentiveList = ({incentives, isSelectable, canDonate,includeCustom}) => {
     return <StyledIncentiveList>
     {
         
-        incentives.filter(item => isIncluded(includeCustom,item)).map((item)=>(
-       <IncentiveDetail key={item.id} item={item} isSelectable={isSelectable} canDonate={canDonate}  />
-    ))}
+        incentives.filter(item => isIncluded(includeCustom,item)).map((item)=> {
+
+            return withCard(canDonate, item);
+
+        })}
     </StyledIncentiveList>
 
 
