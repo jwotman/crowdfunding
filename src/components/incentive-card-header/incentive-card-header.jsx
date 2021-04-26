@@ -45,7 +45,7 @@ const IncentiveRange = styled.span`
 
 
 
-const IncentiveCardHeader = ({item: {id, name,donationLevel,remaining}, isSelectable, currentLevelID, disabled }) => (
+const IncentiveCardHeader = ({item: {id, name,donationLevel,remaining}, isSelectable,currentLevelID, disabled }) => (
 
     <HeadingWrapper>
     {isSelectable &&  <CustomRadioButton id={id} isSelected={currentLevelID===id} disabled={disabled}></CustomRadioButton>  }
@@ -53,7 +53,7 @@ const IncentiveCardHeader = ({item: {id, name,donationLevel,remaining}, isSelect
             <IncentiveTitle>{name}</IncentiveTitle>
             {donationLevel !== 0 && <IncentiveRange>${donationLevel} or more</IncentiveRange> }
         </IncentiveHeading>
-        <Remaining remainingAmount={remaining} isSelectable={isSelectable} isMobileSpecific={false}/>
+        {isSelectable && <Remaining remainingAmount={remaining} isSelectable={isSelectable} />}
     </HeadingWrapper>
 
 

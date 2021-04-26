@@ -71,19 +71,19 @@ const isDisabled = (remaining) => {
 }
 
 
-const DonateDetailCard = ({item,isSelectable,currentLevelID}) => {
+const DonateDetailCard = ({item,currentLevelID}) => {
    
 return (
     
             <IncentiveCard id={'card_'+ item.id} currentDonationLevel={currentLevelID} className="canDonate" >
             <DisabledOverlay disabled={isDisabled(item.remaining)} />
             <GlobalCardStyle currentLevelID={currentLevelID} />
-               <IncentiveCardHeader item={item} isSelectable={isSelectable} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
+               <IncentiveCardHeader item={item} isSelectable={true} currentLevelID={currentLevelID} disabled={isDisabled(item.remaining)} />
                 <IncentiveDescription>
                     {item.description}
                 </IncentiveDescription>
                 <ActionLine>
-                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={isSelectable} isMobileSpecific={true} /> }
+                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={true} /> }
                     <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />
                 </ActionLine>  
                 
