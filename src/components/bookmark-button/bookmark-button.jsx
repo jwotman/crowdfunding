@@ -17,8 +17,7 @@ background-image: ${props => props.projectBookmarked ?  'url("/icon-bookmark-act
     border-radius: 50%;
     height: 5.6rem;
     width: 5.6rem;
-    
-
+    transform: translateY(.4rem);
 `;
 
 const ButtonContainer = styled.div`
@@ -28,18 +27,24 @@ const ButtonContainer = styled.div`
 
 const DesktopButton = styled(StyledButton)`
     display: none;
-    background-color: hsl(0, 0%, 48%);
-    @media (min-width: 600px) {
-    display: initial;
-    margin-left: -5rem;
-    margin-right: 1rem;
+    width: 17.4rem;
+    background-color: #B1B1;
+    color: ${props => props.projectBookmarked ? '#147A73' : '#7A7A7A'};
+    padding-left: 5rem;
+    @media (min-width: 525px) {
+        display: initial;
+        margin-left: -5rem;
+        margin-right: 1rem;
     }
     
     
 `
 
 const BookmarkButton=({children, projectBookmarked,bookmarkProject})=> (
-    <ButtonContainer onClick={bookmarkProject}><BookmarkIcon projectBookmarked={projectBookmarked} /><DesktopButton /></ButtonContainer>
+    <ButtonContainer onClick={bookmarkProject}>
+        <BookmarkIcon projectBookmarked={projectBookmarked} />
+        <DesktopButton projectBookmarked={projectBookmarked} >{projectBookmarked ? 'Bookmarked' : 'Bookmark'}</DesktopButton>
+    </ButtonContainer>
 );
 
 const mapStateToProps = createStructuredSelector ({

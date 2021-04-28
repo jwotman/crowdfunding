@@ -50,9 +50,11 @@ const ProductCardDonateButton = styled(StyledButton)`
 
 const ButtonContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    margin: 0 2.4rem 4rem 2.4rem;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 2.4rem 4rem 2.4rem;
+    
 
 `;
 
@@ -62,7 +64,12 @@ const ProductPromoCard=({toggleDonateOverlayHidden,toggleBodyScroll})=> (
         <ProductLogo/>
         <ProductTitle>Mastercraft Bamboo <br/>Monitor Riser</ProductTitle>
         <ProductDescription>A beautifully handcrafted monitor stand to reduce neck and eye strain.</ProductDescription>
-        <ButtonContainer><ProductCardDonateButton onClick={() => { toggleDonateOverlayHidden();toggleBodyScroll()}}>Back this project</ProductCardDonateButton><BookmarkButton/></ButtonContainer>
+        <ButtonContainer>
+            <ProductCardDonateButton onClick={() => { toggleDonateOverlayHidden();toggleBodyScroll()}}>
+                Back this project
+            </ProductCardDonateButton>
+            <BookmarkButton/>
+        </ButtonContainer>
      </ProductCard>
 
 );
