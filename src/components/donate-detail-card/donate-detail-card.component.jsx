@@ -28,9 +28,17 @@ const HeaderWrapper = styled.div`
     gap: 2.4rem;
 `;
 
-const RemainingWrapper = styled.div`
+const HeadingRemainingWrapper = styled.div`
     justify-self: flex-end;
     margin-right: 2.4rem;
+`;
+
+const BodyRemainingWrapper = styled.div`
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+
 `;
 
 
@@ -49,18 +57,6 @@ const IncentiveDescription = styled.p`
     margin: 2rem 0 1.2rem 0;
     text-align: left;
    // font-size: 1.4rem;
-`;
-
-const ActionLine = styled.div`
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 0 0 0; 
-    flex-basis: 100%;
-    justify-content: space-between;
-    align-items: center;
-
 `;
 
 
@@ -97,17 +93,20 @@ return (
                <HeaderWrapper>
                     <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(item.remaining)}></CustomRadioButton>
                     <IncentiveHeading donateHeading={true} item={item}/>
-                    <RemainingWrapper>
-                        <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={false} />
-                    </RemainingWrapper>
+                    {item.remaining !== -1 && <HeadingRemainingWrapper>
+                                                    <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={false} />
+                                                </HeadingRemainingWrapper>
+                    }
                 </HeaderWrapper>
                 <IncentiveDescription>
                     {item.description}
                 </IncentiveDescription>
-                <ActionLine>
-                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={true} /> }
-                    <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />
-                </ActionLine>  
+               
+                   <BodyRemainingWrapper>
+                        {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={true} /> }
+                   </BodyRemainingWrapper> 
+                    {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />}
+                 
                 
             </IncentiveCard>    
     )

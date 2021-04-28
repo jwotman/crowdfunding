@@ -9,29 +9,44 @@ import { addDonation } from '../../redux/campaign/campaign.actions';
 const DonateDiv = styled.div`
 
     display: flex;
+    flex: 1 1 100%;
     flex-direction: column;
     justify-content: center;
     border-top: .1rem solid  lightgray ;
     margin-top: 2.4rem;
+
+    @media screen and (min-width: 700px) {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+   } 
 
 `;
 
 const DonateHeading = styled.span`
     
     align-self: center;
-    margin: 2.4rem 0 .8rem .8rem;
+    margin-top: 2.4rem;
+    //margin: 2.4rem 0 .8rem .8rem;
 `;
 const DonateWrapper = styled.div`
     display: flex;
+    
     flex-direction: row;
-    justify-content: space-around;
-    padding: .8rem 1.2rem 0 1.2rem;
+    justify-content: center;
+    gap: 1.6rem;
+    
+    margin-top: 2.4rem;
+    @media screen and (min-width: 700px) {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        flex: 0 0 23.3rem;
+   } 
+    //padding: .8rem 1.2rem 0 1.2rem;
     
     
 `;
 
 const CurrencyInputWrapper = styled.div`
-    width: 36%;
     height: 4.8rem;
     border-radius: 3.3rem;
     border: .1rem solid  lightgray ;
@@ -41,6 +56,7 @@ const CurrencyInputWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex: 0 0 10rem;
 `
 
 const CurrencySpan = styled.span`
@@ -52,13 +68,11 @@ const CurrencySpan = styled.span`
 
 `;
 const DonateInput = styled.input.attrs({
-    type: "text"
+    type: "text", size: "2"
   })`    
-    width: 2rem;
     border: none;
     color: black;
     font-weight: bold;
-    size: 2;
     margin-left: .3rem;
     :focus{
         outline: none;
@@ -74,7 +88,7 @@ const DonateButton = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    //font-size: 1.4rem;
+    font-size: 1.4rem;
     font-weight: bold;
     height: 4.8rem;
     justify-content: center;
@@ -83,7 +97,7 @@ const DonateButton = styled.div`
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
-    width: 41%;
+    flex: 0 0 11.7rem;
 
 `;
 
