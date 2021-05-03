@@ -98,6 +98,9 @@ const DonateButton = styled.div`
     text-decoration: none;
     white-space: nowrap;
     flex: 0 0 11.7rem;
+    :hover{
+        background-color: #147A73;
+    }
 
 `;
 

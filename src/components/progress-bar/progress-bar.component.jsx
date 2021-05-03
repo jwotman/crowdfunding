@@ -6,8 +6,8 @@ const ProgressBarTrack = styled.div`
   background-color: hsl(0,0%,95.75%);
   border: none;
   height: 1.2rem;
-  width: 80%;
-  margin: 0 2.5rem 0 2.5rem;
+  //width: 100%;
+  margin: 0;
   border-radius: 3.35rem;
   
 `;
