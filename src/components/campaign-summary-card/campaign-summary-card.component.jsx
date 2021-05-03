@@ -49,7 +49,7 @@ const DollarAmount = styled(Amount)`
 `;
 
 const Description = styled.span`
-
+    font-size: clamp(1.4rem, 1.2500rem + 0.4167vw, 1.5rem);
     color: #7A7A7A;
     //margin: .9rem 0 1.2rem 0;
     text-align: center;
@@ -66,7 +66,7 @@ const ContentGroup = styled.div.attrs(props => ({
     border-bottom: solid 2px lightgrey;
     padding-bottom: 2rem;
     padding-top: 2rem;
-    
+   
     gap: 1rem;
     position: relative;
     
@@ -100,6 +100,7 @@ const ContentGroup = styled.div.attrs(props => ({
         margin: 2rem 0 2rem 0;
         padding: 0;
         padding-left: 4.7rem;
+        padding-right: 1.8rem;
         justify-content: center;
         align-items: flex-start;
         &:after {
