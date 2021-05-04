@@ -9,7 +9,9 @@ const Icon = styled.div`
 
     display: flex;
     background-color: rgba(255,255,255,0.0);
-    flex-direction: column;
+    @media screen and (min-width: 700px) {
+        display: none;
+    }
 
 
 `;

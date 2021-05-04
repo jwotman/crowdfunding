@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavIcon from './nav-icon';
 import {ReactComponent as Logo} from '../../images/logo.svg';
+import NavList from './nav-list.component';
 
 
 
@@ -37,30 +38,15 @@ const TopHeaderElementContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 3.2rem 2.4rem 0 2.4rem;
+    margin-top: 3.2rem;
+    margin-left: clamp(3.2rem, 8.5vw, 16.5rem);
+    margin-right: clamp(3.2rem, 8.5vw, 16.5rem);
     height: 2rem;
     background-color: rgba(255,255,255,0.0);
 `;
 
 
-const NavList = styled.ul`
-    position: relative;
-    background-color: white;
-    display: ${props => props.menuOpen ? 'flex' : 'none'};
-    flex-direction: column;
-    margin: 8.8rem 2.4rem 0 2.4rem;
-`;
 
-const NavItem = styled.li`
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   border: .1rem solid  lightgray ;
-   color: black;
-   font-size: 1.8rem;
-   padding: 1.2rem 0 1.2rem 2.4rem ;
-
-`;
 
 
 class CustomHeader extends React.Component {
@@ -85,13 +71,10 @@ class CustomHeader extends React.Component {
                     <TopHeaderElementContainer>
                         <Logo/>
                         <NavIcon menuOpen={this.state.menuOpen} handleClick={this.toggleMenuOpen}/>
+                        <NavList isMobile={false} />
                     </TopHeaderElementContainer> 
                     
-                        <NavList menuOpen={this.state.menuOpen}>
-                            <NavItem>About</NavItem>
-                            <NavItem>Discover</NavItem>
-                            <NavItem>Get Started</NavItem>
-                        </NavList>
+                        <NavList menuOpen={this.state.menuOpen} isMobile={true}/>
                         <PartialOverlay overlayHidden={!this.state.menuOpen} />
                     
                 </StyledHeader>
