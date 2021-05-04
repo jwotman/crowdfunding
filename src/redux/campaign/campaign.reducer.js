@@ -1,4 +1,5 @@
 import CampaignActionTypes from './campaign.types';
+import {updateRemaining} from './campaign.utils';
 
 const INITIAL_STATE  = {
     
@@ -8,8 +9,8 @@ const INITIAL_STATE  = {
     campaignGoal: 100000,
     totalRaised: 89914,
     donateOverlayHidden: true,
-    acknowledgementOverlayHidden: true
-
+    acknowledgementOverlayHidden: true, 
+    remaining: {"1": -1, "2": 101, "3": 64, "4": 0}
 }
 
 const campaignReducer = (state = INITIAL_STATE,action) => {
@@ -26,6 +27,7 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
                 ...state,
                 totalRaised: state.totalRaised + action.payload,
                 totalBackers: state.totalBackers + 1,
+                remaining: updateRemaining(state.currentDonationLevel,state.remaining),
                 currentDonationLevel: 0
             }
             

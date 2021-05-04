@@ -12,3 +12,8 @@ export const selectCampaignSummaryData = createSelector(
     (campaign) => campaign
 )
 
+export const selectRemainingArray = createSelector(
+    [selectCampaign],
+    (campaign) => campaign.remaining
+)
+

@@ -83,18 +83,18 @@ const isDisabled = (remaining) => {
 }
 
 
-const DonateDetailCard = ({item,currentLevelID, chooseLevel}) => {
+const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
    
 return (
     
             <IncentiveCard id={'card_'+ item.id} currentDonationLevel={currentLevelID} className="canDonate" >
-            <DisabledOverlay disabled={isDisabled(item.remaining)} />
+            <DisabledOverlay disabled={isDisabled(remaining)} />
             <GlobalCardStyle currentLevelID={currentLevelID} />
                <HeaderWrapper>
-                    <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(item.remaining)}></CustomRadioButton>
+                    <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
                     <IncentiveHeading donateHeading={true} item={item}/>
-                    {item.remaining !== -1 && <HeadingRemainingWrapper>
-                                                    <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={false} />
+                    {remaining !== -1 && <HeadingRemainingWrapper>
+                                                    <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
                                                 </HeadingRemainingWrapper>
                     }
                 </HeaderWrapper>
@@ -103,9 +103,9 @@ return (
                 </IncentiveDescription>
                
                    <BodyRemainingWrapper>
-                        {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={true} isMobileSpecific={true} /> }
+                        {remaining !== -1 && <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={true} /> }
                    </BodyRemainingWrapper> 
-                    {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(item.remaining)} />}
+                    {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(remaining)} />}
                  
                 
             </IncentiveCard>    

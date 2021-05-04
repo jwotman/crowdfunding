@@ -83,19 +83,19 @@ const isDisabled = (remaining) => {
 }
 
 
-const IncentiveDetailCard = ({item,currentLevelID,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
+const IncentiveDetailCard = ({item,remaining,toggleDonateOverlayHidden,chooseLevel,toggleBodyScroll}) => {
     
 return (
     
             <IncentiveCard  >
-            <DisabledOverlay disabled={isDisabled(item.remaining)} />
+            <DisabledOverlay disabled={isDisabled(remaining)} />
             
                <IncentiveHeading item={item}/>
                 <IncentiveDescription>
                     {item.description}
                 </IncentiveDescription>
                 <ActionLine>
-                    {item.remaining !== -1 && <Remaining remainingAmount={item.remaining} isSelectable={false} isMobileSpecific={true} /> }
+                    {item.remaining !== -1 && <Remaining remainingAmount={remaining} isSelectable={false} isMobileSpecific={true} /> }
                     
                     <RewardButton disabled={isDisabled(item.remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(item.id);toggleBodyScroll()}}>Select Reward</RewardButton>
                 </ActionLine>  
