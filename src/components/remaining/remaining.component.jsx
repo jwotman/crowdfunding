@@ -53,7 +53,7 @@ const getRemainingClassName = (isSelectable, isMobileSpecific, currentLevelID) =
     return className;
 }
 
-const Remaining = ({remainingAmount,isSelectable, isMobileSpecific, currentLevelID}) => (
+const Remaining = ({remainingAmount,isSelectable, isMobileSpecific, incentiveID}) => (
 
     <RemainingWrapper className={getRemainingClassName(isSelectable,isMobileSpecific)} >
         <RemainingAmount>{remainingAmount}</RemainingAmount>
