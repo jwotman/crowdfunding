@@ -5,6 +5,7 @@ import {StyledButton} from '../custom-button/custom-button.component';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 
 import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import { chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
 import { connect } from 'react-redux';
 
 
@@ -58,14 +59,14 @@ const ButtonContainer = styled.div`
 
 `;
 
-const ProductPromoCard=({toggleDonateOverlayHidden,toggleBodyScroll})=> (
+const ProductPromoCard=({toggleDonateOverlayHidden,toggleBodyScroll,chooseLevel})=> (
 
     <ProductCard>
         <ProductLogo/>
         <ProductTitle>Mastercraft Bamboo <br/>Monitor Riser</ProductTitle>
         <ProductDescription>A beautifully handcrafted monitor stand to reduce neck and eye strain.</ProductDescription>
         <ButtonContainer>
-            <ProductCardDonateButton onClick={() => { toggleDonateOverlayHidden();toggleBodyScroll()}}>
+            <ProductCardDonateButton onClick={() => { toggleDonateOverlayHidden();toggleBodyScroll();chooseLevel(0)}}>
                 Back this project
             </ProductCardDonateButton>
             <BookmarkButton/>
@@ -78,7 +79,8 @@ const ProductPromoCard=({toggleDonateOverlayHidden,toggleBodyScroll})=> (
 
 const mapDispatchToProps = dispatch => ({
     toggleDonateOverlayHidden: () => dispatch(toggleDonateOverlayHidden()),
-    toggleBodyScroll: () => dispatch(toggleBodyScroll())
+    toggleBodyScroll: () => dispatch(toggleBodyScroll()),
+    chooseLevel: (id) => dispatch(chooseDonationLevel(id)),
  });
 
 

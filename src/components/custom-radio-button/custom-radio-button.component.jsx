@@ -34,10 +34,7 @@ const HiddenRadioButton = styled.input.attrs({
         width: 0;
         height: 0;
         margin: 0 0 0 0;
-        &:checked + span {
-            background-color: var(--color-primary-dark-cyan);
-            box-shadow: inset 0 0 0 4px #FFFFFF; 
-        } 
+        
         
 `;
 
