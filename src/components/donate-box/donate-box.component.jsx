@@ -49,7 +49,7 @@ const DonateWrapper = styled.div`
 const CurrencyInputWrapper = styled.div`
     height: 4.8rem;
     border-radius: 3.3rem;
-    border: .1rem solid  lightgray ;
+    border: .1rem solid ${props=> props.inputIsValid  ? 'lightgrey': 'red'};
     
     color: lightgray;
     display: flex;
@@ -77,6 +77,7 @@ const DonateInput = styled.input.attrs({
     :focus{
         outline: none;
     }
+    
 `;
 
 const DonateButton = styled.div`
@@ -106,14 +107,50 @@ const DonateButton = styled.div`
 
 
 
-const DonateBox = ({donationLevel, addCurrentDonation,toggleDonateHidden,toggleAcknowledgementHidden}) =>  {
-       let donationAmount = donationLevel; 
-       return (
+class DonateBox extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputIsValid: true,
+            donationAmount: 0
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-            <DonateDiv><DonateHeading>Enter your pledge</DonateHeading><DonateWrapper><CurrencyInputWrapper><CurrencySpan>$</CurrencySpan><DonateInput placeholder={donationLevel} onChange={(event)=>{donationAmount = event.target.value}}/></CurrencyInputWrapper><DonateButton  onClick={() => { addCurrentDonation(donationAmount);toggleDonateHidden();toggleAcknowledgementHidden()}}>Continue</DonateButton></DonateWrapper></DonateDiv>
+    handleClick = () => {
+    
+        if(this.state.donationAmount < this.props.donationLevel){
+            //event.preventDefault();
+            this.setState({
+                inputIsValid: false
+          });
+            return;
+        }
+    
+        this.setState({
+            inputIsValid: true
+        });
+        this.props.addCurrentDonation(this.state.donationAmount);
+        this.props.toggleDonateHidden();
+        this.props.toggleAcknowledgementHidden();
+    }
+    
+       
+       render(){
+        return <DonateDiv>
+                <DonateHeading>Enter your pledge</DonateHeading>
+                <DonateWrapper>
+                    <CurrencyInputWrapper inputIsValid={this.state.inputIsValid}>
+                        <CurrencySpan>$</CurrencySpan>
+                        <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
+                    </CurrencyInputWrapper>
+                    <DonateButton  onClick={this.handleClick}>Continue</DonateButton>
+                </DonateWrapper>
+            </DonateDiv>
 
 
-        )
+       }
 }
 
 const mapDispatchToProps = dispatch => ({
