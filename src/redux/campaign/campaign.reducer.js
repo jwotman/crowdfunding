@@ -25,7 +25,7 @@ const campaignReducer = (state = INITIAL_STATE,action) => {
         case CampaignActionTypes.ADD_DONATION:
             return {
                 ...state,
-                totalRaised: state.totalRaised + action.payload,
+                totalRaised: parseInt(state.totalRaised) + parseInt(action.payload),
                 totalBackers: state.totalBackers + 1,
                 remaining: updateRemaining(state.currentDonationLevel,state.remaining),
                 currentDonationLevel: 0

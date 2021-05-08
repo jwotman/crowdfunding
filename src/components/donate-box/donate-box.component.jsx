@@ -131,7 +131,7 @@ class DonateBox extends React.Component {
         this.setState({
             inputIsValid: true
         });
-        this.props.addCurrentDonation(this.state.donationAmount);
+        this.props.addCurrentDonation((this.state.donationAmount).toLocaleString('en-us'));
         this.props.toggleDonateHidden();
         this.props.toggleAcknowledgementHidden();
     }
