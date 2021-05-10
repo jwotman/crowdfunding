@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { selectCampaignGoal, selectTotalRaised } from '../../redux/campaign/campaign.selectors';
+
 
 const ProgressBarTrack = styled.div`
   background-color: hsl(0,0%,95.75%);
@@ -11,30 +15,35 @@ const ProgressBarTrack = styled.div`
   border-radius: 3.35rem;
   
 `;
-const percent = 75;
+
 const ProgressBarFill = styled.div`
     background-color: hsl(176, 50%, 47%);
-    width: ${percent}%;
+    width: ${props => props.percentage}%;
     height: 100%;
     border-radius: 3.35rem;
-    
 `;
 
 
 //TODO add redux and a selector to get the percentage.  Change const percent to let and assign the percent in curlies before rendering the components
+const getPercentage = (campaignGoal, totalRaised) => {
+    let percentage = totalRaised/campaignGoal * 100;
+    percentage = (percentage > 100) ? 100 : percentage;
+    return Math.round(percentage);
+}
 
-
-const ProgressBar = ({
-  progress
-  
-}) => (
+const ProgressBar = ({campaignGoal, totalRaised}) => (
   
   <ProgressBarTrack>
-    <ProgressBarFill/>
+    <ProgressBarFill percentage={getPercentage(campaignGoal, totalRaised)} />
   </ProgressBarTrack>
     
   
   
 );
 
-export default ProgressBar;
+const mapStateToProps = createStructuredSelector ({
+  campaignGoal: selectCampaignGoal,
+  totalRaised: selectTotalRaised
+});
+
+export default connect(mapStateToProps)(ProgressBar);

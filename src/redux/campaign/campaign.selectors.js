@@ -12,6 +12,20 @@ export const selectCampaignSummaryData = createSelector(
     (campaign) => campaign
 )
 
+export const selectTotalRaised = createSelector(
+
+    [selectCampaign],
+    (campaign) => campaign.totalRaised
+
+)
+
+export const selectCampaignGoal = createSelector(
+
+    [selectCampaign],
+    (campaign) => campaign.campaignGoal
+
+)
+
 export const selectRemainingArray = createSelector(
     [selectCampaign],
     (campaign) => campaign.remaining
