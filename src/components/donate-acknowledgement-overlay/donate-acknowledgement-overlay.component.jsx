@@ -74,6 +74,7 @@ const AcknowledgmentButton = styled(StyledButton)`
     justify-content: center;
     align-items: center;
     align-self: center;
+    
 
 `;
 

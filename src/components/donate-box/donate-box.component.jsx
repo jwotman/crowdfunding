@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledButton from '../custom-button/custom-button.component';
+//import StyledButton from '../custom-button/custom-button.component';
 import { connect } from 'react-redux';
 import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions'; 
 import { addDonation } from '../../redux/campaign/campaign.actions';
@@ -80,7 +80,9 @@ const DonateInput = styled.input.attrs({
     
 `;
 
-const DonateButton = styled.div`
+const DonateButton = styled.div.attrs({
+    role: "button"
+  })`
     align-items: center;
     background-color: #3CB3AB;
     border-radius: 3.3rem;
