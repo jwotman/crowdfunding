@@ -29,9 +29,13 @@ const OverlayContainer = styled.div`
 
 const AcknowledgementCard = styled(StyledCard)`
 
+    position: relative;
+    top: 40%;
+    justify-content: flex-start;
     display: flex;
-    justify-content: center;
-    margin: 14.3rem 2.4rem 14.2rem 2.4rem;
+    flex: 1 0 content;
+    max-height: 38rem;
+    margin: 0 0;
     max-width: 54rem;
     padding: 0;
 
