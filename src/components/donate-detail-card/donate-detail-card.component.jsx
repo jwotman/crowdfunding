@@ -19,7 +19,7 @@ const GlobalCardStyle = createGlobalStyle`
     } 
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.section`
     display: flex;
     flex-basis: 100%;
     flex-direction: row;

@@ -56,7 +56,7 @@ const Description = styled.span`
 
 `;
 
-const ContentGroup = styled.div.attrs(props => ({
+const ContentGroup = styled.li.attrs(props => ({
     className: "content-group"
 }))`
     
@@ -117,7 +117,7 @@ const ContentGroup = styled.div.attrs(props => ({
 
 `;
 
-const Content = styled.div`
+const Content = styled.ul`
     display: flex;
     flex-flow: column nowrap;
     @media screen and (min-width: 700px) {

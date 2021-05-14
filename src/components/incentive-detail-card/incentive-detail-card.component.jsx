@@ -97,7 +97,10 @@ return (
                 <ActionLine>
                     {item.remaining !== -1 && <Remaining remainingAmount={remaining} isSelectable={false} isMobileSpecific={true} /> }
                     
-                    <RewardButton disabled={isDisabled(item.remaining)} onClick={() => { toggleDonateOverlayHidden();chooseLevel(item.id);toggleBodyScroll()}}>Select Reward</RewardButton>
+                    <RewardButton disabled={isDisabled(item.remaining)} onClick={() => { toggleDonateOverlayHidden();
+                                                                                         chooseLevel(item.id);
+                                                                                         toggleBodyScroll();}
+                                                                                }>Select Reward</RewardButton>
                 </ActionLine>  
                 
             </IncentiveCard>    
