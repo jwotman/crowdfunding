@@ -127,12 +127,7 @@ const Content = styled.div`
     }
 `;
 
-const ProgressWrapper = styled.div`
-    width: clamp(300px, 80%, 517px);
-    margin: 2rem 0 4rem 0;
-    align-self: center;
-    
-`;
+
 
 const formatNumber = (number) => {
     let formattedNumber = 'unable to display';
@@ -161,7 +156,7 @@ const CampaignSummary = ({campaignSummaryData}) => (
                 <Description>days left</Description>
             </ContentGroup>
         </Content>
-        <ProgressWrapper><ProgressBar /></ProgressWrapper>
+       <ProgressBar />
     </SummaryCard>
 
 );

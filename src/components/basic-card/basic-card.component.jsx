@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.article`
   
   background-color: white; 
   display:flex;

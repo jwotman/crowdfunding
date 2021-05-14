@@ -6,12 +6,18 @@ import { connect } from 'react-redux';
 import { selectCampaignGoal, selectTotalRaised } from '../../redux/campaign/campaign.selectors';
 
 
-const ProgressBarTrack = styled.div`
+const ProgressBarTrack = styled.figure.attrs(props => ({
+  "aria-label": props.percentage + " percent of campaign goal raised"
+}))`
+  width: clamp(300px, 80%, 517px);
+    margin: 2rem 0 4rem 0;
+    align-self: center;
+  
   background-color: hsl(0,0%,95.75%);
   border: none;
   height: 1.2rem;
   //width: 100%;
-  margin: 0;
+  
   border-radius: 3.35rem;
   
 `;
@@ -33,7 +39,7 @@ const getPercentage = (campaignGoal, totalRaised) => {
 
 const ProgressBar = ({campaignGoal, totalRaised}) => (
   
-  <ProgressBarTrack>
+  <ProgressBarTrack percentage={getPercentage(campaignGoal, totalRaised)}>
     <ProgressBarFill percentage={getPercentage(campaignGoal, totalRaised)} />
   </ProgressBarTrack>
     

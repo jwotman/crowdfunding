@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 
-const IncentiveHeadingDiv = styled.div`
+const IncentiveHeader = styled.header`
    display: flex;
    flex: 1 1 100%;
    justify-content: space-between;
@@ -52,10 +52,10 @@ const getClassName = (donateHeading) => {
 
 const IncentiveHeading = ({item,donateHeading}) => (
 
-    <IncentiveHeadingDiv className={getClassName(donateHeading)}>
+    <IncentiveHeader className={getClassName(donateHeading)}>
         <IncentiveTitle >{item.name}</IncentiveTitle>
         {item.donationLevel !== 0 && <IncentiveRange>${item.donationLevel} or more</IncentiveRange> }
-    </IncentiveHeadingDiv>
+    </IncentiveHeader>
 
 )
 

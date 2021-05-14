@@ -34,7 +34,7 @@ const PartialOverlay = styled.div`
   flex-direction: column;  
 `;
 
-const TopHeaderElementContainer = styled.div`
+const TopHeaderElementContainer = styled.section`
     display: flex;
     flex-direction: row;
     justify-content: space-between;

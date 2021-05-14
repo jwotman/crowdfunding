@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const NavWrapper = styled.nav`
 
-const NavListDiv = styled.ul`
+    background-color: rgba(255,255,255,0.0);
+
+`;
+
+const StyledList = styled.ul`
     position: relative;
     background-color: white;
     display: ${props => props.menuOpen && props.isMobile ? 'flex' : 'none'};
@@ -47,11 +52,13 @@ const NavItem = styled.li`
 
 const NavList = ({isMobile, menuOpen}) => (
 
-    <NavListDiv menuOpen={menuOpen} isMobile={isMobile}>
-        <NavItem>About</NavItem>
-        <NavItem>Discover</NavItem>
-        <NavItem>Get Started</NavItem>
-    </NavListDiv>
+    <NavWrapper>
+        <StyledList menuOpen={menuOpen} isMobile={isMobile}>
+            <NavItem>About</NavItem>
+            <NavItem>Discover</NavItem>
+            <NavItem>Get Started</NavItem>
+        </StyledList>
+    </NavWrapper>
 
 );
 
