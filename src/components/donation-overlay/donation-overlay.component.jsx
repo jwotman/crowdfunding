@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import closeIconPath from '../../images/icon-close-modal.svg';
 
 
 const OverlayContainer = styled.div`
@@ -70,9 +71,10 @@ const Content = styled.span`
 
 `;
 
-const CloseIcon = styled.div`
+const CloseIcon = styled.img.attrs(props => ({
+    src: closeIconPath, role: "button", alt: "Close"
+}))`
 
-    background-image: url('/icon-close-modal.svg');
     width: 1.4rem;
     height: 1.4rem;
 

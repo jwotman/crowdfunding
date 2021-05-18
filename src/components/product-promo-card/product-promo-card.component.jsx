@@ -7,7 +7,7 @@ import BookmarkButton from '../bookmark-button/bookmark-button';
 import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
 import { connect } from 'react-redux';
-
+import logoLocation from '../../images/logo-mastercraft.svg';
 
 
 const ProductCard = styled(StyledCard)`
@@ -17,8 +17,8 @@ const ProductCard = styled(StyledCard)`
 `;
 
 
-const ProductLogo = styled.div.attrs(props => ({
-    className: "logo",
+const ProductLogo = styled.img.attrs(props => ({
+    alt: 'mastercraft logo', src: logoLocation 
   }))`
     width: 5.6rem;
     height: 5.6rem;

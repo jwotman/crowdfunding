@@ -31,7 +31,7 @@ const RemainingWrapper = styled.div`
 
 const RemainingAmount = styled.span`
     font-size: 3.2rem;
-    font-weight: bold;
+    font-weight: 700;
     color: black;
 
 

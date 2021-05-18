@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import NavIcon from './nav-icon';
 import {ReactComponent as Logo} from '../../images/logo.svg';
+import background from '../../images/image-hero-mobile.jpg';
+import desktopBackground from '../../images/image-hero-desktop.jpg';
 import NavList from './nav-list.component';
 
 
@@ -9,12 +11,16 @@ import NavList from './nav-list.component';
 const StyledHeader = styled.header`
     height: 30rem;
     width: 100%;
-    background-image: url('/image-hero-mobile.jpg');
+    background-image: url('${background}');
     background-repeat:no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @media screen and (min-width: 700px) {
+        background-image: url('${desktopBackground}');
+    }
 
 `;
 

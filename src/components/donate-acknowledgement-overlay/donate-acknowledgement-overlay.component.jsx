@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
+import checkIconPath from '../../images/icon-check.svg';
 
 
 
@@ -42,10 +43,9 @@ const AcknowledgementCard = styled(StyledCard)`
 
 `;
 
-const CheckIcon = styled.div`
-    background-image: url('/icon-check.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+const CheckIcon = styled.img.attrs(props => ({
+    src: checkIconPath, alt: "Donation Complete"
+}))`
     width: clamp(6.4rem, 17vw, 9rem);
     height: clamp(6.4rem, 17vw, 9rem);
     align-self: center;

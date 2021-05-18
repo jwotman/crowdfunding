@@ -26,7 +26,7 @@ const IncentiveTitle = styled.span`
   //   font-size: 1.4rem;
     flex: 0 0 200px;
      color: black;
-     font-weight: bold;
+     font-weight: 700;
      margin: .4rem 0rem .4rem 0;
      align-self: center;
      .donate-heading > &{

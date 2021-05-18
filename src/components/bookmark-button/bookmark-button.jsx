@@ -7,10 +7,14 @@ import { connect } from 'react-redux';
 
 import { bookmarkURL } from '../../redux/ui_control/ui_control.actions';
 import { selectProjectBookmarked } from '../../redux/ui_control/ui_control.selectors';
+import bookmarkImage from '../../images/icon-bookmark.svg';
+import bookmarkActiveImage from '../../images/icon-bookmark-active.svg'
 
-const BookmarkIcon = styled.div`
+const BookmarkIcon = styled.div.attrs(props => ({
+    role: "image", "aria-label": "Bookmark"
+}))`
 
-background-image: ${props => props.projectBookmarked ?  'url("/icon-bookmark-active.svg")' : 'url("/icon-bookmark.svg")'};
+background-image: ${props => props.projectBookmarked ?  'url("' + bookmarkActiveImage + '")' : 'url("' + bookmarkImage + '")'};
     background-repeat:no-repeat;
     background-size: cover;
     border: none;
