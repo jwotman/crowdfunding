@@ -16,7 +16,7 @@ const StyledHeader = styled.header`
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    //justify-content: flex-start;
 
     @media screen and (min-width: 700px) {
         background-image: url('${desktopBackground}');
@@ -43,7 +43,7 @@ const PartialOverlay = styled.div`
 const TopHeaderElementContainer = styled.section`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: s;
     margin-top: 3.2rem;
     margin-left: clamp(3.2rem, 8.5vw, 16.5rem);
     margin-right: clamp(3.2rem, 8.5vw, 16.5rem);

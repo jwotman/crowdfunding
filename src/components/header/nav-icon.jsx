@@ -12,18 +12,20 @@ const Icon = styled.div`
     @media screen and (min-width: 700px) {
         display: none;
     }
+    align-self: flex-end;
+    margin-left: auto;
 
 
 `;
 
 const IconHamburgerWrapper = styled.div`
 
-display: ${props => props.menuOpen ? 'none' : 'block'};
+display: ${props => props.menuOpen ? 'none' : 'initial'};
 background-color: rgba(255,255,255,0.0);
 `;
 
 const IconCloseModalWrapper = styled.div`
-display: ${props => props.menuOpen ? 'block' : 'none'};
+display: ${props => props.menuOpen ? 'initial' : 'none'};
 background-color: rgba(255,255,255,0.0);
 `;
 
