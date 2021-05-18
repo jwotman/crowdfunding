@@ -7,32 +7,16 @@ import {createStructuredSelector} from 'reselect';
 import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import closeIconPath from '../../images/icon-close-modal.svg';
+import BasicOverlay from '../basic-overlay/basic-overlay.component';
 
 
-const OverlayContainer = styled.div`
-
-position: fixed; /* Sit on top of the page content */
-  display: ${props => props.donateOverlayHidden ? 'none' : 'flex'}; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  overflow-y: scroll;
-  flex-direction: column;
-  align-items: center;
-
-`;
 
 
 const OverlayCard = styled(StyledCard)`
 
-  position: static;
-  margin-top: 12.1rem;
+  position: relative;
+  top: 60%;
+  align-self: center;
   
 `
 
@@ -75,6 +59,7 @@ const CloseIcon = styled.img.attrs(props => ({
     src: closeIconPath, role: "button", alt: "Close"
 }))`
 
+
     width: 1.4rem;
     height: 1.4rem;
 
@@ -87,7 +72,7 @@ const CloseIcon = styled.img.attrs(props => ({
 
 const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
 
-    <OverlayContainer donateOverlayHidden={donateOverlayHidden}>
+    <BasicOverlay isHidden={donateOverlayHidden}>
         <OverlayCard>
             <HeadingDiv>
                 <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
@@ -95,7 +80,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
             </HeadingDiv>
             <IncentiveList canDonate={true} includeCustom={true}/>
         </OverlayCard>
-    </OverlayContainer>
+    </BasicOverlay>
 
 );
 

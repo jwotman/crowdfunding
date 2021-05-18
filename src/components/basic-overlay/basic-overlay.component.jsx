@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const OverlayDiv = styled.div`
 
   position: fixed; /* Sit on top of the page content */
-  display: ${props => props.donateOverlayHidden ? 'none' : 'flex'}; /* Hidden by default */
+  display: ${props => props.isHidden ? 'none' : 'flex'}; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
   top: 0;
@@ -25,10 +25,12 @@ const OverlayDiv = styled.div`
 
 
 
-const BasicOverlay = ({isVisible,isPartial}) => (
+const BasicOverlay = ({isHidden,children}) => (
 
 
-    <OverlayDiv isVisible={isVisible} />
+    <OverlayDiv isHidden={isHidden}>
+        {children}
+    </OverlayDiv>
 
 
 

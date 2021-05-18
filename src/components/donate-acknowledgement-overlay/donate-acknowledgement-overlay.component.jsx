@@ -7,26 +7,9 @@ import {createStructuredSelector} from 'reselect';
 import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import checkIconPath from '../../images/icon-check.svg';
+import BasicOverlay from '../basic-overlay/basic-overlay.component';
 
 
-
-
-const OverlayContainer = styled.div`
-
-  position: fixed; /* Sit on top of the page content */
-  display: ${props => props.acknowledgementOverlayHidden ? 'none' : 'flex'}; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  justify-content: center;
-
-`;
 
 const AcknowledgementCard = styled(StyledCard)`
 
@@ -39,6 +22,7 @@ const AcknowledgementCard = styled(StyledCard)`
     margin: 0 0;
     max-width: 54rem;
     padding: 0;
+    align-self: center;
 
 
 `;
@@ -89,14 +73,14 @@ const AcknowledgmentButton = styled(StyledButton)`
 
 
 const DonationAcknowledgementOverlay = ({acknowledgementOverlayHidden,toggleOverlayHidden,toggleBodyScroll}) => (
-    <OverlayContainer acknowledgementOverlayHidden={acknowledgementOverlayHidden}>
+    <BasicOverlay isHidden={acknowledgementOverlayHidden}>
         <AcknowledgementCard>
             <CheckIcon />
             <AcknowledgementHeading>Thanks for your support!</AcknowledgementHeading>
             <AcknowledgementContent>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</AcknowledgementContent>
             <AcknowledgmentButton onClick={ (event) => {toggleOverlayHidden(); toggleBodyScroll();}}>Got it!</AcknowledgmentButton>
         </AcknowledgementCard>
-    </OverlayContainer>
+    </BasicOverlay>
 );
 
 const mapStateToProps = createStructuredSelector ({
