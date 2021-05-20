@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import WebFont from 'webfontloader';
 
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -36,8 +37,19 @@ const resetPage = (bodyScroll) => {
   }
 }
 
+const loadFonts = () => {
+
+  WebFont.load({
+    google: {
+      families: ['Comissioner:400,500,700']
+    }
+  });
+
+}
+
 function App({bodyScroll}) {
     resetPage(bodyScroll);
+    loadFonts();
     return (
     <React.Fragment>
     <BodyScroll bodyScroll={bodyScroll} />
