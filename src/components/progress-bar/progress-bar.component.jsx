@@ -9,14 +9,16 @@ import { selectCampaignGoal, selectTotalRaised } from '../../redux/campaign/camp
 const ProgressBarTrack = styled.figure.attrs(props => ({
   "aria-label": props.percentage + " percent of campaign goal raised"
 }))`
-  width: clamp(300px, 80%, 517px);
-    margin: 2rem 0 4rem 0;
-    align-self: center;
+  //width: clamp(300px, 80%, 517px);
+  display: flex;
+  flex: 1 0 30rem;
+  max-width: 517px;
+  margin: 2rem 0 4rem 0;
+  align-self: center;
   
   background-color: hsl(0,0%,95.75%);
   border: none;
   height: 1.2rem;
-  //width: 100%;
   
   border-radius: 3.35rem;
   
@@ -30,7 +32,7 @@ const ProgressBarFill = styled.div`
 `;
 
 
-//TODO add redux and a selector to get the percentage.  Change const percent to let and assign the percent in curlies before rendering the components
+
 const getPercentage = (campaignGoal, totalRaised) => {
     let percentage = totalRaised/campaignGoal * 100;
     percentage = (percentage > 100) ? 100 : percentage;
