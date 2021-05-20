@@ -32,7 +32,7 @@ const ButtonContainer = styled.div`
 const DesktopButton = styled(StyledButton)`
     display: none;
     width: 17.4rem;
-    background-color: #B1B1;
+    background-color: #f2f2f2;
     color: ${props => props.projectBookmarked ? '#147A73' : '#7A7A7A'};
     padding-left: 5rem;
     @media (min-width: 525px) {
@@ -47,7 +47,7 @@ const DesktopButton = styled(StyledButton)`
 const BookmarkButton=({children, projectBookmarked,bookmarkProject})=> (
     <ButtonContainer onClick={bookmarkProject}>
         <BookmarkIcon projectBookmarked={projectBookmarked} />
-        <DesktopButton projectBookmarked={projectBookmarked} >{projectBookmarked ? 'Bookmarked' : 'Bookmark'}</DesktopButton>
+        <DesktopButton onClick={bookmarkProject} projectBookmarked={projectBookmarked} >{projectBookmarked ? 'Bookmarked' : 'Bookmark'}</DesktopButton>
     </ButtonContainer>
 );
 
