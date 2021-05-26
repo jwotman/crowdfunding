@@ -43,10 +43,15 @@ const PartialOverlay = styled.div`
 const TopHeaderElementContainer = styled.section`
     display: flex;
     flex-direction: row;
-    justify-content: s;
+    justify-content: space-between;
     margin-top: 3.2rem;
     margin-left: clamp(3.2rem, 8.5vw, 16.5rem);
     margin-right: clamp(3.2rem, 8.5vw, 16.5rem);
+    @supports not (margin-left: clamp(3.2rem, 8.5vw, 16.5rem)) {
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+
     height: 2rem;
     background-color: rgba(255,255,255,0.0);
 `;

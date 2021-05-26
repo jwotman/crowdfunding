@@ -19,6 +19,7 @@ const StyledList = styled.ul`
         flex-direction: row;
         justify-content: flex-start;
         gap: 3.2rem;
+        
         margin: 0  0 0 0;
         
         
@@ -46,6 +47,9 @@ const NavItem = styled.li`
    border: .1rem solid  lightgray ;
    color: black;
    font-size: 1.8rem;
+   @supports not (gap: 3.2rem){
+       margin-right: 3.2rem;//need to exclude margin right on last one
+   }
    padding: 1.2rem 0 1.2rem 2.4rem ;
 
 `;

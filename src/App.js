@@ -41,7 +41,7 @@ const loadFonts = () => {
 
   WebFont.load({
     google: {
-      families: ['Comissioner:400,500,700']
+      families: ['Roboto:400,500,700']
     }
   });
 
