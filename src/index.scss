@@ -22,9 +22,18 @@ html {
 }
 
 body{
-  font-size: clamp(1.4rem, .037vw, 1.6rem);
+  font-size: clamp(1.4rem, 3.7vw, 1.6rem);
+  @supports not (font-size: clamp(1.4rem, 3.7vw, 1.6rem)) {
+    font-size: 1.4rem;
+    @media screen and (min-width: 500px) {
+      font-size: 1.5rem;
+    }
+    @media screen and (min-width: 700px) {
+      font-size: 1.6rem;
+    }
+  }
   font-family: 'Commissioner', sans-serif;
- color: #7A7A7A;
+ color: darkgrey;
 }
 
 .container{

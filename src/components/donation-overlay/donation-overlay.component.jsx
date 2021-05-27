@@ -15,7 +15,7 @@ import BasicOverlay from '../basic-overlay/basic-overlay.component';
 const OverlayCard = styled(StyledCard)`
 
   position: relative;
-  top: 60%;
+  top: 45%;
   align-self: center;
   
 `
@@ -29,7 +29,7 @@ const HeadingDiv= styled.div`
 
 `;
 
-const HeadingWrapper = styled.div`
+const HeadingWrapper = styled.header`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
