@@ -80,9 +80,13 @@ const DonateInput = styled.input.attrs({
     
 `;
 
-const DonateButton = styled.div.attrs({
-    role: "button"
+const DonateLink = styled.a.attrs({
+    href: "#", "aria-label": "Click to donate"
   })`
+  
+  `
+
+const DonateButton = styled.div`
     align-items: center;
     background-color: #3CB3AB;
     border-radius: 3.3rem;
@@ -123,7 +127,7 @@ class DonateBox extends React.Component {
     handleClick = () => {
     
         if(this.state.donationAmount < this.props.donationLevel){
-            //event.preventDefault();
+            
             this.setState({
                 inputIsValid: false
           });
@@ -147,7 +151,7 @@ class DonateBox extends React.Component {
                         <CurrencyLabel>$</CurrencyLabel>
                         <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
                     </CurrencyInputWrapper>
-                    <DonateButton  onClick={this.handleClick}>Continue</DonateButton>
+                    <DonateLink onClick={this.handleClick}><DonateButton>Continue</DonateButton></DonateLink>
                 </DonateWrapper>
             </DonateDiv>
 
