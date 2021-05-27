@@ -55,8 +55,15 @@ const Content = styled.p`
 
 `;
 
+const ImageAnchor = styled.a.attrs(props => ({
+    href: "#", "aria-label": "Close Dialog"
+}))`
+
+
+`
+
 const CloseIcon = styled.img.attrs(props => ({
-    src: closeIconPath, role: "button", alt: "Close"
+    src: closeIconPath,  alt: "Close"
 }))`
 
 
@@ -75,7 +82,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
     <BasicOverlay isHidden={donateOverlayHidden}>
         <OverlayCard>
             <HeadingDiv>
-                <HeadingWrapper><Heading>Back this Project</Heading><CloseIcon onClick={() => {toggleOverlay();toggleScroll();}} /></HeadingWrapper>
+                <HeadingWrapper><Heading>Back this Project</Heading><ImageAnchor onClick={() => {toggleOverlay();toggleScroll();}}><CloseIcon  /></ImageAnchor></HeadingWrapper>
                 <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             </HeadingDiv>
             <IncentiveList canDonate={true} includeCustom={true}/>
