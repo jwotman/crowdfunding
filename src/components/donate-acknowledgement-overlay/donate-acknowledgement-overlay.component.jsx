@@ -16,7 +16,6 @@ const AcknowledgementCard = styled(StyledCard)`
     position: relative;
     top: 40%;
     justify-content: flex-start;
-    display: flex;
     flex: 1 0 content;
     max-height: 38rem;
     margin: 0 0;

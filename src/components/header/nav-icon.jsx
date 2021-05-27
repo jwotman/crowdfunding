@@ -33,7 +33,7 @@ background-color: rgba(255,255,255,0.0);
 
 
 
-const CustomNav = ({handleClick, menuOpen}) => (
+const NavIcon = ({handleClick, menuOpen}) => (
         <Icon>
             <IconHamburgerWrapper menuOpen={menuOpen} onClick={handleClick}><IconHamburger  /> </IconHamburgerWrapper>
             <IconCloseModalWrapper menuOpen={menuOpen} onClick={handleClick}><IconCloseModal  /> </IconCloseModalWrapper>
@@ -41,4 +41,4 @@ const CustomNav = ({handleClick, menuOpen}) => (
 );
 
 
-export default CustomNav;
+export default NavIcon;

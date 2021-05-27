@@ -54,13 +54,25 @@ const NavItem = styled.li`
 
 `;
 
+const NavLink = styled.a.attrs(props => ({
+    href: "#"
+}))`
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.0);
+    :hover{
+        color: var(--color-primary-dark-cyan);
+    }
+
+`;
+
 const NavList = ({isMobile, menuOpen}) => (
 
     <NavWrapper>
         <StyledList menuOpen={menuOpen} isMobile={isMobile}>
-            <NavItem>About</NavItem>
-            <NavItem>Discover</NavItem>
-            <NavItem>Get Started</NavItem>
+            <NavItem><NavLink href="#">About</NavLink></NavItem>
+            <NavItem><NavLink>Discover</NavLink></NavItem>
+            <NavItem><NavLink>Get Started</NavLink></NavItem>
         </StyledList>
     </NavWrapper>
 
