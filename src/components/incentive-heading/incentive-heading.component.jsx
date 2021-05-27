@@ -22,7 +22,7 @@ const IncentiveHeader = styled.header`
    }
 `;
 
-const IncentiveTitle = styled.span`
+const IncentiveTitle = styled.h3`
   //   font-size: 1.4rem;
     flex: 0 0 200px;
      color: black;
@@ -35,7 +35,7 @@ const IncentiveTitle = styled.span`
      }
 `;
 
-const IncentiveRange = styled.span`
+const IncentiveRange = styled.h3`
     flex-basis: content;
     color: #3CB3AB;
     font-weight: 70;

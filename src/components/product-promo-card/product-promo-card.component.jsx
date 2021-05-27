@@ -37,7 +37,7 @@ const ProductTitle = styled.h1`
         text-align: center;
 `;
 
-const ProductDescription = styled.span`
+const ProductDescription = styled.p`
     text-align: center;
     margin: .8rem 2.8rem 2.7rem 2.8rem;
     line-height: 2.5rem;

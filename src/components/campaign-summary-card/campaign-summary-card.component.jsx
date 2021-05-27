@@ -32,7 +32,7 @@ const SummaryCard = styled(StyledCard)`
 
 `;
 
-const Amount = styled.span`
+const Amount = styled.h2`
 
     font-size: 3.2rem;
     font-weight: bold;
@@ -48,7 +48,7 @@ const DollarAmount = styled(Amount)`
 
 `;
 
-const Description = styled.span`
+const Description = styled.p`
     font-size: clamp(1.4rem, 1.2500rem + 0.4167vw, 1.5rem);
     color: #7A7A7A;
     //margin: .9rem 0 1.2rem 0;

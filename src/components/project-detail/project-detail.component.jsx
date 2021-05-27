@@ -12,7 +12,7 @@ const Heading = styled.h3`
     margin: 4rem  0 1.2rem 2.4rem; 
 `;
 
-const Content = styled.span`
+const Content = styled.div`
 
     //font-size: 1.4rem;
     margin: 0 2.4rem 0 2.4rem;

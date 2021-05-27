@@ -16,7 +16,7 @@ const Radio = styled.label`
 
 `;
 
-const RadioInput = styled.span`
+const RadioInput = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +43,7 @@ const HiddenRadioButton = styled.input.attrs({
 
 
 
-const RadioControl = styled.span.attrs(props => ({
+const RadioControl = styled.div.attrs(props => ({
     className: "radio_control"
 }))`
     display: block;

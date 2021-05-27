@@ -29,7 +29,7 @@ const RemainingWrapper = styled.div`
     //if my sibling is header stuff, show at 550, if my sibling is 
 `;
 
-const RemainingAmount = styled.span`
+const RemainingAmount = styled.h2`
     font-size: 3.2rem;
     font-weight: 700;
     color: black;
@@ -37,7 +37,7 @@ const RemainingAmount = styled.span`
 
 `;
 
-const RemainingText = styled.span`
+const RemainingText = styled.p`
     font-size: 1.5rem;
     vertical-align: middle;
     padding-left: .8rem;

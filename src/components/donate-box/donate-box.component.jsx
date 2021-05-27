@@ -22,7 +22,7 @@ const DonateDiv = styled.div`
 
 `;
 
-const DonateHeading = styled.span`
+const DonateHeading = styled.h3`
     
     align-self: center;
     margin-top: 2.4rem;
@@ -59,7 +59,7 @@ const CurrencyInputWrapper = styled.div`
     flex: 0 0 10rem;
 `
 
-const CurrencySpan = styled.span`
+const CurrencyLabel = styled.label`
     flex-basis: content;
     margin-right: .3rem;
     opacity: .25;
@@ -144,7 +144,7 @@ class DonateBox extends React.Component {
                 <DonateHeading>Enter your pledge</DonateHeading>
                 <DonateWrapper>
                     <CurrencyInputWrapper inputIsValid={this.state.inputIsValid}>
-                        <CurrencySpan>$</CurrencySpan>
+                        <CurrencyLabel>$</CurrencyLabel>
                         <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
                     </CurrencyInputWrapper>
                     <DonateButton  onClick={this.handleClick}>Continue</DonateButton>
