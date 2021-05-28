@@ -73,6 +73,11 @@ const CloseIcon = styled.img.attrs(props => ({
 
 `;
 
+const DonateForm = styled.form`
+
+
+`;
+
 
 
 
@@ -85,7 +90,9 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
                 <HeadingWrapper><Heading>Back this Project</Heading><ImageAnchor onClick={() => {toggleOverlay();toggleScroll();}}><CloseIcon  /></ImageAnchor></HeadingWrapper>
                 <Content>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</Content>
             </HeadingDiv>
-            <IncentiveList canDonate={true} includeCustom={true}/>
+            <DonateForm>
+                <IncentiveList canDonate={true} includeCustom={true}/>
+            </DonateForm>
         </OverlayCard>
     </BasicOverlay>
 
