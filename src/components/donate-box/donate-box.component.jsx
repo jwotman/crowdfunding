@@ -67,9 +67,9 @@ const CurrencyLabel = styled.label`
     font-weight: bold;
 
 `;
-const DonateInput = styled.input.attrs({
-    type: "text", size: "2"
-  })`    
+const DonateInput = styled.input.attrs(props => ({
+    type: "text", size: "2", value: props.startingValue
+  }))`    
     border: none;
     color: black;
     font-weight: bold;
@@ -122,7 +122,7 @@ class DonateBox extends React.Component {
                 <DonateWrapper>
                     <CurrencyInputWrapper inputIsValid={this.state.inputIsValid}>
                         <CurrencyLabel>$</CurrencyLabel>
-                        <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
+                        <DonateInput  startingValue={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
                     </CurrencyInputWrapper>
                     <DonateButton onClick={this.handleClick}>Continue</DonateButton>
                 </DonateWrapper>
