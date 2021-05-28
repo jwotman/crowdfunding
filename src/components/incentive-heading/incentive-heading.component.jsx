@@ -18,14 +18,16 @@ const IncentiveHeader = styled.header`
    &.donate-heading{
        justify-content: flex-start;
        gap: 1.2rem;
-       //flex-wrap: nowrap;
    }
 `;
 
-const IncentiveTitle = styled.h3`
+const IncentiveTitle = styled.h3.attrs(props => ({
+    className: "incentiveTitle"
+}))`
   //   font-size: 1.4rem;
     flex: 0 0 200px;
      color: black;
+     
      font-weight: 700;
      margin: .4rem 0rem .4rem 0;
      align-self: center;
