@@ -49,6 +49,9 @@ const RadioControl = styled.span.attrs(props => ({
     height: 2.4rem;
     border-radius: 50%;
     border: .08rem solid currentColor;
+    :hover{
+        border: .08rem solid #3CB3AB;
+    }
 
     ${props => props.isSelected && 'background-color: var(--color-primary-dark-cyan); box-shadow: inset 0 0 0 4px #FFFFFF;' }  
 
