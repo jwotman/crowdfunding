@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import StyledButton from '../custom-button/custom-button.component';
+import {StyledButton} from '../custom-button/custom-button.component';
 import { connect } from 'react-redux';
 import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions'; 
 import { addDonation } from '../../redux/campaign/campaign.actions';
@@ -80,37 +80,10 @@ const DonateInput = styled.input.attrs({
     
 `;
 
-const DonateLink = styled.a.attrs({
-    href: "#", "aria-label": "Click to donate"
-  })`
-  
-  `
+const DonateButton = styled(StyledButton)`
 
-const DonateButton = styled.div`
-    align-items: center;
-    background-color: #3CB3AB;
-    border-radius: 3.3rem;
-    border: none;
-    color:  white;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    font-size: 1.4rem;
-    font-weight: bold;
-    height: 4.8rem;
-    justify-content: center;
-    margin: 0px 0px;
-    overflow: hidden;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    flex: 0 0 11.7rem;
-    :hover{
-        background-color: #147A73;
-    }
-
-`;
-
+  width: 11.7rem;
+`
 
 
 class DonateBox extends React.Component {
@@ -151,7 +124,7 @@ class DonateBox extends React.Component {
                         <CurrencyLabel>$</CurrencyLabel>
                         <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
                     </CurrencyInputWrapper>
-                    <DonateLink onClick={this.handleClick}><DonateButton>Continue</DonateButton></DonateLink>
+                    <DonateButton onClick={this.handleClick}>Continue</DonateButton>
                 </DonateWrapper>
             </DonateDiv>
 
