@@ -50,7 +50,9 @@ const CurrencyInputWrapper = styled.div`
     height: 4.8rem;
     border-radius: 3.3rem;
     border: .1rem solid ${props=> props.inputIsValid  ? 'lightgrey': 'red'};
-    
+    &:hover{
+        border-color: var(--color-primary-moderate-cyan);
+    }
     color: lightgray;
     display: flex;
     flex-direction: row;
