@@ -29,8 +29,11 @@ const RemainingWrapper = styled.div`
     //if my sibling is header stuff, show at 550, if my sibling is 
 `;
 
-const RemainingAmount = styled.h2`
+const RemainingAmount = styled.p`
     font-size: 3.2rem;
+    &.remaining-desktop {
+            font-size: inherit;
+    }
     font-weight: 700;
     color: black;
 
@@ -38,7 +41,6 @@ const RemainingAmount = styled.h2`
 `;
 
 const RemainingText = styled.p`
-    font-size: 1.5rem;
     vertical-align: middle;
     padding-left: .8rem;
 
@@ -56,7 +58,7 @@ const getRemainingClassName = (isSelectable, isMobileSpecific, currentLevelID) =
 const Remaining = ({remainingAmount,isSelectable, isMobileSpecific, incentiveID}) => (
 
     <RemainingWrapper className={getRemainingClassName(isSelectable,isMobileSpecific)} >
-        <RemainingAmount>{remainingAmount}</RemainingAmount>
+        <RemainingAmount className={getRemainingClassName(isSelectable,isMobileSpecific)}>{remainingAmount}</RemainingAmount>
         <RemainingText>left</RemainingText>
     </RemainingWrapper>
 
