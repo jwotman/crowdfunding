@@ -39,7 +39,7 @@ const HeadingWrapper = styled.header`
 
 `;
 
-const Heading = styled.h3`
+const Heading = styled.h2`
 
     font-size: 1.8rem;
     font-weight: bold;
