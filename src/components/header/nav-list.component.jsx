@@ -60,9 +60,6 @@ const NavLink = styled.a.attrs(props => ({
     color: white;
     text-decoration: none;
     background-color: rgba(255,255,255,0.0);
-    :hover{
-        color: var(--color-primary-dark-cyan);
-    }
 
 `;
 
