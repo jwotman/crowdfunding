@@ -11,7 +11,7 @@ import bookmarkImage from '../../images/icon-bookmark.svg';
 import bookmarkActiveImage from '../../images/icon-bookmark-active.svg'
 import bookmarkHoverImage from '../../images/icon-bookmark-hover.svg';
 
-const BookmarkIcon = styled.div.attrs(props => ({
+const BookmarkIcon = styled.button.attrs(props => ({
     role: "image", "aria-label": "Bookmark", className: "bookmark-icon"
 }))`
 
@@ -24,9 +24,7 @@ const BookmarkIcon = styled.div.attrs(props => ({
     width: 5.6rem;
     z-index: 2;
 
-    :hover {
-        background-image: url("${bookmarkHoverImage}");
-    }
+   
     //transform: translateY(2rem);
 `;
 
