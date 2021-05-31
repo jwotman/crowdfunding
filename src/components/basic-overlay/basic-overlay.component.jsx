@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const OverlayDiv = styled.div`
 
   position: fixed; /* Sit on top of the page content */
+  padding-top: 12.5%;
   display: ${props => props.isHidden ? 'none' : 'flex'}; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */

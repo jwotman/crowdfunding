@@ -15,7 +15,6 @@ import BasicOverlay from '../basic-overlay/basic-overlay.component';
 const OverlayCard = styled(StyledCard)`
 
   position: relative;
-  top: 45%;
   align-self: center;
   
 `

@@ -14,7 +14,6 @@ import BasicOverlay from '../basic-overlay/basic-overlay.component';
 const AcknowledgementCard = styled(StyledCard)`
 
     position: relative;
-    top: 40%;
     justify-content: flex-start;
     flex: 1 0 content;
     max-height: 38rem;
@@ -36,7 +35,7 @@ const CheckIcon = styled.img.attrs(props => ({
     margin-bottom: clamp(3.2rem, 8.5vw, 4.8rem);
 `;
 
-const AcknowledgementHeading = styled.div`
+const AcknowledgementHeading = styled.h2`
 
     font-size: clamp(1.8rem, 1.3500rem + 1.2500vw, 2.4rem);
     font-weight: bold;
@@ -45,7 +44,7 @@ const AcknowledgementHeading = styled.div`
 
 `;
 
-const AcknowledgementContent = styled.span`
+const AcknowledgementContent = styled.p`
 
     margin: 1.2rem 2.4rem 1.9rem 2.4rem;
     text-align: center;
