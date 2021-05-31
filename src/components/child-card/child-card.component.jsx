@@ -4,12 +4,11 @@ import {StyledCard} from '../basic-card/basic-card.component';
 
 export const StyledChildCard = styled(StyledCard)`
   
-  
-  max-width: none;
-  min-width: 0;
-  width: 86%;
-  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 54rem;
   align-self: center;
+  overflow: visible;
 `;
 
 

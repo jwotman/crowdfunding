@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {StyledButton} from '../custom-button/custom-button.component';
-import {StyledCard} from '../basic-card/basic-card.component';
+import {StyledChildCard} from '../child-card/child-card.component';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
@@ -11,28 +11,27 @@ import BasicOverlay from '../basic-overlay/basic-overlay.component';
 
 
 
-const AcknowledgementCard = styled(StyledCard)`
+const AcknowledgementCard = styled(StyledChildCard)`
 
     position: relative;
     justify-content: flex-start;
-    flex: 1 0 content;
-    max-height: 38rem;
-    margin: 0 0;
-    max-width: 54rem;
-    padding: 0;
     align-self: center;
+    padding: var(--flow-space) 2.4rem var(--flow-space) 2.4rem;
 
+    & > * + * { margin-top: var(--flow-space);
+   
+    
 
 `;
 
 const CheckIcon = styled.img.attrs(props => ({
     src: checkIconPath, alt: "Donation Complete"
 }))`
-    width: clamp(6.4rem, 17vw, 9rem);
-    height: clamp(6.4rem, 17vw, 9rem);
+    width: 17vw;
+    height: 17vw;
+    max-width: 9rem;
+    max-height: 9rem;
     align-self: center;
-    margin-top: clamp(3.2rem, 8.5vw, 4.8rem);
-    margin-bottom: clamp(3.2rem, 8.5vw, 4.8rem);
 `;
 
 const AcknowledgementHeading = styled.h2`
@@ -46,20 +45,22 @@ const AcknowledgementHeading = styled.h2`
 
 const AcknowledgementContent = styled.p`
 
-    margin: 1.2rem 2.4rem 1.9rem 2.4rem;
     text-align: center;
     max-width: 44.4rem;
+    line-height: 150%;
 
 `;
 
 const AcknowledgmentButton = styled(StyledButton)`
 
     height: 4.8rem;
-    width: 40%;
+    width: 10.7rem;
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
     align-items: center;
     align-self: center;
+    margin-top: 3.2rem;
     
 
 `;
