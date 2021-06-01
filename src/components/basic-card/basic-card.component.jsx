@@ -8,7 +8,7 @@ export const StyledCard = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+  padding: var(--mobile-base-padding);
   border-radius:.8rem;
   max-width: 74rem;
   width: 80vw;
@@ -18,6 +18,7 @@ export const StyledCard = styled.section`
   //donation cards when closed have 36px top padding and 32px bottom padding
   //donation cards when open top and bottom margin shrink to 24px. 
   //horizontal padding on donationAcknowledgement is 24px in mobile and 48px in desktop
+  //lineheight 24px when font-size is 14px and 30px at 16px
 `;
 
 
