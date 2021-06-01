@@ -10,11 +10,14 @@ export const StyledCard = styled.section`
   flex-direction: column;
   
   border-radius:.8rem;
-  margin: 1.2rem 2.4rem 1.2rem 2.4rem;
   max-width: 74rem;
-  min-width: 35rem;
   width: 80vw;
 
+  //whenever two card classes (or two sections) are next to each other then the second one should have a 2.4rem top margin
+  //for every parent card that's not in overlay, top and bottom margin ranges from 40 to 48px
+  //donation cards when closed have 36px top padding and 32px bottom padding
+  //donation cards when open top and bottom margin shrink to 24px. 
+  //horizontal padding on donationAcknowledgement is 24px in mobile and 48px in desktop
 `;
 
 

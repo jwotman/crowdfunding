@@ -56,7 +56,10 @@ const IncentiveCard = styled(StyledChildCard)`
 const IncentiveDescription = styled.p`
     margin: 2rem 0 1.2rem 0;
     text-align: left;
-   // font-size: 1.4rem;
+    @media screen and (min-width: 550px){
+        font-size: 1.5rem;
+        line-height: 2.8rem;
+    }
 `;
 
 

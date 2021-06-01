@@ -15,7 +15,7 @@ import BasicOverlay from '../basic-overlay/basic-overlay.component';
 const OverlayCard = styled(StyledCard)`
 
   position: relative;
-  align-self: center;
+  //Question: ask re: X offset in Chrome
   
 `
 

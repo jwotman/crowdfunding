@@ -95,7 +95,7 @@ class DonateBox extends React.Component {
         super(props);
         this.state = {
             inputIsValid: true,
-            donationAmount: 0
+            donationAmount: this.props.donationLevel
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -125,7 +125,7 @@ class DonateBox extends React.Component {
                 <DonateWrapper>
                     <CurrencyInputWrapper inputIsValid={this.state.inputIsValid}>
                         <CurrencyLabel>$</CurrencyLabel>
-                        <DonateInput  placeholder={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
+                        <DonateInput  defaultValue={this.props.donationLevel} onChange={(event)=>{this.setState({donationAmount: event.target.value})}}/>
                     </CurrencyInputWrapper>
                     <DonateButton onClick={this.handleClick}>Continue</DonateButton>
                 </DonateWrapper>

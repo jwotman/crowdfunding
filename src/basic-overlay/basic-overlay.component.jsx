@@ -6,7 +6,7 @@ import styled from 'styled-components';
 export const StyledOverlay = styled.div`
 
   position: fixed; 
-  display: ${props => props.isHidden ? 'none' : 'flex'}; /* Hidden by default */
+  display: ${props => props.isHidden ? 'none' : 'block'}; /* Hidden by default */
   width: 100%; 
   height: 100%; 
   top: 0;

@@ -24,7 +24,6 @@ const IncentiveHeader = styled.header`
 const IncentiveTitle = styled.h3.attrs(props => ({
     className: "incentiveTitle"
 }))`
-  //   font-size: 1.4rem;
     flex: 0 0 200px;
      color: black;
      

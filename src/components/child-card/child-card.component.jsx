@@ -8,7 +8,6 @@ export const StyledChildCard = styled(StyledCard)`
   flex-direction: column;
   max-width: 54rem;
   align-self: center;
-  overflow: visible;
 `;
 
 
