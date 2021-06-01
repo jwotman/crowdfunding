@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { StyledChildCard } from '../child-card/child-card.component';
 
@@ -87,32 +87,38 @@ const isDisabled = (remaining) => {
 
 
 const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
-   
-return (
+    const cardElement = useRef(null);
     
-            <IncentiveCard id={'card_'+ item.id} currentDonationLevel={currentLevelID} className="canDonate" >
-            <DisabledOverlay disabled={isDisabled(remaining)} />
-            <GlobalCardStyle currentLevelID={currentLevelID} />
-               <HeaderWrapper>
-                    <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
-                    <IncentiveHeading donateHeading={true} item={item}/>
-                    {remaining !== -1 && <HeadingRemainingWrapper>
-                                                    <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
-                                                </HeadingRemainingWrapper>
-                    }
-                </HeaderWrapper>
-                <IncentiveDescription>
-                    {item.description}
-                </IncentiveDescription>
-               
-                   <BodyRemainingWrapper>
-                        {remaining !== -1 && <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={true} /> }
-                   </BodyRemainingWrapper> 
-                    {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(remaining)} />}
-                 
+    useEffect(()=>{
+        item.id === currentLevelID && cardElement.current.scrollIntoView();
+    }, [currentLevelID, item.id]);
+
+
+    return (
+        
+                <IncentiveCard id={'card_'+ item.id} ref={cardElement} currentDonationLevel={currentLevelID} className="canDonate" >
+                <DisabledOverlay disabled={isDisabled(remaining)} />
+                <GlobalCardStyle currentLevelID={currentLevelID} />
+                <HeaderWrapper>
+                        <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
+                        <IncentiveHeading donateHeading={true} item={item}/>
+                        {remaining !== -1 && <HeadingRemainingWrapper>
+                                                        <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
+                                                    </HeadingRemainingWrapper>
+                        }
+                    </HeaderWrapper>
+                    <IncentiveDescription>
+                        {item.description}
+                    </IncentiveDescription>
                 
-            </IncentiveCard>    
-    )
+                    <BodyRemainingWrapper>
+                            {remaining !== -1 && <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={true} /> }
+                    </BodyRemainingWrapper> 
+                        {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(remaining)} />}
+                    
+                    
+                </IncentiveCard>    
+        )
 };
 
 const mapStateToProps = createStructuredSelector ({
