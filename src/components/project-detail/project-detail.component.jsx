@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import BasicCard from '../basic-card/basic-card.component';
+import { StyledCard } from '../basic-card/basic-card.component';
 import IncentiveList from '../incentive-list/incentive-list.component';
 
 
+const ProjectDetailCard = styled(StyledCard)`
+
+    
+
+`;
 
 const Heading = styled.h2`
 
@@ -31,7 +36,7 @@ const Paragraph = styled.p`
 
 const ProjectDetail = () => (
 
-    <BasicCard>
+    <ProjectDetailCard>
         <Heading>About this Project</Heading>
         <Content>
             <Paragraph>The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.</Paragraph>
@@ -41,7 +46,7 @@ const ProjectDetail = () => (
         <IncentiveList/>
     
     
-    </BasicCard>
+    </ProjectDetailCard>
 
 
 
