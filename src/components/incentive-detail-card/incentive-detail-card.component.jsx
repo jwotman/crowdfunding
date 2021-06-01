@@ -9,7 +9,7 @@ import { chooseDonationLevel } from '../../redux/campaign/campaign.actions';
 import {selectCurrentDonationLevel} from '../../redux/campaign/campaign.selectors';
 import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import Remaining from '../remaining/remaining.component';
-import IncentiveHeading from '../incentive-heading/incentive-heading.component';
+import IncentiveHeading from './incentive-detail-heading.component';
 
 
 
@@ -20,6 +20,7 @@ const IncentiveCard = styled(StyledChildCard)`
     flex-wrap: wrap;
     position: relative;  
     padding: 2.4rem 2.4rem 3.2rem 2.4rem;
+    width: 100%;
 `;
 
 

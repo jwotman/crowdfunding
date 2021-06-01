@@ -9,7 +9,7 @@ import { chooseDonationLevel } from '../../redux/campaign/campaign.actions';
 import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
 import Remaining from '../remaining/remaining.component';
-import IncentiveHeading from '../incentive-heading/incentive-heading.component';
+import DonateDetailHeading from './donation-detail-header.component';
 import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
 
 
@@ -48,7 +48,8 @@ const IncentiveCard = styled(StyledChildCard)`
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;  
-    padding: 2.4rem 2.4rem 3.2rem 2.4rem;
+    padding: ${isSelected => isSelected ? '2.4rem 2.4rem;' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
+    width: 100%;
 `;
 
 
@@ -96,12 +97,12 @@ const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
 
     return (
         
-                <IncentiveCard id={'card_'+ item.id} ref={cardElement} currentDonationLevel={currentLevelID} className="canDonate" >
+                <IncentiveCard id={'card_'+ item.id} ref={cardElement} isSelected={item.id === currentLevelID} className="canDonate" >
                 <DisabledOverlay disabled={isDisabled(remaining)} />
                 <GlobalCardStyle currentLevelID={currentLevelID} />
                 <HeaderWrapper>
                         <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
-                        <IncentiveHeading donateHeading={true} item={item}/>
+                        <DonateDetailHeading donateHeading={true} item={item}/>
                         {remaining !== -1 && <HeadingRemainingWrapper>
                                                         <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
                                                     </HeadingRemainingWrapper>
