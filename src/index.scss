@@ -5,6 +5,9 @@
   --color-neutral-black:  hsl(0,0,0);
   --color-neutral-dark-grey: hsl(0,0, 48%);
 
+  --flow-space: min(4.8rem, 8.5vw);
+  --space-between-cards: 2.4rem;
+
   
 
 }
@@ -29,7 +32,8 @@ body{
   @media screen and (min-width: 700px) {
     font-size: 1.6rem;
   }
-  
+
+ 
   font-family: 'Commissioner', sans-serif;
   color: #7A7A7A;
   font-weight: 400;

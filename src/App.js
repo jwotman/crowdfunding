@@ -21,6 +21,7 @@ const StyledMain = styled.main`
     flex-direction: column;
     align-items: center;
     background-color: lightgrey;
+    & section + section { margin-top: var(--space-between-cards)};
     
 
 `;
@@ -41,7 +42,7 @@ const loadFonts = () => {
 
   WebFont.load({
     google: {
-      families: ['Commissioner:400,500,700']
+      families: ['Roboto:400,500,700']
     }
   });
 
