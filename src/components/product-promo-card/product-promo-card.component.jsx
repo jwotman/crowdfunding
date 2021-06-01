@@ -11,7 +11,16 @@ import logoLocation from '../../images/logo-mastercraft.svg';
 
 
 const ProductCard = styled(StyledCard)`
-    margin-top: -7.2rem;
+    margin-top: -5.2rem;
+    @media screen and (min-width: 500px){
+        margin-top: -7.7rem;
+    }
+
+    @media screen and (min-width: 700px){
+        margin-top: -10rem;
+    }
+
+
     
 
 `;
