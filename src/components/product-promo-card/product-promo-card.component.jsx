@@ -19,7 +19,7 @@ const ProductCard = styled(StyledCard)`
     @media screen and (min-width: 700px){
         margin-top: -10rem;
     }
-
+    & > img { margin: -5rem 0 1.2rem};
 
     
 
@@ -32,9 +32,8 @@ const ProductLogo = styled.img.attrs(props => ({
     width: 5.6rem;
     height: 5.6rem;
     border-radius: 50%;
-    background-image: url('/logo-mastercraft.svg');
+    background-image: url('${logoLocation}');
     align-self: center;
-    margin: -2.8rem 0 1.2rem 0;
 
 `;
 
@@ -63,7 +62,8 @@ const ButtonContainer = styled.div`
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    padding: 0 2.4rem 4rem 2.4rem;
+    & > * + *{margin-left: .9rem};
+    padding: 0 0 4rem 0;
     
 
 `;
