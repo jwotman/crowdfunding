@@ -10,8 +10,12 @@ export const StyledCard = styled.section`
   flex-direction: column;
   padding: var(--mobile-base-padding);
   border-radius:.8rem;
-  max-width: 74rem;
+  max-width: 73rem;
   width: 80vw;
+  //flex-basis: 100%;
+  @media screen and (min-width: 700px) {
+    padding: var(--desktop-base-padding);
+  }
 
   //whenever two card classes (or two sections) are next to each other then the second one should have a 2.4rem top margin
   //for every parent card that's not in overlay, top and bottom margin ranges from 40 to 48px

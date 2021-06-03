@@ -10,11 +10,9 @@ const ProgressBarTrack = styled.figure.attrs(props => ({
   "aria-label": props.percentage + " percent of campaign goal raised"
 }))`
   
-  margin: 2rem 0 4rem -2rem;
+  //margin: 2rem 0 4rem -2rem;
   align-self: center;
-  display: flex;
-  flex: 1 0 30rem;
-  max-width: 48rem;
+  flex-basis: 100%;
   background-color: hsl(0,0%,95.75%);
   border: none;
   height: 1.2rem;

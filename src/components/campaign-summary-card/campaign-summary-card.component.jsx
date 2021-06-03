@@ -6,22 +6,11 @@ import {selectCampaignSummaryData} from '../../redux/campaign/campaign.selectors
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
 
-import { createGlobalStyle } from 'styled-components';
 
 
-
-const GlobalCardStyle = createGlobalStyle`
-    .content-group:last-of-type{
-        border: none;
-    }
-    
-    .content-group:first-of-type{
-        padding-left: 2.4rem;
-    }
-`;
 
 const SummaryCard = styled(StyledCard)`
-
+     flex-flow: row wrap;
     @media screen and (min-width: 700px) {
         flex-flow: row wrap;
         //justify-content: flex-start;
@@ -36,8 +25,8 @@ const Amount = styled.p`
 
     font-size: 3.2rem;
     font-weight: bold;
-    margin: 1.2rem 0 0 0;
     text-align: center;
+    
 
 
 
@@ -45,7 +34,7 @@ const Amount = styled.p`
 
 const DollarAmount = styled(Amount)`
     //margin-top: 3.3rem;
-
+    
 `;
 
 const Description = styled.p`
@@ -57,61 +46,51 @@ const Description = styled.p`
 
 `;
 
+const Separator = styled.div`
+
+    background-color: lightgray;
+    width: 8rem;
+    height: .2rem;
+`;
+
 const ContentGroup = styled.li.attrs(props => ({
     className: "content-group"
 }))`
-    
-    display: flex;
-    flex-basis: 100%;
-    flex-direction: column;
-    border-bottom: solid 2px lightgrey;
     padding-bottom: 2rem;
     padding-top: 2rem;
-   
-    gap: 1rem;
-    position: relative;
-    
+    & > * {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-    &:before {
-        content: '';
-        width: 40px;
-        height: 4px;
-        background: white;
-        position: absolute;
-        right: 0;
-        bottom: -4px;
-    }
-   
-    &:after {
-        content: '';
-        width: 50px;
-        height: 4px;
-        background: white;
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-    }
     
 
     @media screen and (min-width: 700px) {
-        flex-direction: column;
+        //flex-direction: column;
         border-bottom: none;
         border-right: solid 2px lightgrey;
-        flex: 0 0 180px;
+        //flex: 1 0 30%;
         margin: 2rem 0 2rem 0;
-        padding: 0;
-        padding-left: 4.7rem;
-        padding-right: 1.8rem;
-        justify-content: center;
-        align-items: flex-start;
-        &:after {
-            content: none;
+        padding-bottom: 0;
+        padding-top: 0;
+        display:inline-block;
+       
+        
+        //justify-content: center;
+        //align-items: flex-start;
+        
+        & > ${Separator} {
+            display: none;
+        }
+        & > p {
+            text-align: left;
+            line-height: 100%;
+            
         }
 
-        &:before {
-            content: none;
-        }
-       
+        p:last-of-type {
+        margin-bottom: 0;
+    }
         
     }
 
@@ -121,10 +100,25 @@ const ContentGroup = styled.li.attrs(props => ({
 const Content = styled.ul`
     display: flex;
     flex-flow: column nowrap;
+    margin-bottom: 2rem;
     @media screen and (min-width: 700px) {
         flex-flow: row nowrap;
         justify-content: center;
+        align-content: center;
         flex: 0 0 100%;
+        
+        li{
+            padding-left: 7.2%;
+            padding-right: 14%;
+        }
+        li:first-of-type {
+            padding-left: 0;
+            padding-right: 6.5%;
+        }
+        
+        li:last-of-type {
+            border-right: none;
+        }
     }
 `;
 
@@ -142,15 +136,17 @@ const formatNumber = (number) => {
 const CampaignSummary = ({campaignSummaryData}) => (
 
     <SummaryCard>
-        <GlobalCardStyle/>
+        
         <Content>
             <ContentGroup>
                 <DollarAmount>${formatNumber(campaignSummaryData.totalRaised)}</DollarAmount>
                 <Description>of ${formatNumber(campaignSummaryData.campaignGoal)} backed</Description>
+                <Separator />
             </ContentGroup>
             <ContentGroup>
                 <Amount>{formatNumber(campaignSummaryData.totalBackers)}</Amount>
                 <Description>total backers</Description>
+                <Separator/>
             </ContentGroup>
             <ContentGroup>
                 <Amount>{campaignSummaryData.daysLeft}</Amount>
