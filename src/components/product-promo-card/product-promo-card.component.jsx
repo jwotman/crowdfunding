@@ -12,17 +12,13 @@ import logoLocation from '../../images/logo-mastercraft.svg';
 
 const ProductCard = styled(StyledCard)`
     margin-top: -5.2rem;
-    @media screen and (min-width: 500px){
-        margin-top: -7.7rem;
-    }
-
-    @media screen and (min-width: 700px){
-        margin-top: -10rem;
-    }
-    & > img { margin: -5rem 0 1.2rem};
-
-    
-
+    & > img { 
+              margin: -5rem 0 1.2rem;
+              align-self: center;
+              @media screen and (min-width: 700px){
+                margin-top: -7.4rem;
+              }
+            };  
 `;
 
 
@@ -33,7 +29,6 @@ const ProductLogo = styled.img.attrs(props => ({
     height: 5.6rem;
     border-radius: 50%;
     background-image: url('${logoLocation}');
-    align-self: center;
 
 `;
 
@@ -63,7 +58,7 @@ const ButtonContainer = styled.div`
     width: 100%;
     justify-content: space-between;
     & > * + *{margin-left: .9rem};
-    padding: 0 0 4rem 0;
+    
     
 
 `;
