@@ -49,7 +49,12 @@ const IncentiveCard = styled(StyledChildCard)`
     flex-wrap: wrap;
     position: relative;  
     padding: ${isSelected => isSelected ? '2.4rem 2.4rem;' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
-    width: 100%;
+    flex-basis: 100%;
+    & > p{
+        margin-left: 6rem;
+    }
+
+
 `;
 
 
@@ -60,7 +65,9 @@ const IncentiveDescription = styled.p`
     @media screen and (min-width: 550px){
         font-size: 1.5rem;
         line-height: 2.8rem;
+        
     }
+
 `;
 
 

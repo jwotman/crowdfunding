@@ -6,26 +6,7 @@ import CustomRadioButton from '../custom-radio-button/custom-radio-button.compon
 
 
 
-const IncentiveHeader = styled.header`
-   display: flex;
-   flex: 1 1 100%;
-   justify-content: flex-start;
-   flex-direction: row;
-   align-items: center;
-   flex-wrap: wrap;
-   gap: 1.2rem;
-   margin: 0 0 1.2rem 0;
-   
-   :hover{
-       &  .radio_control{
-            color: var(--color-primary-moderate-cyan);
-       }
-       &  h3{      
-            color: var(--color-primary-moderate-cyan);
-            font-weight: 500;
-       }
-   }
-`;
+
 
 const IncentiveTitle = styled.h3.attrs(props => ({
     className: "incentiveTitle"
@@ -57,6 +38,30 @@ const isDisabled = (remaining) => {
     return disabled;
 
 }
+
+const IncentiveHeader = styled.header`
+   display: flex;
+   flex: 1 1 100%;
+   justify-content: flex-start;
+   flex-direction: row;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 1.7rem;
+   margin: 0 0 1.2rem 0;
+   & > ${IncentiveTitle}{
+       margin-left: .7rem;
+   }
+   
+   :hover{
+       &  .radio_control{
+            color: var(--color-primary-moderate-cyan);
+       }
+       &  h3{      
+            color: var(--color-primary-moderate-cyan);
+            font-weight: 500;
+       }
+   }
+`;
 
 
 const DonationDetailHeading = ({item,currentLevelID,chooseLevel,remaining}) => (
