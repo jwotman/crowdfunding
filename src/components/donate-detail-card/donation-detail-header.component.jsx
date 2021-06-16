@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
 
 
 
@@ -14,6 +15,16 @@ const IncentiveHeader = styled.header`
    flex-wrap: wrap;
    gap: 1.2rem;
    margin: 0 0 1.2rem 0;
+   
+   :hover{
+       &  .radio_control{
+            color: var(--color-primary-moderate-cyan);
+       }
+       &  h3{      
+            color: var(--color-primary-moderate-cyan);
+            font-weight: 500;
+       }
+   }
 `;
 
 const IncentiveTitle = styled.h3.attrs(props => ({
@@ -37,10 +48,21 @@ const IncentiveRange = styled.h3`
     
 `;
 
+const isDisabled = (remaining) => {
 
-const DonationDetailHeading = ({item}) => (
+    let disabled = false;
+    if(remaining === 0){
+        disabled = true;
+    }
+    return disabled;
+
+}
+
+
+const DonationDetailHeading = ({item,currentLevelID,chooseLevel,remaining}) => (
 
     <IncentiveHeader className='donate-heading'>
+        <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
         <IncentiveTitle >{item.name}</IncentiveTitle>
         {item.donationLevel !== 0 && <IncentiveRange>${item.donationLevel} or more</IncentiveRange> }
     </IncentiveHeader>

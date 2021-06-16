@@ -101,8 +101,8 @@ const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
                 <DisabledOverlay disabled={isDisabled(remaining)} />
                 <GlobalCardStyle currentLevelID={currentLevelID} />
                 <HeaderWrapper>
-                        <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
-                        <DonateDetailHeading donateHeading={true} item={item}/>
+                        
+                        <DonateDetailHeading currentLevelID={currentLevelID} chooseLevel={chooseLevel} remaining={remaining} item={item}/>
                         {remaining !== -1 && <HeadingRemainingWrapper>
                                                         <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
                                                     </HeadingRemainingWrapper>

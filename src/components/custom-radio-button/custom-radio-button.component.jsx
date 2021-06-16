@@ -44,7 +44,7 @@ const HiddenRadioButton = styled.input.attrs({
 const RadioControl = styled.span.attrs(props => ({
     className: "radio_control"
 }))`
-    display: block;
+    display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 50%;
@@ -55,7 +55,7 @@ const RadioControl = styled.span.attrs(props => ({
 
     ${props => props.isSelected && 'background-color: var(--color-primary-dark-cyan); box-shadow: inset 0 0 0 4px #FFFFFF;' }  
 
-    transform: translateY(-.7rem);
+    transform: translateY(.5rem);
 
 `;
 
