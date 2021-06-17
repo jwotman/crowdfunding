@@ -50,10 +50,11 @@ const IncentiveCard = styled(StyledChildCard)`
     position: relative;  
     padding: ${isSelected => isSelected ? '2.4rem 2.4rem;' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
     flex-basis: 100%;
-    & > p{
-        margin-left: 6rem;
+    @media screen and (min-width: 700px){
+        & > p{
+            margin-left: 6rem;
+        }
     }
-
 
 `;
 
