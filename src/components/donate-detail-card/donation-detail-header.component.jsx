@@ -39,17 +39,33 @@ const isDisabled = (remaining) => {
 
 }
 
+const HeadingTextWrapper = styled.div`
+    flex-basis: 70%;
+    
+    @media screen and (min-width: 550px){
+        display: flex;
+        flex-flow: row nowrap;
+        
+    }
+
+`
+
 const IncentiveHeader = styled.header`
    display: flex;
-   flex: 1 1 100%;
+   flex-basis: 100%;
    justify-content: flex-start;
    flex-direction: row;
    align-items: center;
    flex-wrap: wrap;
-   gap: 1.7rem;
+   
    margin: 0 0 1.2rem 0;
-   & > ${IncentiveTitle}{
-       margin-left: .7rem;
+   gap: 1.7rem;
+
+   @media screen and (min-width: 550px){
+    &  ${IncentiveTitle}{
+        margin-right: .7rem;
+        margin-left: 0rem;
+    } 
    }
    
    :hover{
@@ -68,8 +84,10 @@ const DonationDetailHeading = ({item,currentLevelID,chooseLevel,remaining}) => (
 
     <IncentiveHeader className='donate-heading'>
         <CustomRadioButton id={item.id} isSelected={item.id===currentLevelID} chooseLevel={chooseLevel} disabled={isDisabled(remaining)}></CustomRadioButton>
-        <IncentiveTitle >{item.name}</IncentiveTitle>
-        {item.donationLevel !== 0 && <IncentiveRange>${item.donationLevel} or more</IncentiveRange> }
+        <HeadingTextWrapper>
+                <IncentiveTitle >{item.name}</IncentiveTitle>
+                {item.donationLevel !== 0 && <IncentiveRange>${item.donationLevel} or more</IncentiveRange> }
+        </HeadingTextWrapper>
     </IncentiveHeader>
 
 )

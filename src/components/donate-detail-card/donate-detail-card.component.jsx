@@ -10,8 +10,6 @@ import { createGlobalStyle } from 'styled-components';
 import DonateBox from '../donate-box/donate-box.component';
 import Remaining from '../remaining/remaining.component';
 import DonateDetailHeading from './donation-detail-header.component';
-import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
-
 
 const GlobalCardStyle = createGlobalStyle`
     .canDonate:nth-of-type(${props => props.currentLevelID}){
@@ -41,27 +39,8 @@ const BodyRemainingWrapper = styled.div`
 
 `;
 
-
-const IncentiveCard = styled(StyledChildCard)`
-    border: .1rem solid  lightgray ;
-    justify-content: flex-start;  
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;  
-    padding: ${isSelected => isSelected ? '2.4rem 2.4rem;' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
-    flex-basis: 100%;
-    @media screen and (min-width: 700px){
-        & > p{
-            margin-left: 6rem;
-        }
-    }
-
-`;
-
-
-
 const IncentiveDescription = styled.p`
-    margin: 2rem 0 1.2rem 0;
+    
     text-align: left;
     @media screen and (min-width: 550px){
         font-size: 1.5rem;
@@ -93,6 +72,28 @@ const isDisabled = (remaining) => {
     return disabled;
 
 }
+
+const IncentiveCard = styled(StyledChildCard)`
+    border: .1rem solid  lightgray ;
+    justify-content: flex-start;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;  
+    padding: ${isSelected => isSelected ? '2.4rem 2.4rem;' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
+    flex-basis: 100%;
+    & ${IncentiveDescription}{
+        margin: 2rem 0 2.4rem 0;
+    }
+    
+    @media screen and (min-width: 700px){
+        & > p{
+            margin-left: 6rem;
+        }
+
+        
+    }
+
+`;
 
 
 const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
