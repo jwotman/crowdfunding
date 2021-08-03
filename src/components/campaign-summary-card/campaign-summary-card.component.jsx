@@ -13,11 +13,7 @@ const SummaryCard = styled(StyledCard)`
      flex-flow: row wrap;
     @media screen and (min-width: 700px) {
         flex-flow: row wrap;
-        //justify-content: flex-start;
     }
-    
-
-
 
 `;
 
@@ -26,15 +22,10 @@ const Amount = styled.p`
     font-size: 3.2rem;
     font-weight: bold;
     text-align: center;
-    
-
-
 
 `;
 
 const DollarAmount = styled(Amount)`
-    //margin-top: 3.3rem;
-    
 `;
 
 const Description = styled.p`
@@ -56,11 +47,23 @@ const Separator = styled.div`
 const ContentGroup = styled.li.attrs(props => ({
     className: "content-group"
 }))`
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    //padding-bottom: 2rem;
+   // padding-top: 2rem;
     & > * {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    & > div {
+        margin-top: 2.4rem;
+        margin-bottom: 2.4rem;
+    }
+
+    & > p + p{
+        margin-top: .9rem;
+        @media screen and (min-width: 700px){
+            margin-top: .8rem;
+        }
     }
 
     
