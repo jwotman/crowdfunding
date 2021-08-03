@@ -21,7 +21,7 @@ const StyledMain = styled.main`
     flex-direction: column;
     align-items: center;
     background-color: lightgrey;
-    & section + section { margin-top: var(--space-between-cards)};
+    & section + section { margin-top: var(--spacing-card-flow)};
     
 
 `;

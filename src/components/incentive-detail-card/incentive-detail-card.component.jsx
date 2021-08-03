@@ -18,8 +18,9 @@ const IncentiveCard = styled(StyledChildCard)`
     justify-content: flex-start;  
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;  
-    padding: 2.4rem 2.4rem 3.2rem 2.4rem;
+    position: relative;
+    padding: var(--spacing-card-padding);  
+    padding-bottom: var(--spacing-xlarge);
     width: 100%;
 `;
 

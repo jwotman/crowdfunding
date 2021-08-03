@@ -8,7 +8,7 @@ export const StyledCard = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: var(--mobile-base-padding);
+  padding: var(--spacing-card-padding);
   border-radius:.8rem;
   max-width: 73rem;
   width: 80vw;
