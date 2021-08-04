@@ -79,10 +79,10 @@ const IncentiveCard = styled(StyledChildCard)`
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;  
-    padding: ${isSelected => isSelected ? 'var(--spacing-card-padding)' : '3.6rem 2.4rem 3.2rem 2.4rem'}; 
+    padding-top: ${isSelected => isSelected ? 'var(--spacing-xlarge)' : 'var(--spacing-xxlarge)'}; 
     flex-basis: 100%;
     & ${IncentiveDescription}{
-        margin: 2rem 0 2.4rem 0;
+        margin-top: 2rem 0 2.4rem 0;
     }
     
     @media screen and (min-width: 700px){

@@ -37,7 +37,7 @@ const ActionLine = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 0 0 0; 
+    margin: 0; 
     flex-basis: 100%;
     justify-content: space-between;
     align-items: center;
