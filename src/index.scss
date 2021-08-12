@@ -23,13 +23,12 @@
   --spacing-4xlarge: calc(var(--spacing-unit) * 6);
 
   --spacing-card-padding: var(--spacing-large);
-  --flow-space: min(4.8rem, 8.5vw);
+  @media screen and (min-width: 700px) {
+    --spacing-card-padding: var(--spacing-xlarge);
+  }
+  --spacing-modal-flow: min(4.8rem, 8.5vw);
   --spacing-card-flow: var(--spacing-large);
-  --mobile-base-padding: 2.4rem 2.4rem;
-  --desktop-base-padding: 4.8rem 4.8rem;
-
   
-
 }
 
 html {

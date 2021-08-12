@@ -6,7 +6,6 @@ const RemainingWrapper = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 0 1.2rem 0; 
     flex: 0 0 200px;
     
     &.hidden {

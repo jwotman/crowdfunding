@@ -10,16 +10,16 @@ import checkIconPath from '../../images/icon-check.svg';
 import BasicOverlay from '../basic-overlay/basic-overlay.component';
 
 
-//https://www.youtube.com/watch?v=BoAsayPVogE
+// Trap https://www.youtube.com/watch?v=BoAsayPVogE
 
 const AcknowledgementCard = styled(StyledChildCard)`
 
     position: relative;
     justify-content: flex-start;
     align-self: center;
-    padding: var(--flow-space) 2.4rem var(--flow-space) 2.4rem;
+    padding: var(--spacing-modal-flow) 2.4rem;
 
-    & > * + * { margin-top: var(--flow-space);
+    & > * + * { margin-top: var(--spacing-modal-flow);
    
     
 

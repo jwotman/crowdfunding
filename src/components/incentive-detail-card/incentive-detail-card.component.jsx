@@ -19,9 +19,10 @@ const IncentiveCard = styled(StyledChildCard)`
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    padding: var(--spacing-card-padding);  
-    padding-bottom: var(--spacing-xlarge);
     width: 100%;
+    @media screen and (min-width: 700px){
+        padding-top: 3.8rem;
+    }
 `;
 
 
@@ -37,10 +38,10 @@ const ActionLine = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0; 
     flex-basis: 100%;
     justify-content: space-between;
     align-items: center;
+
 
 `;
 
@@ -54,7 +55,6 @@ const RewardButton = styled(StyledButton)`
    // font-size: 1.4rem;
     width: 15.7rem;
     height: 4.8rem;
-    margin: 1.2rem 0 1.2rem 0;
     ${props => props.disabled && 'background-color:black;'}
     
 

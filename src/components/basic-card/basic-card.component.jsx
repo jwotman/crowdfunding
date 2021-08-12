@@ -8,13 +8,14 @@ export const StyledCard = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: var(--spacing-card-padding);
+  padding: var(--spacing-card-padding);  
+  padding-bottom: var(--spacing-xlarge);
   border-radius:.8rem;
   max-width: 73rem;
   width: 80vw;
   //flex-basis: 100%;
   @media screen and (min-width: 700px) {
-    padding: var(--desktop-base-padding);
+    padding: var(--spacing-4xlarge);
   }
 
   //whenever two card classes (or two sections) are next to each other then the second one should have a 2.4rem top margin
