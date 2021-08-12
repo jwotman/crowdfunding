@@ -73,19 +73,22 @@ const isDisabled = (remaining) => {
 
 }
 
-const IncentiveCard = styled(StyledChildCard)`
+const Card = styled(StyledChildCard)`
     border: .1rem solid  lightgray ;
     justify-content: flex-start;  
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;  
-    padding-top: ${isSelected => isSelected ? 'var(--spacing-xlarge)' : 'var(--spacing-xxlarge)'}; 
+    ${isSelected => isSelected && 'padding-top: var(--spacing-xlarge)'}; 
     flex-basis: 100%;
     & ${IncentiveDescription}{
         margin-top: 2rem;
     }
     
     @media screen and (min-width: 700px){
+        
+        padding: var(--spacing-xlarge);
+        padding-right: var(2.8rem);
         & > p{
             margin-left: 6rem;
         }
@@ -106,7 +109,7 @@ const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
 
     return (
         
-                <IncentiveCard id={'card_'+ item.id} ref={cardElement} isSelected={item.id === currentLevelID} className="canDonate" >
+                <Card id={'card_'+ item.id} ref={cardElement} isSelected={item.id === currentLevelID} className="canDonate" >
                 <DisabledOverlay disabled={isDisabled(remaining)} />
                 <GlobalCardStyle currentLevelID={currentLevelID} />
                 <HeaderWrapper>
@@ -127,7 +130,7 @@ const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
                         {item.id === currentLevelID && <DonateBox donationLevel={item.donationLevel} disabled={isDisabled(remaining)} />}
                     
                     
-                </IncentiveCard>    
+                </Card>    
         )
 };
 

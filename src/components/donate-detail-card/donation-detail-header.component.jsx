@@ -57,8 +57,6 @@ const IncentiveHeader = styled.header`
    flex-direction: row;
    align-items: center;
    flex-wrap: wrap;
-   
-   margin: 0 0 1.2rem 0;
    gap: 1.7rem;
 
    @media screen and (min-width: 550px){
