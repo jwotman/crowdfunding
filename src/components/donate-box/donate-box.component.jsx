@@ -14,6 +14,7 @@ const DonateDiv = styled.div`
     justify-content: center;
     border-top: .1rem solid  lightgray ;
     margin-top: 2.4rem;
+    padding-top: 2.4rem;
 
     @media screen and (min-width: 700px) {
         flex-flow: row nowrap;
@@ -25,7 +26,7 @@ const DonateDiv = styled.div`
 const DonateHeading = styled.h3`
     
     align-self: center;
-    margin-top: 2.4rem;
+    //margin-top: 2.4rem;
     //margin: 2.4rem 0 .8rem .8rem;
 `;
 const DonateWrapper = styled.div`
@@ -35,7 +36,7 @@ const DonateWrapper = styled.div`
     justify-content: center;
     gap: 1.6rem;
     
-    margin-top: 2.4rem;
+    //margin-top: 2.4rem;
     @media screen and (min-width: 700px) {
         flex-flow: row nowrap;
         justify-content: space-between;
@@ -59,6 +60,7 @@ const CurrencyInputWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    align-self: center;
     flex: 0 0 10rem;
 `
 
