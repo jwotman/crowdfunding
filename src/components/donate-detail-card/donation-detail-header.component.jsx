@@ -12,7 +12,7 @@ const IncentiveTitle = styled.h3.attrs(props => ({
     className: "incentiveTitle"
 }))`
      color: black;
-     
+     font-size: 1.4rem;
      font-weight: 700;
      //margin: .4rem 0rem .4rem 0;
      align-self: center;
@@ -23,6 +23,7 @@ const IncentiveTitle = styled.h3.attrs(props => ({
 
 const IncentiveRange = styled.h3`
     flex-basis: content;
+    font-size: 1.4rem;
     color: #3CB3AB;
     font-weight: 70;
     margin: 0 0rem 0 0rem;
