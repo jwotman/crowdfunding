@@ -22,9 +22,10 @@ const BookmarkIcon = styled.button.attrs(props => ({
     border-radius: 50%;
     height: 5.6rem;
     width: 5.6rem;
-    z-index: 2;
+    z-index: 1;
+    //right: -3rem;
+    
 
-   
     //transform: translateY(2rem);
 `;
 
@@ -47,6 +48,7 @@ const DesktopButton = styled(StyledButton)`
     @media (min-width: 525px) {
         display: block;
         margin-left: -5rem;
+        overflow: hidden;
         margin-right: 1rem;
         :hover {
             background-color: #f2f2f2;

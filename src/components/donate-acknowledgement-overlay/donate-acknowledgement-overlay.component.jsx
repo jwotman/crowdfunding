@@ -8,11 +8,14 @@ import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redu
 import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import checkIconPath from '../../images/icon-check.svg';
 import BasicOverlay from '../basic-overlay/basic-overlay.component';
+import ReactModal from 'react-modal';
 
 
 // Trap https://www.youtube.com/watch?v=BoAsayPVogE
 
-const AcknowledgementCard = styled(StyledChildCard)`
+const AcknowledgementCard = styled(StyledChildCard).attrs(props => ({
+    className: "acknowledgementCard"
+}))`
 
     position: relative;
     justify-content: flex-start;
@@ -73,14 +76,37 @@ const AcknowledgmentButton = styled(StyledButton)`
 
 
 const DonationAcknowledgementOverlay = ({acknowledgementOverlayHidden,toggleOverlayHidden,toggleBodyScroll}) => (
-    <BasicOverlay isHidden={acknowledgementOverlayHidden}>
+   <ReactModal 
+            isOpen={!acknowledgementOverlayHidden}
+            style={{
+                    overlay: {
+                    position: 'fixed',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0,0,0, 0.5)',
+                    zIndex: 3,
+                    paddingTop: '10rem'
+                    },
+                    content: {
+                    position: 'relative',
+                    //maxWidth: '73rem', 
+                    
+                    }}}
+            >
+    {/* <BasicOverlay isHidden={acknowledgementOverlayHidden}>*/}
         <AcknowledgementCard>
             <CheckIcon />
             <AcknowledgementHeading>Thanks for your support!</AcknowledgementHeading>
             <AcknowledgementContent>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</AcknowledgementContent>
             <AcknowledgmentButton onClick={ (event) => {toggleOverlayHidden(); toggleBodyScroll();}}>Got it!</AcknowledgmentButton>
         </AcknowledgementCard>
-    </BasicOverlay>
+    {/*</BasicOverlay>*/}
+    </ReactModal>
 );
 
 const mapStateToProps = createStructuredSelector ({
