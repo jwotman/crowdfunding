@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import styled from 'styled-components';
 import { StyledCard } from '../basic-card/basic-card.component';
 import IncentiveList from '../incentive-list/incentive-list.component';
@@ -82,7 +82,13 @@ const DonateForm = styled.form`
 
 
 
-const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
+const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => {
+
+    
+    useEffect(() => {    ReactModal.setAppElement('#main');  });
+    
+
+return (
 
     <ReactModal 
             isOpen={!donateOverlayHidden}
@@ -99,11 +105,12 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
                     backgroundColor: 'rgba(0,0,0, 0.5)',
                     zIndex: 3,
                     paddingTop: '10rem',
-                    overflowY: 'scroll',
+                    overflowY: '',
                     flexDirection: 'column'
                     },
                     content: {
                     position: 'relative',
+                    margin: 'auto'
                     //maxWidth: '73rem', 
                     
                     }}}
@@ -119,7 +126,10 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
         </OverlayCard>
     </ReactModal>
 
-);
+)
+
+
+                };
 
 const mapStateToProps = createStructuredSelector ({
     donateOverlayHidden: selectDonateOverlayHidden

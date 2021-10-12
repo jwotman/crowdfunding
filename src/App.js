@@ -9,7 +9,9 @@ import DonationOverlay from './components/donation-overlay/donation-overlay.comp
 import ProductPromoCard from './components/product-promo-card/product-promo-card.component';
 import ProjectDetail from './components/project-detail/project-detail.component';
 
-const StyledMain = styled.main`
+const StyledMain = styled.main.attrs(props => ({
+  id: "main"
+}))`
 
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@ const loadFonts = () => {
 
 }
 
-function App({bodyScroll}) {
+function App() {
     loadFonts();
     return (
     <React.Fragment>
