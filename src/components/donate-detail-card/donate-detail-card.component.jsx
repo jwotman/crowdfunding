@@ -119,7 +119,7 @@ const DonateDetailCard = ({item,remaining,currentLevelID, chooseLevel}) => {
                                                         <Remaining remainingAmount={remaining} isSelectable={true} isMobileSpecific={false} />
                                                     </HeadingRemainingWrapper>
                         }
-                    </HeaderWrapper>
+                </HeaderWrapper>
                     <IncentiveDescription>
                         {item.description}
                     </IncentiveDescription>

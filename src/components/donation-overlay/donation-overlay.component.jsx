@@ -7,8 +7,8 @@ import {createStructuredSelector} from 'reselect';
 import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import closeIconPath from '../../images/icon-close-modal.svg';
-import BasicOverlay from '../basic-overlay/basic-overlay.component';
-
+//import BasicOverlay from '../basic-overlay/basic-overlay.component';
+import ReactModal from 'react-modal';
 
 
 
@@ -84,7 +84,30 @@ const DonateForm = styled.form`
 
 const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
 
-    <BasicOverlay isHidden={donateOverlayHidden}>
+    <ReactModal 
+            isOpen={!donateOverlayHidden}
+            style={{
+                    overlay: {
+                    position: 'fixed',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0,0,0, 0.5)',
+                    zIndex: 3,
+                    paddingTop: '10rem',
+                    overflowY: 'scroll',
+                    flexDirection: 'column'
+                    },
+                    content: {
+                    position: 'relative',
+                    //maxWidth: '73rem', 
+                    
+                    }}}
+            >
         <OverlayCard>
             <HeadingDiv>
                 <HeadingWrapper><Heading>Back this Project</Heading><ImageAnchor onClick={() => {toggleOverlay();toggleScroll();}}><CloseIcon  /></ImageAnchor></HeadingWrapper>
@@ -94,7 +117,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => (
                 <IncentiveList canDonate={true} includeCustom={true}/>
             </DonateForm>
         </OverlayCard>
-    </BasicOverlay>
+    </ReactModal>
 
 );
 

@@ -28,6 +28,8 @@
   }
   --spacing-modal-flow: min(4.8rem, 8.5vw);
   --spacing-card-flow: var(--spacing-large);
+
+  & section + section { margin-top: var(--spacing-card-flow)};
   
 }
 

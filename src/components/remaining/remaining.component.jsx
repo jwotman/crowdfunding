@@ -7,6 +7,7 @@ const RemainingWrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex: 0 0 200px;
+    padding-top: 1.8rem;
     
     &.hidden {
         display: none;
@@ -22,6 +23,7 @@ const RemainingWrapper = styled.div`
         }
         &.remaining-desktop{
             display: flex;
+            padding-top: 0;
         }
    }
 
@@ -29,7 +31,7 @@ const RemainingWrapper = styled.div`
 `;
 
 const RemainingAmount = styled.p`
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     &.remaining-desktop {
             font-size: inherit;
     }

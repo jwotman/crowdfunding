@@ -27,6 +27,7 @@ const IncentiveRange = styled.h3`
     color: #3CB3AB;
     font-weight: 70;
     margin: 0 0rem 0 0rem;
+    align-self: center;
     
 `;
 
