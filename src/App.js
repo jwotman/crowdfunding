@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
 import WebFont from 'webfontloader';
-
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
-import { selectBodyScroll } from './redux/ui_control/ui_control.selectors';
-
 
 import CampaignSummary from './components/campaign-summary-card/campaign-summary-card.component';
 import CustomHeader from './components/header/custom-header.component';
@@ -26,17 +20,7 @@ const StyledMain = styled.main`
 
 `;
 
-const BodyScroll = createGlobalStyle`
-   
-  ${props=>props.bodyScroll ? '' : 'body{overflow:hidden}'}
-  
-`;
 
-const resetPage = (bodyScroll) => {
-  if(!bodyScroll){
-    window.window.scrollTo(0, 0);
-  }
-}
 
 const loadFonts = () => {
 
@@ -49,13 +33,10 @@ const loadFonts = () => {
 }
 
 function App({bodyScroll}) {
-    resetPage(bodyScroll);
     loadFonts();
     return (
     <React.Fragment>
-    <BodyScroll bodyScroll={bodyScroll} />
     <StyledMain >
-    
       <CustomHeader/>  
       <ProductPromoCard />
       <CampaignSummary />
@@ -67,8 +48,5 @@ function App({bodyScroll}) {
   );
 }
 
-const mapStateToProps = createStructuredSelector ({
-  bodyScroll: selectBodyScroll
-});
 
-export default connect(mapStateToProps)(App);
+export default App;
