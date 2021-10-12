@@ -60,7 +60,7 @@ const DesktopButton = styled(StyledButton)`
 const BookmarkButton=({children, projectBookmarked,bookmarkProject})=> (
     <ButtonContainer onClick={bookmarkProject}>
         <BookmarkIcon projectBookmarked={projectBookmarked} />
-        <DesktopButton onClick={bookmarkProject} projectBookmarked={projectBookmarked} >{projectBookmarked ? 'Bookmarked' : 'Bookmark'}</DesktopButton>
+        <DesktopButton  projectBookmarked={projectBookmarked} >{projectBookmarked ? 'Bookmarked' : 'Bookmark'}</DesktopButton>
     </ButtonContainer>
 );
 

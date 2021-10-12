@@ -38,7 +38,7 @@ const uiControlReducer = (state = INITIAL_STATE,action) => {
         
             return {
                 ...state,
-                projectBookmarked: true
+                projectBookmarked: !state.projectBookmarked
             }
             
         default:
