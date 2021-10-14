@@ -1,11 +1,11 @@
+import { createStructuredSelector } from 'reselect';
+import { selectIncentiveList } from '../../redux/incentive-list/incentive-list.selectors';
+import { selectRemainingArray } from '../../redux/campaign/campaign.selectors';
+import {connect} from 'react-redux';
+import DonateDetailCard from '../donate-detail-card/donate-detail-card.component';
+import IncentiveDetailCard from '../incentive-detail-card/incentive-detail-card.component';
 import React from 'react';
 import styled from 'styled-components';
-import IncentiveDetailCard from '../incentive-detail-card/incentive-detail-card.component';
-import DonateDetailCard from '../donate-detail-card/donate-detail-card.component';
-import {connect} from 'react-redux';
-import { selectIncentiveList } from '../../redux/incentive-list/incentive-list.selectors';
-import { createStructuredSelector } from 'reselect';
-import { selectRemainingArray } from '../../redux/campaign/campaign.selectors';
 
 
 const StyledIncentiveList = styled.div`

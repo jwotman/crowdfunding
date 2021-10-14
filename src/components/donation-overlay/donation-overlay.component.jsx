@@ -1,14 +1,14 @@
-import React,{ useEffect } from 'react';
-import styled from 'styled-components';
+import './donation_overlay.scss';
+import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
 import { StyledCard } from '../basic-card/basic-card.component';
-import IncentiveList from '../incentive-list/incentive-list.component';
+import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import { selectDonateOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
-import { toggleDonateOverlayHidden,toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import closeIconPath from '../../images/icon-close-modal.svg';
-//import BasicOverlay from '../basic-overlay/basic-overlay.component';
+import IncentiveList from '../incentive-list/incentive-list.component';
+import React,{ useEffect } from 'react';
 import ReactModal from 'react-modal';
+import styled from 'styled-components';
 
 
 
@@ -86,7 +86,7 @@ const DonationOverlay = ({donateOverlayHidden,toggleOverlay, toggleScroll}) => {
 
     
     useEffect(() => {    ReactModal.setAppElement('#main');  });
-    
+
 
 return (
 

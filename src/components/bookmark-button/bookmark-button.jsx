@@ -1,15 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import {StyledButton} from '../custom-button/custom-button.component';
-
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
-
 import { bookmarkURL } from '../../redux/ui_control/ui_control.actions';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { selectProjectBookmarked } from '../../redux/ui_control/ui_control.selectors';
-import bookmarkImage from '../../images/icon-bookmark.svg';
+import {StyledButton} from '../custom-button/custom-button.component';
 import bookmarkActiveImage from '../../images/icon-bookmark-active.svg'
 import bookmarkHoverImage from '../../images/icon-bookmark-hover.svg';
+import bookmarkImage from '../../images/icon-bookmark.svg';
+import React from 'react';
+import styled from 'styled-components';
 
 const BookmarkIcon = styled.button.attrs(props => ({
     role: "image", "aria-label": "Bookmark", className: "bookmark-icon"

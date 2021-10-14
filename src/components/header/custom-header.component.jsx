@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import NavIcon from './nav-icon';
-import {ReactComponent as Logo} from '../../images/logo.svg';
+import { ReactComponent as Logo } from '../../images/logo.svg';
 import background from '../../images/image-hero-mobile.jpg';
 import desktopBackground from '../../images/image-hero-desktop.jpg';
+import NavIcon from './nav-icon';
 import NavList from './nav-list.component';
+import React from 'react';
+import styled from 'styled-components';
 
 
 

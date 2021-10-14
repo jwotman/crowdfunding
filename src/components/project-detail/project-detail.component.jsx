@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
 import { StyledCard } from '../basic-card/basic-card.component';
 import IncentiveList from '../incentive-list/incentive-list.component';
+import React from 'react';
+import styled from 'styled-components';
 
 
 const ProjectDetailCard = styled(StyledCard)`

@@ -1,9 +1,9 @@
+import { addDonation } from '../../redux/campaign/campaign.actions';
+import { connect } from 'react-redux';
+import { StyledButton } from '../custom-button/custom-button.component';
+import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions'; 
 import React from 'react';
 import styled from 'styled-components';
-import {StyledButton} from '../custom-button/custom-button.component';
-import { connect } from 'react-redux';
-import { toggleDonateOverlayHidden, toggleAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.actions'; 
-import { addDonation } from '../../redux/campaign/campaign.actions';
 
 
 const DonateDiv = styled.div`

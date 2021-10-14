@@ -1,11 +1,6 @@
+import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
 import React from 'react';
 import styled from 'styled-components';
-import CustomRadioButton from '../custom-radio-button/custom-radio-button.component';
-
-
-
-
-
 
 
 const IncentiveTitle = styled.h3.attrs(props => ({

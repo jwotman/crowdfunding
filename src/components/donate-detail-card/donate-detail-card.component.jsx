@@ -1,15 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { StyledChildCard } from '../child-card/child-card.component';
-
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
-import { selectCurrentDonationLevel } from '../../redux/campaign/campaign.selectors';
 import { chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
+import { connect } from 'react-redux';
 import { createGlobalStyle } from 'styled-components';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentDonationLevel } from '../../redux/campaign/campaign.selectors';
+import { StyledChildCard } from '../child-card/child-card.component';
 import DonateBox from '../donate-box/donate-box.component';
-import Remaining from '../remaining/remaining.component';
 import DonateDetailHeading from './donation-detail-header.component';
+import React, { useEffect, useRef } from 'react';
+import Remaining from '../remaining/remaining.component';
+import styled from 'styled-components';
 
 const GlobalCardStyle = createGlobalStyle`
     .canDonate:nth-of-type(${props => props.currentLevelID}){

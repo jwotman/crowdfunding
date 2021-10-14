@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import {StyledCard} from '../basic-card/basic-card.component';
-import ProgressBar from '../progress-bar/progress-bar.component';
-import {selectCampaignSummaryData} from '../../redux/campaign/campaign.selectors';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
+import {selectCampaignSummaryData} from '../../redux/campaign/campaign.selectors';
+import {StyledCard} from '../basic-card/basic-card.component';
+import ProgressBar from '../progress-bar/progress-bar.component';
+import React from 'react';
+import styled from 'styled-components';
 
 
 

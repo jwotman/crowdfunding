@@ -1,17 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import {StyledButton} from '../custom-button/custom-button.component';
-import {StyledChildCard} from '../child-card/child-card.component';
-import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { selectAcknowledgementOverlayHidden } from '../../redux/ui_control/ui_control.selectors';
+import { StyledButton } from '../custom-button/custom-button.component';
+import { StyledChildCard } from '../child-card/child-card.component';
+import { toggleAcknowledgementOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import checkIconPath from '../../images/icon-check.svg';
-import BasicOverlay from '../basic-overlay/basic-overlay.component';
+import React from 'react';
 import ReactModal from 'react-modal';
+import styled from 'styled-components';
 
 
-// Trap https://www.youtube.com/watch?v=BoAsayPVogE
+
 
 const AcknowledgementCard = styled(StyledChildCard).attrs(props => ({
     className: "acknowledgementCard"
@@ -22,7 +21,7 @@ const AcknowledgementCard = styled(StyledChildCard).attrs(props => ({
     align-self: center;
     padding: var(--spacing-modal-flow) 2.4rem;
 
-    & > * + * { margin-top: var(--spacing-modal-flow);
+    & > * + * { margin-top: var(--spacing-modal-flow)};
    
     
 
@@ -98,14 +97,14 @@ const DonationAcknowledgementOverlay = ({acknowledgementOverlayHidden,toggleOver
                     
                     }}}
             >
-    {/* <BasicOverlay isHidden={acknowledgementOverlayHidden}>*/}
+   
         <AcknowledgementCard>
             <CheckIcon />
             <AcknowledgementHeading>Thanks for your support!</AcknowledgementHeading>
             <AcknowledgementContent>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</AcknowledgementContent>
             <AcknowledgmentButton onClick={ (event) => {toggleOverlayHidden(); toggleBodyScroll();}}>Got it!</AcknowledgmentButton>
         </AcknowledgementCard>
-    {/*</BasicOverlay>*/}
+    
     </ReactModal>
 );
 

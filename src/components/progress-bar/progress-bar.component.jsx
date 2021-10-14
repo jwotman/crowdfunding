@@ -1,9 +1,8 @@
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCampaignGoal, selectTotalRaised } from '../../redux/campaign/campaign.selectors';
 import React from 'react';
 import styled from 'styled-components';
-
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
-import { selectCampaignGoal, selectTotalRaised } from '../../redux/campaign/campaign.selectors';
 
 
 const ProgressBarTrack = styled.figure`

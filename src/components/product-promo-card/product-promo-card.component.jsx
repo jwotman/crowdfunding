@@ -1,13 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import {StyledCard} from '../basic-card/basic-card.component';
-import {StyledButton} from '../custom-button/custom-button.component';
-import BookmarkButton from '../bookmark-button/bookmark-button';
-
-import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
 import { chooseDonationLevel } from '../../redux/campaign/campaign.actions'; 
 import { connect } from 'react-redux';
+import { StyledButton } from '../custom-button/custom-button.component';
+import { StyledCard } from '../basic-card/basic-card.component';
+import { toggleDonateOverlayHidden, toggleBodyScroll } from '../../redux/ui_control/ui_control.actions';
+import BookmarkButton from '../bookmark-button/bookmark-button';
 import logoLocation from '../../images/logo-mastercraft.svg';
+import React from 'react';
+import styled from 'styled-components';
 
 
 const ProductCard = styled(StyledCard)`

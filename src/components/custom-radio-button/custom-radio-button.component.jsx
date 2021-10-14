@@ -1,7 +1,7 @@
+import {chooseDonationLevel} from '../../redux/campaign/campaign.actions';
+import {connect} from 'react-redux';
 import React from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {chooseDonationLevel} from '../../redux/campaign/campaign.actions';
 
 
 
