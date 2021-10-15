@@ -17,7 +17,7 @@ const Heading = styled.h2`
     margin: 4rem  0 1.2rem 2.4rem; 
 `;
 
-const Content = styled.div`
+const Content = styled.section`
 
     //font-size: 1.4rem;
     margin: 0 2.4rem 0 2.4rem;

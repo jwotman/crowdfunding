@@ -33,7 +33,7 @@ const IncentiveDescription = styled.p`
    // font-size: 1.4rem;
 `;
 
-const ActionLine = styled.div`
+const ActionLine = styled.section`
 
     display: flex;
     flex-direction: row;

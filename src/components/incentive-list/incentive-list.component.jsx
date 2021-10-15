@@ -8,7 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const StyledIncentiveList = styled.div`
+const StyledIncentiveList = styled.section`
     display: flex;
     justify-content: center;
     flex-direction: column;
